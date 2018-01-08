@@ -1,0 +1,88 @@
+name = Eventus
+description = "Eventus - Responsive Multi-Purpose Drupal Theme"
+core = 7.x
+base theme = drupalexp
+version = 1.1
+regions[content] = Content
+regions[top] = Top
+regions[call_us] = Call Us
+regions[socials] = Socials
+regions[socials_bottom] = Socials Bottom
+regions[logo] = Logo
+regions[banner] = Banner
+regions[tagline] = Tagline
+regions[breadcrumb] = Breadcrumb
+regions[page_title] = Page Title
+regions[navigation] = Navigation
+regions[map] = Map
+regions[feature_first] = Feature First
+regions[feature_second] = Feature Second
+regions[feature_third] = Feature Third
+regions[feature_fourth] = Feature Fourth
+regions[latestworks] = Latest Works
+regions[testimonial] = Testimonial
+regions[copyright] = Copyright
+regions[right_sidebar] = Right sidebar
+regions[left_sidebar] = Left sidebar
+
+regions[clients] = Clients
+regions[section1] = Section1
+regions[section1] = Section2
+regions[section1] = Section3
+
+regions[content_bottom_second] = Content Bottom Second
+regions[content_bottom_third] = Content Bottom Third
+regions[parallax] = Parallax
+
+regions[content_top] = Content Top
+
+regions[bottom_first] = Bottom First
+regions[bottom_second] = Bottom Second
+regions[bottom_third] = Bottom Third
+regions[bottom_fourth] = Bottom Fourth
+regions[extra_bottom] = Extra Bottom
+regions[extra_bottom2] = Extra Bottom 2
+regions[extra_bottom3] = Extra Bottom 3
+regions[extra_bottom4] = Extra Bottom 4
+regions[section_title] = Section Title
+regions[latestnews] = Latest News
+
+;Extra regions
+regions[search] = Search
+regions[user1] = User 1
+regions[user2] = User 2
+regions[user3] = User 3
+regions[user4] = User 4
+regions[user5] = User 5
+regions[user6] = User 6
+regions[user7] = User 7
+regions[user8] = User 8
+regions[user9] = User 9
+regions[user10] = User 10
+regions[user11] = User 11
+regions[user12] = User 12
+regions[user13] = User 13
+regions[user14] = User 14
+regions[user15] = User 15
+regions[user16] = User 16
+regions[user17] = User 17
+regions[user18] = User 18
+regions[user19] = User 19
+regions[user20] = User 20
+
+lessc[] = lessc/variables.less
+lessc[] = lessc/mixins.less
+lessc[] = lessc/fonts.less
+lessc[] = lessc/drupal.less
+lessc[] = lessc/style.less
+lessc[] = lessc/style-rtl.less
+lessc[] = lessc/buttons.less
+lessc[] = lessc/mainmenu.less
+lessc[] = lessc/portfolio.less
+lessc[] = lessc/module.less
+lessc[] = lessc/shortcode.less
+lessc[] = lessc/typography.less
+lessc[] = lessc/responsive.less
+lessc[] = lessc/slideshow.less
+
+;scripts[] = assets/js/custom.js

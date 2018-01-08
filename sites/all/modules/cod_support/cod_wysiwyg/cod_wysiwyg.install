@@ -1,0 +1,66 @@
+<?php
+function cod_wysiwyg_install() {
+  // Remove the default 'Advanced CKeditor setting
+  db_delete('ckeditor_settings')
+   ->condition('name', 'Advanced')
+   ->execute();
+  db_delete('ckeditor_input_format')
+   ->condition('name', 'Advanced')
+   ->execute();
+
+}
+
+/**
+ * Update CKEditor config to be more friendly on devices with smaller
+ * screen sizes per http://drupal.org/node/1948466.
+ */
+function cod_wysiwyg_update_3100() {
+  $revert = array(
+      'cod_wysiwyg' => array('ckeditor_profile'),
+  );
+  features_revert($revert);
+  return array();
+}
+
+/**
+ * Update our CKEditor profile to help resolve issues editing
+ * text areas on iPad per https://drupal.org/node/2030087.
+ */
+function cod_wysiwyg_update_3101() {
+  $revert = array(
+      'cod_wysiwyg' => array('ckeditor_profile'),
+  );
+  features_revert($revert);
+  return array();
+}
+
+/**
+ * Updates to modernize and customize CKEditor and input formats.
+ */
+function cod_wysiwyg_update_3102() {
+  // Remove the default 'Advanced CKeditor setting
+  db_delete('ckeditor_settings')
+   ->condition('name', 'Advanced')
+   ->execute();
+  db_delete('ckeditor_input_format')
+   ->condition('name', 'Advanced')
+   ->execute();
+
+  // Update input format configurations that might not exist.
+  // Useful for sites that have correct input filter names.
+  db_update('ckeditor_input_format')
+   ->fields(array('name' => 'Filtered'))
+   ->condition('format', 'filtered_html')
+   ->execute();
+  db_update('ckeditor_input_format')
+   ->fields(array('name' => 'Full'))
+   ->condition('format', 'full_html')
+   ->execute();
+
+
+  $revert = array(
+      'cod_wysiwyg' => array('ckeditor_profile', 'filter'),
+  );
+  features_revert($revert);
+  return array();
+}

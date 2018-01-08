@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Test file for the Eventbrite module.
+ */
+
+/**
+ * Absolute minimum test for eventbritefield module.
+ *
+ * We only install the module.
+ */
+class EventbriteOGBasicTest extends DrupalWebTestCase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Eventbrite OG Basic Test',
+      'description' => 'Enable eventbrite_og.module.',
+      'group' => 'Eventbrite',
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setUp() {
+    parent::setUp('eventbrite_og');
+  }
+
+  /**
+   * Test that the module was installed.
+   */
+  public function testEventbriteFieldBasic() {
+    $this->assertTrue(module_exists('eventbrite_og'), 'eventbrite_og module was installed.');
+  }
+
+}

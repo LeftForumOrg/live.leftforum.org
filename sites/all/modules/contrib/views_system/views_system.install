@@ -1,0 +1,237 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the views_system module.
+ */
+
+
+/**
+ * Implements hook_schema().
+ */
+function views_system_schema() {
+
+  $schema['views_system'] = array(
+    'description' => "Information from the module's and theme's .info file.",
+    'fields' => array(
+      'filename' => array(
+        'description' => 'The path of the primary file for this item, relative to the Drupal root; e.g. modules/node/node.module.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'admin_theme' => array(
+        'description' => 'Boolean indicating whether or not this theme is the administration theme.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'base_theme' => array(
+        'description' => 'The base theme of this theme.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'configure' => array(
+        'description' => "The path of this module's (main) configuration page.",
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'core' => array(
+        'description' => 'The version of Drupal that this item is for.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'datestamp' => array(
+        'description' => 'The release date of this item.',
+        'type' => 'int',
+        'not null' => FALSE,
+        'default' => NULL,
+      ),
+      'default_theme' => array(
+        'description' => 'Boolean indicating whether or not this theme is the default theme.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'dependencies' => array(
+        'description' => 'A list of other modules that this module requires.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'description' => array(
+        'description' => 'The brief description of this item.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'engine' => array(
+        'description' => 'The engine of this theme.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'features' => array(
+        'description' => 'A list of available features of this theme.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'files' => array(
+        'description' => 'A list of files of this item.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'label' => array(
+        'description' => 'The human readable name of this item.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'mtime' => array(
+        'description' => 'The info file modification time of this item.',
+        'type' => 'int',
+        'not null' => FALSE,
+        'default' => NULL,
+      ),
+      'origin' => array(
+        'description' => 'The origin of this item, either core or extension.',
+        'type' => 'varchar',
+        'length' => 12,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'package' => array(
+        'description' => 'The name of the package this module belongs to.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'php' => array(
+        'description' => 'The minimum PHP version that this item requires.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'project' => array(
+        'description' => 'The name of the project this item belongs to.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'project_status_url' => array(
+        'description' => 'The URL to check for updates for this custom item.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'regions' => array(
+        'description' => 'A list of regions of this theme.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'regions_hidden' => array(
+        'description' => 'A list of hidden regions of this theme.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'required' => array(
+        'description' => 'Boolean indicating whether or not this item is absolutely required.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'required_by' => array(
+        'description' => 'A full list of other items that depends on this item.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'requires' => array(
+        'description' => 'A full list of other items that this item requires.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'screenshot' => array(
+        'description' => 'The thumbnail image of this theme.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'scripts' => array(
+        'description' => 'A list of JavaScript files of this item.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'settings' => array(
+        'description' => 'A list of settings of this theme.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'stylesheets' => array(
+        'description' => 'A list of stylesheets of this item.',
+        'type' => 'blob',
+        'not null' => FALSE,
+      ),
+      'type' => array(
+        'description' => 'The type of the item, either module, theme, or theme_engine.',
+        'type' => 'varchar',
+        'length' => 12,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'version' => array(
+        'description' => 'The version of this item.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'visible' => array(
+        'description' => 'Boolean indicating whether or not this item is visible on the modules and themes page.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 1,
+      ),
+    ),
+    'primary key' => array('filename'),
+    'indexes' => array(
+      'origin_type_visible' => array('origin', 'type', 'visible'),
+    ),
+  );
+
+  return $schema;
+}
+
+
+/**
+ * Implements hook_enable().
+ */
+function views_system_enable() {
+
+  views_system_rebuild_module_data();
+  views_system_rebuild_theme_data();
+}
+
+
+/**
+ * Add field 'type' to database table 'views_system' and update data.
+ */
+function views_system_update_7400() {
+
+  $modules = array('views_system');
+
+  module_disable($modules, FALSE);
+  drupal_uninstall_modules($modules, FALSE);
+  module_enable($modules, FALSE);
+}

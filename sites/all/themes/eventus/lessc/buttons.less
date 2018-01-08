@@ -1,0 +1,324 @@
+// Core
+button, 
+input[type="submit"], 
+input[type="button"]{
+  border: 0;
+  outline: none;
+}
+.btn {
+  display: inline-block;
+  .ie7-inline-block();
+  padding: 4px 14px;
+  margin-bottom: 0; // For input.btn
+  font-size: @btnFontSize;
+  line-height: @baseLineHeight;
+  *line-height: @baseLineHeight;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: none;
+  cursor: pointer;
+  .box-shadow(0 -2px 0 0 rgba(0, 0, 0, 0.2) inset);
+  //*border: 0; // Remove the border to prevent IE7's black border on input:focus
+  text-shadow:none;
+  letter-spacing: 0;
+  outline: none;
+  outline: none;
+  border: none;
+  //border-bottom-color: darken(@btnBorder, 10%);
+  .border-radius(5px);
+  .ie7-restore-left-whitespace(); // Give IE7 some love
+  //.box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
+  .transition(all 400ms ease 0s);
+  
+  // Hover state
+  &:hover {
+    text-decoration: none;
+    // transition is only when going to hover, otherwise the background
+    // behind the gradient (there for IE<=9 fallback) gets mismatched
+    .transition(all .5s linear 0s);
+    outline: none;
+    letter-spacing: normal;
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    .tab-focus();
+    outline: none;
+  }
+
+  // Active state
+  &.active,
+  &:active {
+    outline: none;
+    letter-spacing: 0px;
+    .box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    outline: none;
+    .opacity(65);
+    .box-shadow(none);
+  }
+
+  // Button default
+  &.btn-default{
+  }
+  // Button Trans
+  &.btn-trans{
+    background: none;
+    border-width: 2px;
+    &:hover{
+
+    }
+  }
+  // Button White
+  &.btn-white{
+  }
+  // Button Readmore
+  &.btn-readmore{
+  }
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+// Large
+.btn-lg {
+  padding: 9px 14px !important;
+  font-size: @btnFontSize + 2px;
+  line-height: normal;
+  .border-radius(5px);
+  font-weight: 300;
+}
+.btn-lg {
+  [class^="icon-"],
+  [class^="fa-"]{
+   margin-top: 2px;
+  }
+}
+
+// Small
+.btn-xs {
+  padding: 5px 18px;
+  font-size: @btnFontSize - 2px;
+  line-height: @baseLineHeight - 2px;
+}
+.btn-xs  {
+  [class^="icon-"],
+  [class^="fa-"]{
+    margin-top: 0;
+  }
+}
+
+// Mini
+.btn-mini {
+  padding: 2px 6px;
+  font-size: @btnFontSize - 3px;
+  line-height: @baseLineHeight - 4px;
+}
+
+// Block button
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  .box-sizing(border-box);
+}
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+// Provide *some* extra contrast for those who can get it
+.btn-primary.active,
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active,
+.btn-inverse.active {
+  color: rgba(255,255,255,.75);
+}
+
+// Set the backgrounds
+// -------------------------
+.btn {
+  // reset here as of 2.0.3 due to Recess property order
+  //border-color: #c5c5c5;
+  //border-color: rgba(0,0,0,.15) rgba(0,0,0,.15) rgba(0,0,0,.25);
+}
+.btn-primary {
+  //.buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+  //border: 2px solid @mainColor;
+  color: @white;
+  background: @base_color;
+  .text-shadow(0 -1px 0 rgba(0, 0, 0, 0.25));
+
+  &:hover{
+    background: fade(@base_color,80%); 
+  }
+}
+
+// Warning appears are orange
+.btn-default {
+  background: #E6E6E6;
+  &:hover {
+    background: #f2f2f2;
+  }
+}
+.btn.form-submit {
+  color: @white;
+  background: @base_color;
+  .text-shadow(0 -1px 0 rgba(0, 0, 0, 0.25));
+
+  &:hover{
+    background: fade(@base_color,80%); 
+  }
+}
+.btn-warning {
+  //.buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+  //border-bottom: 3px solid @btnWarningBackground !important;
+  background: @btnWarningBackgroundHighlight  !important;
+  color: @white  !important;
+  .text-shadow(0 -1px 0 rgba(0, 0, 0, 0.25));
+
+  &:hover{
+    //background: fade(@mainColor,95%); 
+    background: @btnWarningBackground !important;
+  }
+}
+// Danger and error appear as red
+.btn-danger {
+  //.buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+  //border-bottom: 3px solid @btnDangerBackground !important;
+  background: @btnDangerBackgroundHighlight  !important;
+  color: @white  !important;
+  .text-shadow(0 -1px 0 rgba(0, 0, 0, 0.25));
+
+  &:hover{
+    //background: fade(@mainColor,95%); 
+    background: @btnDangerBackground !important;
+  }
+}
+// Success appears as green
+.btn-success {
+  //.buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+  background: @btnSuccessBackgroundHighlight  !important;
+  color: @white  !important;
+  .text-shadow(0 -1px 0 rgba(0, 0, 0, 0.25));
+
+  &:hover{
+    //background: fade(@mainColor,95%); 
+    background: @btnSuccessBackground !important;
+  }
+}
+// Info appears as a neutral blue
+.btn-info {
+  background: transparent;
+  border: 3px solid #DDDDDD;
+  color: #333 !important;
+  .text-shadow(none);
+  .box-shadow(none);
+  &:hover{
+    border: 3px solid @base_color;
+    background: none !important;
+  }
+}
+// Inverse appears as dark gray
+.btn-inverse {
+  //.buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+  //border-bottom: 3px solid @btnInverseBackground !important;
+  background: @btnInverseBackground !important;
+  color: @white  !important;
+  .text-shadow(0 -1px 0 rgba(0, 0, 0, 0.25));
+
+  &:hover{
+    //background: fade(@mainColor,95%); 
+     background: fade(@btnInverseBackground,90%) !important;
+  }
+}
+
+
+// Cross-browser Jank
+// --------------------------------------------------
+
+button.btn,
+input[type="submit"].btn {
+
+  // Firefox 3.6 only I believe
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  // IE7 has some default padding on button controls
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+
+  &.btn-large {
+    *padding-top: 7px;
+    *padding-bottom: 7px;
+  }
+  &.btn-small {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
+  &.btn-mini {
+    *padding-top: 1px;
+    *padding-bottom: 1px;
+  }
+}
+
+.tp-button {
+    border-radius: 3px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    font-family: arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    height: auto;
+    letter-spacing: -1px;
+    line-height: 45px !important;
+    padding: 6px 13px 5px;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6) !important;
+    background-color: #CB1D1D;
+    background-repeat: repeat-x;
+    background-position: center top;
+    box-shadow: 0 3px 0 0 #7C1212;
+    text-decoration: none !important;
+    outline: none !important;
+    &:hover {
+      background-image: url("../images/g30.png");
+    }
+}
+.tp-button.type2 {
+  background-color: #049CDB;
+  box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.2) inset;
+}
+.tp-button.type3 {
+    background-color: #FF7700;
+    box-shadow: 0 3px 0 0 #A34C00;
+}
+// Link buttons
+// --------------------------------------------------
+
+// Make a button look and behave like a link
+.btn-link,
+.btn-link:active {
+}
+.btn-link {
+}
+.btn-link:hover {
+}
+#edit-actions {
+  #edit-preview {
+    margin-left: 10px;
+  }
+}

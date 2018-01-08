@@ -1,0 +1,23 @@
+name = COD WYSIWYG
+description = Provides a rich text editor for content creation.
+core = 7.x
+package = COD
+project = cod_wysiwyg
+dependencies[] = ckeditor
+dependencies[] = features
+dependencies[] = filter
+dependencies[] = strongarm
+features[ckeditor_profile][] = CKEditor Global Profile
+features[ckeditor_profile][] = Filtered
+features[ckeditor_profile][] = Full
+features[features_api][] = api:2
+features[filter][] = filtered_html
+features[filter][] = full_html
+
+
+; Information added by drush on 2017-02-07
+version = "7.x-2.0-beta4+1-dev"
+core = "7.x"
+project = "cod_support"
+datestamp = "1486484924"
+

@@ -1,0 +1,58 @@
+@font-face {
+	font-family: 'ledBoard';
+	src: 
+	local('ledboard'),
+	url('/sites/all/libraries/fonts/ledboard.ttf')
+	format('truetype');
+	/*Copyright 2000 Paul Hustava - phustava@inlink.com*/
+}
+
+#block-block-7 {
+	position:relative;
+}
+
+#resisThemes {
+	position: relative;
+	padding-top: 75%;
+	//width: auto\9;
+	background: url('/sites/default/files/images/protest_capitol.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+#resis1 {
+	position: absolute;
+	top: 25vh;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	z-index:100;
+}
+
+.resisText, #resis {
+	font-family: 'ledBoard';
+	font-size: 2.35vw;
+	background: yellow;
+	color: #000;
+}
+
+@media screen and (max-width: 1030px) {
+	#resis1 {
+		top: 10vh;
+	}
+
+	.resisText, #resis {
+		font-size: 4.1vw;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	#resis1 {
+		top: 5vh;
+	}
+
+	.resisText, #resis {
+		font-size: 4.25vw;
+	}
+}

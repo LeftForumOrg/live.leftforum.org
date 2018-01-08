@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * Time zone field schema.
+ */
+
+/**
+ * Implements hook_field_schema().
+ */
+function eventbritefield_field_schema($field) {
+  return array(
+    'columns' => array(
+      'value' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+        'description' => 'Eventbrite identifier.',
+      ),
+    ),
+    'indexes' => array(
+      'value' => array('value'),
+    ),
+  );
+}
+
+/**
+ * Updates all existing eventbrite field tables to 12 digits instead of 10.
+ */
+function eventbritefield_update_7001(&$sandbox) {
+  $fields = field_info_fields();
+  $dbtable = array('field_data_', 'field_revision_');
+
+  foreach ($fields as $field_name => $field) {
+    if ($field['type'] == 'eventbritefield' && $field['storage']['type'] == 'field_sql_storage') {
+      $dbcol = $field['field_name'] . '_value';
+      foreach ($dbtable as $table) {
+        db_change_field($table . $field['field_name'], $dbcol, $dbcol, array(
+          'type' => 'varchar',
+          'length' => 32,
+          'not null' => FALSE,
+          'sortable' => TRUE,
+          'description' => 'Eventbrite identifier.',
+        ));
+      }
+    }
+  }
+}
+
+/**
+ * Update existing eventbritefield fields with new length.
+ */
+function eventbritefield_update_7002(&$sandbox) {
+  $instances = field_info_instances();
+  foreach (field_info_fields() as $field_name => $field) {
+    if ($field['type'] == 'eventbritefield' && !$field['deleted']) {
+      // Update the field settings.
+      $field['settings']['max_length'] = 12;
+      field_update_field($field);
+
+      // Update the instance settings.
+      foreach ($field['bundles'] as $entity_type => $bundles) {
+        foreach ($bundles as $bundle) {
+          if (isset($instances[$entity_type][$bundle][$field_name])) {
+            $instance = $instances[$entity_type][$bundle][$field_name];
+            $instance['widget']['settings']['size'] = 12;
+            field_update_instance($instance);
+          }
+        }
+      }
+    }
+  }
+}

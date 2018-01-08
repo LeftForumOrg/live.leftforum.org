@@ -1,0 +1,26 @@
+/**
+ * Place your custom styles here.
+ */
+
+
+
+/* Admin Backend */
+
+#admin-menu { z-index: 9999; }
+
+/* Change carousel */
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+display: block;
+height: auto;
+max-width: 100%;
+line-height: 1;
+width: 100%; // Add this
+}
+
+
+/* Footer */
+
+footer{ margin-top: 20px; paddling: 20px 0 0; background-color: #222; color: #fff; }
+footer a{ color: #fff;  }
+

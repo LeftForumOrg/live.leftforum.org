@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Test file for the Eventbrite module.
+ */
+
+/**
+ * Absolute minimum test for eventbritefield module.
+ *
+ * We only install the module.
+ */
+class EventbritefieldBasicTest extends DrupalWebTestCase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Eventbrite Field Functional Tests',
+      'description' => 'Functional tests of eventbritefield.module.',
+      'group' => 'Eventbrite',
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setUp() {
+    parent::setUp('eventbritefield');
+  }
+
+  /**
+   * Test that the module was installed.
+   */
+  public function testEventbriteField() {
+    // Test that our module was installed.
+    $this->assertTrue(module_exists('eventbritefield'), 'eventbritefield module was installed.');
+
+    // Test that our path provided by hook_menu() is available.
+    $user = $this->drupalCreateUser(array('access content'));
+    $this->drupalLogin($user);
+    $ajax = $this->drupalGetAJAX('eventbritefield/autocomplete');
+    $this->assertNotNull($ajax);
+    $this->assertResponse(200);
+  }
+
+}

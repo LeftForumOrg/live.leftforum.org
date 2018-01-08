@@ -1,0 +1,240 @@
+<?php
+
+/**
+ * @file
+ * Extends the Views module and provides fields, filter criteria, and sort
+ * criteria for Modules/Themes/Theme engines.
+ */
+
+
+/**
+ * Implements hook_help().
+ */
+function views_system_help($path, $arg) {
+
+  switch ($path) {
+
+    case 'admin/help#views_system':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The Views System module extends the Views module and provides fields, filter criteria, and sort criteria for <em>Modules/Themes/Theme engines</em>. For more information, see the online handbook entry for <a href="@views_system">Views System module</a>.', array('@views_system' => 'https://www.drupal.org/project/views_system')) . '</p>';
+      return $output;
+  }
+}
+
+
+/**
+ * Implements hook_views_api().
+ */
+function views_system_views_api() {
+
+  return array(
+    'api' => '3.0',
+    'path' => drupal_get_path('module', 'views_system') . '/views',
+  );
+}
+
+
+/**
+ * Implements hook_flush_caches().
+ */
+function views_system_flush_caches() {
+
+  views_system_rebuild_module_data();
+  views_system_rebuild_theme_data();
+}
+
+
+/**
+ * Implements hook_modules_enabled().
+ */
+function views_system_modules_enabled() {
+
+  views_system_rebuild_module_data();
+  views_system_rebuild_theme_data();
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function views_system_form_system_modules_alter(&$form, &$form_state, $form_id) {
+
+  views_system_rebuild_module_data();
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function views_system_form_system_themes_admin_form_alter(&$form, &$form_state, $form_id) {
+
+  views_system_rebuild_theme_data();
+}
+
+
+/**
+ * Helper function to rebuild module's data.
+ */
+function views_system_rebuild_module_data() {
+
+  db_query("DELETE FROM {views_system} WHERE type = 'module' OR type = 'profile'");
+
+  $profile = drupal_get_profile();
+
+  $modules = system_rebuild_module_data();
+  foreach($modules as $module) {
+
+    $core = preg_match('/^(modules\/|profiles\/minimal\/minimal|profiles\/standard\/standard|profiles\/testing\/testing)/i', $module->filename);
+
+    if ($module->name == $profile) {
+      $module->type = 'profile';
+    }
+
+    $data = array();
+    $data['filename'] = $module->filename;
+    $data['configure'] = !empty($module->info['configure']) ? $module->info['configure'] : '';
+    $data['core'] = !empty($module->info['core']) ? $module->info['core'] : '';
+    $data['datestamp'] = !empty($module->info['datestamp']) ? (int) $module->info['datestamp'] : NULL;
+    $data['dependencies'] = !empty($module->info['dependencies']) ? serialize($module->info['dependencies']) : '';
+    $data['description'] = !empty($module->info['description']) ? $module->info['description'] : '';
+    $data['files'] = !empty($module->info['files']) ? serialize($module->info['files']) : '';
+    $data['label'] = $module->info['name'];
+    $data['mtime'] = (int) $module->info['mtime'];
+    $data['origin'] = $core ? 'core' : 'extension';
+    $data['package'] = !empty($module->info['package']) ? $module->info['package'] : '';
+    $data['php'] = !empty($module->info['php']) ? $module->info['php'] : '';
+    $data['project'] = !empty($module->info['project']) ? $module->info['project'] : '';
+    $data['project_status_url'] = !empty($module->info['project_status_url']) ? $module->info['project_status_url'] : '';
+    $data['required'] = !empty($module->info['required']) ? (int) $module->info['required'] : 0;
+    $data['required_by'] = !empty($module->required_by) ? serialize($module->required_by) : '';
+    $data['requires'] = !empty($module->requires) ? serialize($module->requires) : '';
+    $data['scripts'] = !empty($module->info['scripts']) ? serialize($module->info['scripts']) : '';
+    $data['stylesheets'] = !empty($module->info['stylesheets']) ? serialize($module->info['stylesheets']) : '';
+    $data['type'] = $module->type;
+    $data['version'] = !empty($module->info['version']) ? $module->info['version'] : '';
+    $data['visible'] = !empty($module->info['hidden']) ? (int) !$module->info['hidden'] : 1;
+
+    db_insert('views_system')
+      ->fields($data)
+      ->execute();
+  }
+}
+
+
+/**
+ * Helper function to rebuild theme's data.
+ */
+function views_system_rebuild_theme_data() {
+
+  db_query("DELETE FROM {views_system} WHERE type = 'theme' OR type = 'theme_engine'");
+
+  $default_theme = variable_get('theme_default', 'bartik');
+  $admin_theme = variable_get('admin_theme', '0');
+
+  $themes = system_rebuild_theme_data();
+  foreach ($themes as $theme_name => $theme) {
+
+    $core = preg_match('/^themes\//i', $theme->filename);
+
+    $theme->is_default = ($theme_name == $default_theme);
+    $theme->is_admin = ($theme_name == $admin_theme || ($theme->is_default && $admin_theme == '0'));
+
+    $theme->requires = array();
+    if (isset($theme->base_themes)) {
+      foreach ($theme->base_themes as $base_theme => $base_theme_label) {
+        $theme->requires[$base_theme] = array('name' => $base_theme);
+      }
+    }
+    $theme->required_by = array();
+    if (isset($theme->sub_themes)) {
+      foreach ($theme->sub_themes as $sub_theme => $sub_theme_label) {
+        $theme->required_by[$sub_theme] = array('name' => $theme_name);
+      }
+    }
+
+    $data = array();
+    $data['filename'] = $theme->filename;
+    $data['admin_theme'] = (int) $theme->is_admin;
+    $data['base_theme'] = !empty($theme->info['base theme']) ? $theme->info['base theme'] : '';
+    $data['core'] = !empty($theme->info['core']) ? $theme->info['core'] : '';
+    $data['datestamp'] = !empty($theme->info['datestamp']) ? (int) $theme->info['datestamp'] : NULL;
+    $data['default_theme'] = (int) $theme->is_default;
+    $data['description'] = !empty($theme->info['description']) ? $theme->info['description'] : '';
+    $data['engine'] = !empty($theme->info['engine']) ? $theme->info['engine'] : '';
+    $data['features'] = !empty($theme->info['features']) ? serialize($theme->info['features']) : '';
+    $data['files'] = !empty($theme->info['files']) ? serialize($theme->info['files']) : '';
+    $data['label'] = $theme->info['name'];
+    $data['mtime'] = (int) $theme->info['mtime'];
+    $data['origin'] = $core ? 'core' : 'extension';
+    $data['php'] = !empty($theme->info['php']) ? $theme->info['php'] : '';
+    $data['project'] = !empty($theme->info['project']) ? $theme->info['project'] : '';
+    $data['project_status_url'] = !empty($theme->info['project_status_url']) ? $theme->info['project_status_url'] : '';
+    $data['regions'] = !empty($theme->info['regions']) ? serialize($theme->info['regions']) : '';
+    $data['regions_hidden'] = !empty($theme->info['regions_hidden']) ? serialize($theme->info['regions_hidden']) : '';
+    $data['required'] = !empty($theme->info['required']) ? (int) $theme->info['required'] : 0;
+    $data['required_by'] = !empty($theme->required_by) ? serialize($theme->required_by) : '';
+    $data['requires'] = !empty($theme->requires) ? serialize($theme->requires) : '';
+    $data['screenshot'] = !empty($theme->info['screenshot']) && file_exists($theme->info['screenshot']) ? $theme->info['screenshot'] : '';
+    $data['scripts'] = !empty($theme->info['scripts']) ? serialize($theme->info['scripts']) : '';
+    $data['settings'] = !empty($theme->info['settings']) ? serialize($theme->info['settings']) : '';
+    $data['stylesheets'] = !empty($theme->info['stylesheets']) ? serialize($theme->info['stylesheets']) : '';
+    $data['type'] = $theme->type;
+    $data['version'] = !empty($theme->info['version']) ? $theme->info['version'] : '';
+    $data['visible'] = !empty($theme->info['hidden']) ? (int) !$theme->info['hidden'] : 1;
+
+    db_insert('views_system')
+      ->fields($data)
+      ->execute();
+  }
+}
+
+
+/**
+ * Helper function to retrieve list of origins.
+ */
+function views_system_get_origin_list() {
+
+  return array(
+    'core' => t('Core'),
+    'extension' => t('Extension'),
+  );
+}
+
+
+/**
+ * Helper function to retrieve list of types.
+ */
+function views_system_get_type_list() {
+
+  return array(
+    'module' => t('Module'),
+    'profile' => t('Profile'),
+    'theme' => t('Theme'),
+    'theme_engine' => t('Theme engine'),
+  );
+}
+
+
+/**
+ *
+ */
+function views_system_convert_nested_array_into_flat_array($nested, $delimiter = '.', $path = null) {
+  $flat = array();
+
+  if (!is_null($path)) {
+    $path .= $delimiter;
+  }
+
+  if (is_array($nested)) {
+    foreach ($nested as $key => &$value) {
+      if (is_array($value)) {
+        $flat = array_merge($flat, views_system_convert_nested_array_into_flat_array($value, $delimiter, $path . $key));
+      }
+      else {
+        $flat[$path . $key] = $value;
+      }
+    }
+  }
+
+  return $flat;
+}

@@ -1,0 +1,190 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+.block {
+	h2.block-title {
+		border-bottom: 1px solid #DDDDDD;
+		font-weight: 300;
+		line-height: normal;
+		margin: 0 0 10px;
+		position: relative;
+		font-size: 24px;
+		&:after {
+			background: @base_color;
+			height: 1px;
+			display: block;
+			width: 90px;
+			position: absolute;	
+			content: "";
+		}
+	}
+	&.block-block {
+		margin-top: 20px;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	&.title-center {
+		h2.block-title {
+			text-align: center !important;
+			&:after { 
+				position: relative;
+				bottom: -1px;
+				margin: 0 auto;
+			}
+		}
+	}
+	&.title-left {
+		h2.block-title {
+			text-align: left !important;
+		}
+	}
+	&.title-right {
+		h2.block-title {
+			text-align: right !important;
+			&:after { 
+				right: 0;
+			}
+		}
+	}
+	&.title-white {
+		h2.block-title {
+			color: @white !important;
+		}
+	}
+	&.text-center {
+		.content {
+			text-align: center !important;
+		}
+	}
+	&.text-left {
+		.content {
+			text-align: left !important;
+		}
+	}
+	&.text-right {
+		.content {
+			text-align: right !important;
+		}
+	}
+	&.color {
+		padding: 15px;
+		background: @base_color;
+		color: @white;
+		h2.block-title {
+			color: @white;
+			border-bottom: 1px solid rgba(255,255,255,0.3);
+			&:after {
+				background: @white;
+			    bottom: -1px;
+			    content: "";
+			    margin: 0 auto;
+			    position: relative;
+				color: @white;
+			}
+		}
+	}
+	&.white {
+		background: @white;
+		border: 1px solid #DDDDDD;
+		padding: 15px;
+		h2.block-title {
+			border-bottom: none;
+			&:after {
+				height: 0;
+			}
+		}
+	}
+	&.border {
+		border: 3px solid #DDDDDD;
+		padding: 15px;
+		h2.block-title {
+			border-bottom: none;
+			&:after {
+				height: 0;
+			}
+		}
+	}
+	&.dark {
+		background: #253342;
+		color: @white;
+		padding: 15px;
+		h2.block-title {
+			border-bottom: none;
+			color: @white;
+			&:after {
+				height: 0;
+			}
+		}
+		.content {
+			a {
+				color: fade(@base_color, 50%);
+				&:hover {
+					color: @white;
+				}
+			}
+		}
+	}
+	&.highlight {
+		background: #F76666;
+		color: @white;
+		padding: 15px;
+		h2.block-title {
+			border-bottom: none;
+			color: @white;
+			&:after {
+				height: 0;
+			}
+		}
+		.content {
+			a {
+				color: @white;
+				&:hover {
+					color: @white;
+				}
+			}
+		}
+		&:hover {
+			background: #E34949;		
+		}
+	}
+	&.title1 {
+		h2.block-title {
+			border-bottom: 1px solid @base_color;
+			text-align: center;
+			&:after {
+				background: #E0F5FE;
+			    bottom: -1px;
+			    content: "";
+			    margin: 0 auto;
+			    position: relative;
+				color: @white;
+			}
+		}
+	}
+	&.title2 {
+		h2.block-title {
+			text-align: center;
+			&:after {
+				background: @base_color;
+			    bottom: -1px;
+			    content: "";
+			    margin: 0 auto;
+			    position: relative;
+			}
+		}
+	}
+	&.title-none {
+		h2.block-title {
+			border-bottom: none;
+			&:after {
+				height: 0;
+			}
+		}
+	}
+}

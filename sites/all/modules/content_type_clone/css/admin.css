@@ -1,0 +1,11 @@
+.ctc-readonly {
+  background-color: #f1f1f1 !important;
+}
+
+.token-tree {
+  margin-left: 0px;
+}
+
+.token-tree caption {
+  text-align: left;
+}

@@ -1,0 +1,164 @@
+<?php
+
+/**
+ * @file
+ * Test file for the Eventbrite module.
+ */
+
+/**
+ * Test access for menus defined by eventbrite.module.
+ */
+class EventbriteMenuTest extends DrupalWebTestCase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Eventbrite Menu Test',
+      'description' => 'Test access for menus defined by eventbrite.module.',
+      'group' => 'Eventbrite',
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setUp() {
+    parent::setUp('eventbrite');
+  }
+
+  /**
+   * A data provider for the testEventbriteMenu() method.
+   * @return array
+   *   An array of arrays specifying test data. Each data array has this
+   *   structure:
+   *   - Permissions array.
+   *   - Path.
+   *   - Expected result code.
+   */
+  public static function providerEventbriteMenu() {
+    return array(
+      array(
+        array('administer site configuration'),
+        'admin/config/services/eventbrite',
+        200,
+      ),
+      array(
+        array('administer site configuration'),
+        'admin/config/services/eventbrite/api',
+        200,
+      ),
+      array(
+        array('administer eventbrite settings'),
+        'admin/config/services/eventbrite/organizers',
+        200,
+      ),
+      array(
+        array('administer eventbrite settings'),
+        'admin/config/services/eventbrite/organizers/list',
+        200,
+      ),
+      array(
+        array('administer eventbrite settings'),
+        'admin/config/services/eventbrite/organizers/add',
+        200,
+      ),
+      array(
+        array('administer eventbrite settings'),
+        'admin/config/services/eventbrite/venues',
+        200,
+      ),
+      array(
+        array('administer eventbrite settings'),
+        'admin/config/services/eventbrite/venues/list',
+        200,
+      ),
+      array(
+        array('administer eventbrite settings'),
+        'admin/config/services/eventbrite/venues/add',
+        200,
+      ),
+      array(
+        array('administer site configuration'),
+        'admin/config/services/eventbrite/payment-settings',
+        200,
+      ),
+    );
+  }
+
+  /**
+   * Test each path defined in hook_menu().
+   *
+   * Since SimpleTest doesn't allow us to have a @dataProvider method, we call
+   * providerEventbriteMenu().
+   *
+   * These tests do not build up any fixtures to test the behavior of these
+   * paths with Eventbrite data in the system. Since this is the case, we omit
+   * testing these paths:
+   * - admin/config/services/eventbrite/organizers/%
+   * - admin/config/services/eventbrite/venues/%
+   *
+   * @see providerEventbriteMenu
+   */
+  public function testEventbriteMenu() {
+    $data = static::providerEventbriteMenu();
+    foreach ($data as $datum) {
+      $this->drupalLogin(
+        $this->drupalCreateUser($datum[0])
+      );
+      debug('Testing path: ' . $datum[1]);
+      $this->drupalGet($datum[1]);
+      $this->assertResponse($datum[2]);
+    }
+  }
+
+}
+
+/**
+ * Minimal OG integration tests.
+ *
+ * The eventbrite_og module has its own tests, but since eventbrite does some
+ * special behavior if eventbrite_og is enabled, we need to test that.
+ */
+class EventbriteOGIntegrationTest extends DrupalWebTestCase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Eventbrite OG Integation',
+      'description' => 'Test eventbrite.module integration with OG.',
+      'group' => 'Eventbrite',
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setUp() {
+    parent::setUp('eventbrite', 'eventbrite_og');
+  }
+
+  /**
+   * Test each path defined in hook_menu().
+   *
+   * This test is exactly the same as EventbriteMenuTest::testEventrbiteMenu(),
+   * but it just does it with eventbrite_og module enabled.
+   *
+   * @see providerEventbriteMenu
+   */
+  public function testEventbriteMenu() {
+    $data = EventbriteMenuTest::providerEventbriteMenu();
+    foreach ($data as $datum) {
+      $this->drupalLogin(
+        $this->drupalCreateUser($datum[0])
+      );
+      debug('Testing path: ' . $datum[1]);
+      $this->drupalGet($datum[1]);
+      $this->assertResponse($datum[2]);
+    }
+  }
+
+}

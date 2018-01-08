@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Module file for Nested Accordion module.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function views_nested_accordion_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'views_nested_accordion'),
+  );
+}

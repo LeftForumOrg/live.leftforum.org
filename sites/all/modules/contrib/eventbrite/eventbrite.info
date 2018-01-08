@@ -1,0 +1,28 @@
+name = Eventbrite
+description = Implements the Eventbrite API for other Drupal modules in the Eventbrite package.  On its own, this module does not add any features.
+version = "7.x-2.x-dev"
+core = 7.x
+package = Eventbrite
+
+dependencies[] = date_api
+dependencies[] = libraries
+dependencies[] = locale
+
+files[] = eventbrite.admin.inc
+files[] = eventbrite.api.inc
+files[] = eventbrite.common.inc
+files[] = eventbrite.field.inc
+files[] = eventbrite.organizer.inc
+files[] = eventbrite.payment.inc
+files[] = eventbrite.venue.inc
+files[] = eventbrite.css
+files[] = eventbrite.test
+
+stylesheets[all][] = eventbrite.css
+
+; Information added by Drupal.org packaging script on 2014-08-06
+version = "7.x-2.0-alpha3"
+core = "7.x"
+project = "eventbrite"
+datestamp = "1407355128"
+

@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Test file for the Eventbrite module.
+ */
+
+/**
+ * Absolute minimum test for eventbritefield module.
+ *
+ * We only install the module.
+ */
+class EventbriteSubUserBasicTest extends DrupalWebTestCase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Eventbrite Sub-User Basic Test',
+      'description' => 'Enable eventbrite_subuser.module.',
+      'group' => 'Eventbrite',
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setUp() {
+    parent::setUp('eventbrite_subuser');
+  }
+
+  /**
+   * Test that the module was installed.
+   */
+  public function testEventbriteFieldBasic() {
+    $this->assertTrue(module_exists('eventbrite_subuser'), 'eventbrite_subuser module was installed.');
+  }
+
+}

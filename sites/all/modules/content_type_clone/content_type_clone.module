@@ -1,0 +1,134 @@
+<?php
+
+/**
+ * @file
+ * Content Type Clone primary module file.
+ */
+
+/**
+ * Reimplements the content type list table, addding a clone link.
+ */
+function content_type_clone_node_overview_types() {
+  $types = node_type_get_types();
+  $names = node_type_get_names();
+  $field_ui = module_exists('field_ui');
+  $header = array(
+    t('Name'),
+    array(
+      'data' => t('Operations'),
+      'colspan' => $field_ui ? '5' : '3',
+    ),
+  );
+  $rows = array();
+
+  foreach ($names as $key => $name) {
+    $type = $types[$key];
+    if (node_hook($type->type, 'form')) {
+      $type_url_str = str_replace('_', '-', $type->type);
+      $row = array(
+        theme(
+          'node_admin_overview',
+          array(
+            'name' => $name,
+            'type' => $type,
+          )
+        ),
+      );
+
+      // Set the edit column.
+      $row[] = array(
+        'data' => l(
+          t('edit'),
+          'admin/structure/types/manage/' . $type_url_str
+        ),
+      );
+
+      if ($field_ui) {
+        // Manage fields.
+        $row[] = array(
+          'data' => l(
+            t('manage fields'),
+            'admin/structure/types/manage/' . $type_url_str . '/fields'
+          ),
+        );
+
+        // Display fields.
+        $row[] = array(
+          'data' => l(
+            t('manage display'),
+            'admin/structure/types/manage/' . $type_url_str . '/display'
+          ),
+        );
+      }
+
+      // Set the delete column.
+      if ($type->custom) {
+        $row[] = array(
+          'data' => l(
+            t('delete'),
+            'admin/structure/types/manage/' . $type_url_str . '/delete'
+          ),
+        );
+      }
+      else {
+        $row[] = array('data' => '');
+      }
+
+      // Set the clone column.
+      $row[] = array(
+        'data' => l(
+          t('clone'),
+          'admin/' . $type_url_str . '/clone/create'
+        ),
+      );
+
+      $rows[] = $row;
+    }
+  }
+
+  $build['node_table'] = array(
+    '#theme' => 'table',
+    '#header' => $header,
+    '#rows' => $rows,
+    '#empty' => t(
+      'No content types available. <a href="@link">Add content type</a>.',
+      array(
+        '@link' => url('admin/structure/types/add'),
+      )
+    ),
+  );
+
+  return $build;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function content_type_clone_menu() {
+  // Content type clone form url.
+  $items['admin/%/clone/create'] = array(
+    'title' => '',
+    'access arguments' => array('administer content types'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('content_type_clone_create_form', 1),
+    'file' => 'includes/clone.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/structure/types/manage/%node_type/clone'] = array(
+    'title' => 'Clone',
+    'access arguments' => array('administer content types'),
+    'page callback' => 'content_type_clone_menu_redirect',
+    'file' => 'includes/page.admin.inc',
+    'page arguments' => array(4),
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function content_type_clone_menu_alter(&$items) {
+  $items['admin/structure/types']['page callback'] = 'content_type_clone_node_overview_types';
+}

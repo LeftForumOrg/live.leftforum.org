@@ -1,0 +1,147 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+.dexp-portfolio-filter {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 0;
+  .text-center;
+  li {
+    display: inline-block;
+    margin-bottom: 5px;
+    a {
+      transition: all 0.3s ease 0s !important;
+      .box-shadow(none);
+    }
+    .btn-default.active, a:hover {
+      color: @white;
+      background: @base_color;
+      .text-shadow(0 -1px 0 rgba(0, 0, 0, 0.25));
+      .box-shadow(none);
+    }
+  }
+}
+.sh-portfolio {
+  .portfolio-content {
+    background: #F9F9F9;
+    border: 1px solid #DDDDDD;
+    -webkit-box-shadow: 1px 1px 0 #FFFFFF inset, 1px 0 0 #D8D8D8, 0 1px 0 #E5E5E5, 2px 1px 0 #D8D8D8, 1px 2px 0 #E5E5E5, 3px 2px 0 #D8D8D8, 2px 3px 0 #E5E5E5, 4px 3px 0 #D8D8D8, 4px 3px 0 #EEEEEE, 4px 3px 0 #E5E5E5, 4px 4px 0 #E5E5E5;
+       -moz-box-shadow: 1px 1px 0 #FFFFFF inset, 1px 0 0 #D8D8D8, 0 1px 0 #E5E5E5, 2px 1px 0 #D8D8D8, 1px 2px 0 #E5E5E5, 3px 2px 0 #D8D8D8, 2px 3px 0 #E5E5E5, 4px 3px 0 #D8D8D8, 4px 3px 0 #EEEEEE, 4px 3px 0 #E5E5E5, 4px 4px 0 #E5E5E5;
+            box-shadow: 1px 1px 0 #FFFFFF inset, 1px 0 0 #D8D8D8, 0 1px 0 #E5E5E5, 2px 1px 0 #D8D8D8, 1px 2px 0 #E5E5E5, 3px 2px 0 #D8D8D8, 2px 3px 0 #E5E5E5, 4px 3px 0 #D8D8D8, 4px 3px 0 #EEEEEE, 4px 3px 0 #E5E5E5, 4px 4px 0 #E5E5E5;
+    position: relative;
+    top: 0;
+    transition: all 0.2s ease 0s;
+    margin-bottom: 30px;
+    .portfolio-image {
+      position: relative;
+      img {
+        width: 100%;
+      }
+      .portfolio-image-zoom {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        a {
+          left: 0;
+          margin: auto;
+          position: absolute;
+          right: 0;
+          text-align: center;
+          width: 28px;
+          height: 100%;
+          bottom: 0;
+          top: 0;
+          transition: all 0.5s ease 0s;
+          opacity: 0;
+          outline: none;
+          span {
+            font-size: 32px;
+            color: #EEEEEE;
+            &:hover {
+              color: @base_color;
+            }
+          }
+        }
+      }
+    }
+    .item-description {
+      padding: 10px;
+      .text-center;
+      h5 {
+        margin: 5px 0;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    }
+    &:hover {
+      .box-shadow(none);
+      margin-right: 3px;
+      .portfolio-image {
+        .portfolio-image-zoom {
+          background: rgba(0,0,0,0.3);
+          a {
+            top: 0;
+            height: 28px;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+// Node //
+.node-dexp-portfolio {
+  .portfolio-details {
+    .field-name-field-portfolio-categories {
+      .field-items {
+        padding-left: 10px;
+        font-size: 13px;
+        .field-item {
+          &:before {
+            content:  "\f00c";
+            font-family: FontAwesome;
+            font-size: 12px;
+            padding-right: 6px;
+          }
+        }
+      }
+      &:before {
+        content: "Categories:";
+      }
+    }
+    .field-name-field-portfolio-url {
+      margin-top: 10px;
+      .field-items {
+        padding-left: 10px;
+        font-size: 13px;
+        .field-item {
+          &:before {
+            content:  "\f00c";
+            font-family: FontAwesome;
+            font-size: 12px;
+            padding-right: 6px;
+          }
+        }
+      }
+      &:before {
+        content: "Link:";
+      }
+    }
+  }
+}
+
+.view-latest-projects {
+  .node-dexp-portfolio {
+    margin-right: 5px;
+  }
+}

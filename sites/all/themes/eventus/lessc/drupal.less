@@ -1,0 +1,91 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+img {
+    border: 0 none;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.page_title {
+	margin: @mainMargin 0 @mainMarginM 0;
+	padding: 0 0 @mainPaddingS 0;
+	color: @base_color;
+	border-bottom: 1px solid #EEEEEE;
+	line-height: 40px;
+}
+
+/*======== Start Blog Category Teaser ==========*/
+.view-blog {
+	.sh-blog-teaser {
+		.catItemMeta {
+			.catDate{
+				background: @base_color;
+				padding: 5px 10px;
+				font-size: 12px;
+				font-weight: 700;
+				color: @white;
+			}
+		}
+		.blog-image {
+			margin-bottom: 10px;
+		}
+		.read-more a {
+			text-decoration: none;
+			outline: none;
+		}
+	}
+}
+
+.node-details {
+	.node-meta {
+		.node-date {
+			background: @base_color;
+			padding: 5px 10px;
+			font-size: 12px;
+			font-weight: 700;
+			color: @white;
+		}
+	}
+	.node-images {
+		margin-bottom: 10px;
+	}
+}
+
+/*======== End Blog Category ==========*/
+
+/*======== Start Pagination ==========*/
+ul.pagination {
+	margin: 20px 0;
+	.border-radius(0);
+	li {
+		display: inline-block;
+		margin: 0 !important;
+		a {
+			background: @base_color;
+			opacity: 0.7;
+			color: @white;
+			padding: 4px 12px;
+			border: 1px solid @white;
+			.border-radius(0);
+			&:hover {
+				background: @base_color;
+				opacity: 1;
+				color: @white;
+			}
+			&:focus {
+				background: @base_color;
+			}
+		}
+		&:first-child, &:last-child {
+			> a, > span {
+				.border-radius(0);
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+name = COD Registration Pages
+core = 7.x
+package = COD Pages
+dependencies[] = ctools
+dependencies[] = cod_registration
+dependencies[] = panelizer
+features[ctools][] = panelizer:panelizer:1
+features[features_api][] = api:2
+features[panelizer_defaults][] = node:page:registration:default
+features[variable][] = panelizer_node:page:default_selection
+
+; Information added by Drupal.org packaging script on 2017-04-28
+version = "7.x-2.0"
+core = "7.x"
+project = "cod_support"
+datestamp = "1493415248"
+

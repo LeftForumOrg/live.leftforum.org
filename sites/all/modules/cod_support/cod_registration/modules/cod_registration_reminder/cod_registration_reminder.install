@@ -1,0 +1,43 @@
+<?php
+
+function cod_registration_reminder_check_field() {
+  return array(
+    'description' => 'Timestamp for when reminder was last sent.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  );
+}
+
+function cod_registration_reminder_schema_alter(&$schema) {
+  // Add field to existing schema.
+  $schema['ticket_reservation']['fields']['reminder_date'] = cod_registration_reminder_check_field();
+}
+
+/*
+ * Iterate on install tasks as the entity changes over time.
+ * Change the callback in cod_registration_install each time a new installer is added
+ */
+function cod_registration_reminder_install_1() {
+  $t = get_t();
+
+  //cod_registration_install_1();
+  if (!db_field_exists('ticket_reservation', 'reminder_date')) {
+    db_add_field('ticket_reservation', 'reminder_date', cod_registration_reminder_check_field());
+  }
+
+  field_associate_fields('cod_registration_reminder');
+}
+
+/**
+ * Enable panel pages when cod_registration is first installed.
+ */
+function cod_registration_reminder_install() {
+  // Use the latest install schema update.
+  cod_registration_reminder_install_1();
+  return array();
+}
+
+function cod_registration_reminder_update_7002(&$sandbox) {
+  cod_registration_reminder_install_1();
+}

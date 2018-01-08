@@ -1,0 +1,56 @@
+.dexp-body-inner {
+  clear: both;
+  overflow-x: hidden;
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+}
+.dexp-sticky.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 501;
+}
+.dexp-sticky.affix {
+  top: 0;
+  width: 100%;
+  z-index: 501
+}
+.tp-bannertimer,
+.tp-bullets {
+  z-index: 500;
+}
+#admin-menu .dropdown li li {
+  opacity: 1;
+}
+.mobile-parallax {
+  background-attachment: fixed;
+  background-size: cover;
+}
+.row.no-padding {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.row.no-padding div[class*=col-] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#dexp-messages {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+#dexp-messages .alert {
+  margin-bottom: 0 !important;
+}
+#dexp-messages .container {
+  min-height: 0;
+}
+a:focus {
+  outline: unset !important;
+  outline-offset: -2px;
+  text-decoration: unset !important;
+}

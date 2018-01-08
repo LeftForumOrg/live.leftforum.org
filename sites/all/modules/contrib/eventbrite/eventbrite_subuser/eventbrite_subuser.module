@@ -1,0 +1,364 @@
+<?php
+
+/**
+ * @file
+ * The module file for the Eventbrite Subuser module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function eventbrite_subuser_menu() {
+  $items['admin/config/services/eventbrite/subuser'] = array(
+    'title' => 'Subusers',
+    'description' => 'List subusers created under the site\'s master Eventbrite account',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('eventbrite_subuser_list_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer eventbrite settings'),
+    'file' => 'eventbrite_subuser.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 6,
+  );
+
+  $items['admin/config/services/eventbrite/subuser/list'] = array(
+    'title' => 'List Subusers',
+    'description' => 'List Eventbrite subusers',
+    'access callback' => 'user_access',
+    'access arguments' => array('administer eventbrite settings'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 0,
+  );
+
+  $items['admin/config/services/eventbrite/subuser/%/view'] = array(
+    'title arguments' => array(5),
+    'title callback' => 'eventbrite_subuser_admin_title',
+    'description' => 'View subuser',
+    'page callback' => 'eventbrite_subuser',
+    'page arguments' => array(5),
+    'access callback' => 'is_numeric',
+    'access arguments' => array(5),
+    'file' => 'eventbrite_subuser.admin.inc',
+    'weight' => 3,
+  );
+
+  $items['admin/config/services/eventbrite/subuser/%/venues'] = array(
+    'title' => '',
+    'title arguments' => array(5, 'venues'),
+    'title callback' => 'eventbrite_subuser_admin_title',
+    'description' => 'Enable venues and organizers for use by this subuser',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('eventbrite_subuser_objects', 5, 6),
+    'access callback' => 'is_numeric',
+    'access arguments' => array(5),
+    'file' => 'eventbrite_subuser.admin.inc',
+    'type' => MENU_CALLBACK,
+    'weight' => 4,
+  );
+
+  $items['admin/config/services/eventbrite/subuser/%/organizers'] = array(
+    'title' => '',
+    'title arguments' => array(5, 'organizers'),
+    'title callback' => 'eventbrite_subuser_admin_title',
+    'description' => 'Enable venues and organizers for use by this subuser',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('eventbrite_subuser_objects', 5, 6),
+    'access callback' => 'is_numeric',
+    'access arguments' => array(5),
+    'file' => 'eventbrite_subuser.admin.inc',
+    'type' => MENU_CALLBACK,
+    'weight' => 5,
+  );
+
+  return $items;
+}
+
+/**
+ * Title callback: Generates the title for menu tabs.
+ *
+ * @param $subuser_id
+ *   The Eventbrite user ID for the subuser.
+ * @param $path
+ *   The path element after the user ID placeholder.
+ *
+ * @return
+ *   A menu item title.
+ */
+function eventbrite_subuser_admin_title($subuser_id, $path = '') {
+  $subuser = eventbrite_subuser_load($subuser_id);
+  if (strlen($subuser->email) > 16) {
+    $subuser_email = substr($subuser->email, 0, 13) . '...';
+  }
+  else {
+    $subuser_email = $subuser->email;
+  }
+  switch ($path) {
+    case 'organizers':
+      return 'Organizers - ' . $subuser_email;
+    case 'venues':
+      return 'Venues - ' . $subuser_email;
+    case 'venues-city':
+      return 'Venues by city - ' . $subuser_email;
+    default:
+      return $subuser->email;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function eventbrite_subuser_theme() {
+  return array(
+    'eventbrite_subuser' => array(
+      'variables' => array('subuser' => NULL),
+      'file' => 'eventbrite_subuser.admin.inc',
+    ),
+  );
+}
+
+/**
+ * Refreshes the subuser list from the Eventbrite server and updates the database.
+ *
+ * @return
+ *   An array of subuser objects keyed on Eventbrite subuser ID.
+ */
+function eventbrite_subuser_refresh() {
+  if ($master_user = eventbrite_get('user_get')) {
+    if (isset($master_user->subusers)) {
+      // There are subusers on the Eventbrite server, check what we have in the DB
+      $subusers_db = array();
+      $result = db_query('SELECT * FROM {eventbrite_subuser}');
+      foreach ($result as $row) {
+        $subusers_db[$row->user_id] = $row;
+      }
+      // Loop through subusers list from server request to see if there are new subusers
+      foreach ($master_user->subusers as $subuser_server) {
+        $subuser_id = $subuser_server->user_id;
+        // Check if this subuser is in the DB
+        if (isset($subusers_db[$subuser_id])) {
+          // This subuser is in the DB already, check email to see if it has been updated
+          if (strcmp($subusers_db[$subuser_id]->email, $subuser_server->email)) {
+            // Email has been updated, update in email in DB
+            $subusers_db[$subuser_id]->email = $subuser_server->email;
+            drupal_write_record('eventbrite_subuser', $subuser_server, array('user_id'));
+          }
+        }
+        else {
+          // Insert this subuser into the DB
+          // Get user_key from Eventbrite which was not in user_get
+          if ($new_subuser = eventbrite_get('user_get_by_id', $subuser_id)) {
+            drupal_write_record('eventbrite_subuser', $new_subuser);
+            $subusers_db[$new_subuser->user_id] = $new_subuser;
+          }
+          else {
+            // Could not get this subuser from the Eventbrite server, something is definitely wrong
+            drupal_set_message('Could not fetch the subuser ' . $subuser_server->email . ' from the server', 'error');
+          }
+        }
+      }
+      // TODO: See if any subusers have been deleted (ie. are not coming in from the server but are in the DB, they should be deleted
+      return $subusers_db;
+    }
+    else {
+      // No subusers
+      // TODO: Truncate eventbrite_subuser table
+    }
+  }
+}
+
+/**
+ * Returns a subuser's email address.
+ */
+function eventbrite_subuser_get_email($user_key = '') {
+  if ($user_key && ($subusers = _eventbrite_subuser_load_all())) {
+    foreach ($subusers as $subuser) {
+      if (!strcmp($subuser->user_key, $user_key)) {
+        return $subuser->email;
+      }
+    }
+  }
+  return '';
+}
+
+/**
+ * Fetches the subuser list from the database.
+ *
+ * @return
+ *   An array of subusers keyed on and ordered by subuser email address.
+ */
+function _eventbrite_subuser_load_all() {
+  static $subusers;
+  if (!isset($subusers)) {
+    $subusers = array();
+    $result = db_query('SELECT * FROM {eventbrite_subuser} ORDER BY email');
+    foreach ($result as $row) {
+      $subusers[$row->email] = $row;
+    }
+  }
+  return $subusers;
+}
+
+/**
+ * Returns information about a subuser from the database.
+ *
+ * @param $key
+ *   The key to look up the subuser by: email address, Eventbrite user ID, or
+ *   user key.
+ * @param $key_type
+ *   What type of key was entered as the first parameter: 'email', 'user_id', or
+ *   'user_key'.
+ *
+ * @return
+ *   Information about the subuser as an object.
+ */
+function eventbrite_subuser_load($key, $key_type = 'user_id') {
+  // ERROR: return statement not found in hook_load
+  switch ($key_type) {
+    case 'email':
+      $result = db_query('SELECT * FROM {eventbrite_subuser} WHERE email = :email', array(':email' => $key));
+      break;
+    case 'user_id':
+      $result = db_query('SELECT * FROM {eventbrite_subuser} WHERE user_id = :user_id', array(':user_id' => $key));
+      break;
+    case 'user_key':
+      $result = db_query('SELECT * FROM {eventbrite_subuser} WHERE user_key = :user_key', array(':user_key' => $key));
+      break;
+    default:
+      return;
+  }
+
+  if ($row = $result->fetchObject()) {
+    if (isset($row->enabled_organizers)) {
+      $row->enabled_organizers = unserialize($row->enabled_organizers);
+    }
+    else {
+      $row->enabled_organizers = array();
+    }
+    if (isset($row->enabled_venues)) {
+      $row->enabled_venues = unserialize($row->enabled_venues);
+    }
+    else {
+      $row->enabled_venues = array();
+    }
+    return $row;
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function eventbrite_subuser_cron() {
+  eventbrite_subuser_refresh();
+}
+
+/**
+ * Enable a venue for a subuser.
+ *
+ * @param $subuser_user_key
+ *   The subuser's user key.
+ * @param $venue_id
+ *   The Eventbrite venue ID.
+ *
+ * @return
+ *   1 if the database update succeeded.
+ */
+function eventbrite_subuser_enable_venue($subuser_user_key, $venue_id) {
+  $subuser = eventbrite_subuser_load($subuser_user_key, 'user_key');
+  $venues = $subuser->enabled_venues;
+  $venues[$venue_id] = $venue_id;
+
+  $subuser_venues = new stdClass();
+
+  $subuser_venues->user_key = $subuser_user_key;
+  $subuser_venues->enabled_venues = serialize($venues);
+
+  // Subuser already exists in DB, update with changes
+  if (drupal_write_record('eventbrite_subuser', $subuser_venues, array('user_key'))) {
+    return 1;
+  }
+}
+
+/**
+ * Gets a list of enabled subusers.
+ *
+ * @return
+ *   An array of enabled subusers' emails keyed on Eventbrite user ID.
+ */
+function eventbrite_subuser_get_enabled() {
+  $enabled = array();
+  $result = db_query('SELECT user_id, email FROM {eventbrite_subuser} WHERE status = :status', array(':status' => 1));
+  foreach ($result as $row) {
+    $enabled[$row->user_id] = $row->email;
+  }
+  return $enabled;
+}
+
+/* The following functions appear to be unused. */
+
+/**
+ * Returns an array of subuser email addresses keyed on email address.
+ */
+function eventbrite_subuser_email_options($required = FALSE) {
+  $subuser_email_options = array();
+  if (!$required) {
+    $subuser_email_options[''] = '--';
+  }
+  if ($subusers = _eventbrite_subuser_load_all()) {
+    foreach ($subusers as $subuser) {
+      $subuser_email_options[$subuser->email] = $subuser->email;
+    }
+  }
+  return $subuser_email_options;
+}
+
+/**
+ * Gets the subuser by email address.
+ *
+ * @param $email
+ *   The subuser's email address.
+ *
+ * @return
+ *   Information about the subuser.
+ */
+function eventbrite_subuser_get($email) {
+  if ($subusers = _eventbrite_subuser_load_all()) {
+    if ($subusers[$email]) {
+      return $subusers[$email];
+    }
+  }
+}
+
+/**
+ * Returns a list of subuser email addresses keyed on user_key.
+ *
+ * TODO: This function should NOT list the user keys, that is NOT secure
+ */
+function eventbrite_subuser_options() {
+  $subusers = array();
+  $result = db_query('SELECT * FROM {eventbrite_subuser} ORDER BY email');
+  foreach ($result as $row) {
+    $subusers[$row->user_key] = $row->email;
+  }
+  return $subusers;
+}
+
+/**
+ * Returns an HTML table of subusers.
+ */
+function eventbrite_subuser_list() {
+  // TODO: Get venues from Eventbrite server
+  if ($subusers = eventbrite_subuser_refresh()) {
+    $header = array('Email', 'User ID', 'User Key');
+    $rows = array();
+    foreach ($subusers as $subuser) {
+      $rows[] = array(
+        $subuser->email,
+        $subuser->user_id,
+        $subuser->user_key,
+      );
+    }
+    return theme('table', array('header' => $header, 'rows' => $rows));
+  }
+
+  return t('There are currently no sub-users within the site\'s master Eventbrite account.');
+}

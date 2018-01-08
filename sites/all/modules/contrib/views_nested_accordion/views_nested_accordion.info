@@ -1,0 +1,15 @@
+name = Views Nested Accordion
+description = "Add new style Views Nested Accordion to the Views Style list, which helps in creating Nested Accordion."
+package = Views
+core = 7.x
+dependencies[] = views
+dependencies[] = views_accordion
+
+files[] = views_nested_accordion_style_plugin.inc
+
+; Information added by Drupal.org packaging script on 2014-09-08
+version = "7.x-1.0"
+core = "7.x"
+project = "views_nested_accordion"
+datestamp = "1410156229"
+

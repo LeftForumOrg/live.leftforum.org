@@ -1,0 +1,123 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+.rtl {
+	.unstyled i {
+		margin: 0 0 0 10px;
+	}
+	//========== Menu Top =========//
+	.menu-topbar li a:after {
+		padding-left: 0;
+		padding-right: 5px;
+	}
+	ul.star, ul.tick, ul.arrow {
+		li {
+			&:before {
+				.right;
+				padding-right: 0;
+				padding-left: 5px;
+			}
+		}
+	}
+	ul.arrow {
+		li:before {
+			content:   "\f104" !important;
+		}
+	}
+	.social-icons ul li i {
+		margin: 0;
+	}
+	#block-views-latest-news-block, #block-views-clients-block, .view-latest-projects, .view-blog, #block-views-cl-block {
+		.bx-controls-direction {
+			a.bx-prev, a.bx-next {
+				right: inherit;
+				left: 28px;
+			}
+			a.bx-prev {
+				right: inherit;
+				left: 0;
+			}
+		}
+	}
+	.view-latest-news {
+		.bxslide {
+			direction: rtl;
+		}
+	}
+	.feature-event {
+		direction: rtl;
+		.blog-date {
+			.right;
+			margin: 0 0 0 10px;
+		}
+	}
+	.sh-blog-teaser {
+		direction: rtl;
+	}
+	//========== Search ===========//
+	#section-header {
+		.region-search {
+			float: left;
+			padding-left: 15px;
+			padding-right: 0;
+		}
+		.region-navigation {
+			float: left;
+		}
+	}
+	.search-menu {
+		#search-block-form {
+			right: inherit;
+			left: 0;
+			.form-item-search-block-form {
+				&:before {
+					right: inherit;
+					left: 5px;
+				}
+				input[type="text"] {
+					padding-right: 10px;
+					padding-left: 25px;
+				}
+			}
+		}
+	}
+
+	//========== Shortcode =========//
+	/*accordions*/
+	[id*="dexp-accordions-"], [id^="dexp-accordions-"] {
+		.panel-default .panel-heading:after {
+			right: inherit;
+			left: 5px;
+			content: "\f112";
+		}
+	}
+	//========== Typo =========//
+	.sh-blocknumber { 
+    padding: 5px 60px 5px 0px;
+	    span{
+	        left: inherit;
+	        right: 0;
+	    }
+	}
+	.sh-bubble {
+		cite {
+        padding-left: 0px;
+        padding-right: 40px;
+        	span{
+        		left: inherit;
+        		right: 0;
+        		border-left-color: inherit transparent !important;
+        		//border-right-color: rgba(0, 0, 0, 0) !important;
+        	}
+        }
+	} 
+	//========== Bottom =========//
+	.block.text-right .content {
+	    text-align: left !important;
+	}
+}

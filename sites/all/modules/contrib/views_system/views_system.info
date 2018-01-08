@@ -1,0 +1,28 @@
+
+name = Views System
+description = Extends the Views module and provides fields, filter criteria, and sort criteria for Modules/Themes/Theme engines.
+
+core = 7.x
+package = Views
+php = 5.3.0
+
+dependencies[] = views (>=3.13)
+
+files[] = views/views_handler_field_views_system_dependencies.inc
+files[] = views/views_handler_field_views_system_features.inc
+files[] = views/views_handler_field_views_system_files.inc
+files[] = views/views_handler_field_views_system_regions.inc
+files[] = views/views_handler_field_views_system_regions_hidden.inc
+files[] = views/views_handler_field_views_system_required_by.inc
+files[] = views/views_handler_field_views_system_requires.inc
+files[] = views/views_handler_field_views_system_screenshot.inc
+files[] = views/views_handler_field_views_system_scripts.inc
+files[] = views/views_handler_field_views_system_settings.inc
+files[] = views/views_handler_field_views_system_stylesheets.inc
+
+; Information added by Drupal.org packaging script on 2016-03-21
+version = "7.x-4.1"
+core = "7.x"
+project = "views_system"
+datestamp = "1458529139"
+

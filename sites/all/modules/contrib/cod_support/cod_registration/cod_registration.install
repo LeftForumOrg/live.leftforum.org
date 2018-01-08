@@ -1,0 +1,79 @@
+<?php
+
+function cod_registration_checkin_registrar_field() {
+  return array(
+    'description' => 'user who checked in this registration.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  );
+}
+
+function cod_registration_checkin_time_field() {
+  return array(
+    'description' => 'Timestamp for when user was checked in.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  );
+}
+
+function cod_registration_schema_alter(&$schema) {
+  // Add field to existing schema.
+  $schema['ticket_registration_revision']['fields']['checkin_registrar'] =
+  $schema['ticket_registration']['fields']['checkin_registrar'] = cod_registration_checkin_registrar_field();
+
+  $schema['ticket_registration_revision']['fields']['checkin_time'] =
+  $schema['ticket_registration']['fields']['checkin_time'] = cod_registration_checkin_time_field();
+}
+
+/*
+ * Iterate on install tasks as the entity changes over time.
+ * Change the callback in cod_registration_install each time a new installer is added
+ */
+function cod_registration_install_1() {
+  $t = get_t();
+
+  //cod_registration_install_1();
+  if (!db_field_exists('ticket_registration', 'checkin_registrar')) {
+    db_add_field('ticket_registration', 'checkin_registrar', cod_registration_checkin_registrar_field());
+  }
+  if (!db_field_exists('ticket_registration_revision', 'checkin_registrar')) {
+    db_add_field('ticket_registration_revision', 'checkin_registrar', cod_registration_checkin_registrar_field());
+  }
+  if (!db_field_exists('ticket_registration', 'checkin_time')) {
+    db_add_field('ticket_registration', 'checkin_time', cod_registration_checkin_time_field());
+  }
+  if (!db_field_exists('ticket_registration_revision', 'checkin_time')) {
+    db_add_field('ticket_registration_revision', 'checkin_time', cod_registration_checkin_time_field());
+  }
+
+  field_associate_fields('cod_registration');
+}
+
+/**
+ * Enable panel pages when cod_registration is first installed.
+ */
+function cod_registration_install() {
+  // Enabled the associated registration pages
+  $module_list = array('cod_registration_pages');
+  module_enable($module_list);
+
+  // Add fields to the ticket type entity.
+  field_cache_clear();
+
+  // Use the latest install schema update.
+  cod_registration_install_1();
+  return array();
+}
+
+/**
+ * Add checkin time, user to tickets from cod_registration.
+ */
+function cod_registration_update_7001(&$sandbox) {
+  // Add fields to the ticket type entity.
+  field_cache_clear();
+
+  // Use the latest install schema update.
+  cod_registration_install_1();
+}

@@ -1,0 +1,220 @@
+<?php
+
+/**
+ * @file
+ * Defines a time zone field type.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function eventbritefield_menu() {
+
+  // Field API autocomplete.
+  $items['eventbritefield/autocomplete'] = array(
+    'title' => 'Eventbrite field autocomplete',
+    'page callback' => 'eventbritefield_autocomplete',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_field_info().
+ */
+function eventbritefield_field_info() {
+  return array(
+    'eventbritefield' => array(
+      'label' => t('Eventbrite'),
+      'description' => t('Stores the eventbrite ID'),
+      'settings' => array('max_length' => 12),
+      'default_widget' => 'text_textfield',
+      'default_formatter' => 'eventbrite_url',
+      'property_type' => 'text',
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * We dont want users change the field size from 12.
+ */
+function eventbritefield_form_field_ui_field_edit_form_alter(&$form, &$form_state, $form_id) {
+  $form['instance']['widget']['settings']['size']['#type'] = 'value';
+  $form['instance']['widget']['settings']['size']['#value'] = '12';
+}
+
+/**
+ * Implements hook_field_is_empty().
+ */
+function eventbritefield_field_is_empty($item, $field) {
+  return empty($item['value']);
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function eventbritefield_field_formatter_info() {
+  return array(
+    'eventbrite_iframe' => array(
+      'label' => 'Eventbrite iFrame',
+      'field types' => array('eventbritefield'),
+    ),
+    'eventbrite_url' => array(
+      'label' => 'Eventbrite Embedded URL',
+      'field types' => array('eventbritefield'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_widget_info().
+ */
+function eventbritefield_field_widget_info() {
+  return array(
+    'eventbrite_autocomplete' => array(
+      'label' => t('Autocomplete eventbrite ID'),
+      'field types' => array('eventbritefield'),
+      'settings' => array('size' => 60),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_info_alter().
+ */
+function eventbritefield_field_widget_info_alter(&$info) {
+  $info['text_textfield']['field types'][] = 'eventbritefield';
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function eventbritefield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $element += array(
+    '#type' => 'textfield',
+    '#default_value' => isset($items[$delta]['value']) ? $items[$delta]['value'] : NULL,
+    '#size' => $instance['widget']['settings']['size'],
+    '#autocomplete_path' => 'eventbritefield/autocomplete',
+  );
+  return array('value' => $element);
+}
+
+/**
+ * Retrieves an array of autocomplete suggestions.
+ */
+function eventbritefield_autocomplete() {
+  module_load_include('inc', 'eventbrite', 'eventbrite.api');
+  $matches = array();
+  $events = _eventbrite_api_get_events();
+  if ($events) {
+    foreach ($events as $event) {
+      $matches[$event->id] = check_plain($event->id);
+    }
+  }
+
+  drupal_json_output($matches);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function eventbritefield_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'eventbrite_iframe':
+      // Try to load the library and check if that worked.
+      if (($library = libraries_load('eventbrite')) && !empty($library['loaded'])) {
+        // Do something with the library here.
+        $eb_client = new Eventbrite(array(
+          'app_key' => variable_get('eventbrite_app_key', ''),
+          'user_key' => variable_get('eventbrite_user_key', ''),
+        ));
+        foreach ($items as $delta => $item) {
+          // Give us an embedded iFrame of the eventbrite page.
+          try {
+            $resp = $eb_client->event_get(array('id' => $item['value']));
+            $element[$delta] = array(
+              '#markup' => Eventbrite::ticketWidget(
+                $resp->event, eventbritefield_calculate_iframe($resp->event)
+              ),
+            );
+          }
+          catch (Exception $e) {
+            // Let's not do anything for now.
+          }
+        }
+      }
+      break;
+
+    case 'eventbrite_url':
+      foreach ($items as $delta => $item) {
+        // Print out a link going to the site.
+        if ($item['value']) {
+          $element[$delta] = array(
+            '#type' => 'link',
+            '#title' => t('Register Now'),
+            '#href' => 'http://www.eventbrite.com/event/' . $item['value'],
+          );
+        }
+      }
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Make a guess about how big the iframe should be.
+ *
+ * Lets do some funky iframe math based on what we know as our solid grid. Yah
+ * this is horrible for many reasons, but at least we get a semi-functional
+ * iframe and not something with a bunch of white space or scroll bars.
+ *
+ * @params stdObject $event
+ *   Event object.
+ *
+ * @return string
+ *   A height value for the HTML iframe declaration.
+ */
+function eventbritefield_calculate_iframe($event) {
+  $cost = 0;
+  $base_size = 140;
+  foreach ($event->tickets as $tickets) {
+    $ticket = $tickets->ticket;
+    if ($ticket->visible == 'true') {
+      $desc_size = 0;
+      $title_size = 0;
+      $cost += $ticket->price;
+
+      if ($ticket->description != '') {
+        // The magic really happens here -- we estimate on a full length page, a
+        // description can go 12 words before wrapping make smaller if your
+        // eventbrite section is smaller. We really should make this dynamic.
+        $desc_size = ceil((int) count(explode(' ', $ticket->description)) / 12);
+      }
+      // Like description, this too has a decent size for a full width page. 6
+      // should be enough before wrapping.
+      $title_size = ceil((int) count(explode(' ', $ticket->name)) / 6);
+
+      // All line items need at least 30px. We take away one title size to count
+      // for the 30px. Descriptions and additional titles are 10px ea.
+      $base_size += 42 + ($desc_size * 10) + (($title_size - 1) * 10);
+    }
+  }
+  // If the event is not free, there is an additional footer that costs 50px.
+  if ($cost > 0) {
+    $base_size += 50;
+  }
+  // Add a small margin. Better a teeny bit too big.
+  $base_size *= 1.15;
+  return $base_size . 'px';
+}
+
+/**
+ * Implements hook_field_widget_error().
+ */
+function eventbritefield_field_widget_error($element, $error, $form, &$form_state) {
+  form_error($element, $error['message']);
+}

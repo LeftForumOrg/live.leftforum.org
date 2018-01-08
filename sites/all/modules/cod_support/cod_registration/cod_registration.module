@@ -1,0 +1,247 @@
+<?php
+/**
+ * @file
+ * Code for the cod_registration feature.
+ */
+
+include_once 'cod_registration.features.inc';
+include_once 'cod_registration.admin.inc';
+module_load_include('admin.inc','ticket', 'includes/ticket_registration');
+
+/*
+ * COD Registration initial page
+ */
+function cod_registration_menu() {
+
+  // Change the tickets page to move configuration there.
+  $items['admin/conference/%node/tickets/add'] = array(
+    'title' => 'Add Ticket',
+    'type' => MENU_LOCAL_ACTION,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ticket_type_edit_form', new TicketTypeEntity(array('field_name' => 'field_event_tickets')), 2),
+    'access arguments' => array('administer ticket'),
+    'file path' => drupal_get_path('module', 'ticket') . '/includes',
+    'file' => 'ticket_type.admin.inc',
+   );
+
+  $items['admin/conference/%node/tickets/checkin/%ticket_registration'] = array(
+    'title'             => 'Ticket Check-in',
+    'access arguments' => array('edit all ticket registrations'),
+    'page callback'     => 'drupal_get_form',
+    'page arguments'    => array('cod_registration_checkin_form', 2, 5),
+    'type'              => MENU_CALLBACK,
+  );
+
+  $items['v/%ticket_registration/%'] = array(
+    'title'             => 'vcard',
+    'access arguments' => array('access content'),
+    'page callback'     => 'cod_registration_vcard_page',
+    'page arguments'    => array(1, 2),
+    'type'              => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function cod_registration_theme() {
+  return array (
+    'cod_registration_pdf' => array(
+      'variables' => array('content' => NULL),
+      'template' => 'cod-registration-pdf',
+    ),
+  );
+}
+
+/**
+ * Generates second form.
+ *
+ * @ingroup forms
+ */
+function cod_registration_checkin_form($form, &$form_state, $event, $ticket_registration) {
+  global $user;
+  module_load_include('inc', 'cod_registration', 'cod_registration.print');
+
+  // Attach the fields for this ticket registration.
+  $form_state['entity_type'] = 'ticket_registration';
+  $form_state['ticket_registration'] = $ticket_registration;
+  field_attach_form('ticket_registration', $ticket_registration, $form, $form_state);
+
+  if (!user_access('administer ticket states')) {
+    $form['state']['#access'] = FALSE;
+    $form['state_display'] = array(
+      '#type' => 'item',
+      '#title' => 'Registration State',
+      '#markup' => $form['state']['#default_value'],
+    );
+  }
+
+  $form['checkin_registrar'] = array(
+    '#type' => 'value',
+    '#value' => $user->uid,
+  );
+
+  $form['checkin_time'] = array(
+    '#type' => 'value',
+    '#value' => time(),
+  );
+
+  $form['field_event'] = array(
+    '#type' => 'value',
+    '#value' => $event->nid,
+  );
+
+  $form['print'] = array(
+    '#type' => 'submit',
+    '#value' => t('Print Badge'),
+    '#submit' => array('cod_registration_checkin_submit', 'cod_registration_confirmation_print_submit'),
+    '#weight' => 101,
+  );
+  $form['noprint'] = array(
+    '#type' => 'submit',
+    '#value' => t('Check-in'),
+    '#weight' => 102,
+  );
+
+  //custom submit functions for some sanity checking. Probably could use some more sanity
+  //nothing we really need to validate at this point
+  $form['#submit'][] = 'cod_registration_checkin_submit';
+
+
+  return $form;
+}
+
+function cod_registration_checkin_submit($form, &$form_state) {
+  // Set the form state to checked in.
+  $form_state['values']['state'] = 'checked_in';
+  // Redirect back to the checkin page.
+  $form_state['redirect'] = 'node/' . $form_state['values']['field_event'] . '/registration/checkin';
+
+  // Only save if the user was not checked in yet.
+  if ($form['#entity']->state == $form_state['values']['state']) {
+    drupal_set_message("You're already checked in");
+    return;
+  }
+
+  module_load_include('inc', 'ticket', 'includes/ticket_registration.admin');
+  ticket_registration_form_submit($form, $form_state);
+}
+
+function cod_registration_vcard_page($registration, $vcard_file) {
+  $encoding = explode('.', $vcard_file);
+
+  if ($encoding[0] == base64_encode(crc32($registration->created.$registration->trid))) {
+    if ($vcard = cod_registration_get_vcard($registration)) {
+      print $vcard->fetch() . '\n';
+      exit;
+    }
+  }
+  return MENU_NOT_FOUND;
+}
+
+function cod_registration_get_vcard($registration) {
+  $account = user_load($registration->user_uid);
+  $vcard = _vcard_init();
+  $vcard->addParam('ENCODING', '8BIT');
+
+  if (isset($registration->field_profile_first[LANGUAGE_NONE][0]) || $registration->field_profile_last[LANGUAGE_NONE][0]) {
+    $vcard->setName($registration->field_profile_last[LANGUAGE_NONE][0]['safe_value'], $registration->field_profile_first[LANGUAGE_NONE][0]['safe_value'], '', '', '');
+    $vcard->addParam('ENCODING', '8BIT');
+    $vcard->setFormattedName($registration->field_profile_first[LANGUAGE_NONE][0]['safe_value'] . ' ' . $registration->field_profile_last[LANGUAGE_NONE][0]['safe_value']);
+    $vcard->addParam('ENCODING', '8BIT');
+  }
+  else {
+    $vcard->setName(check_plain($account->name), '', '', '', '');
+    $vcard->addParam('ENCODING', '8BIT');
+    $vcard->setFormattedname(check_plain($account->name));
+    $vcard->addParam('ENCODING', '8BIT');
+  }
+
+  if ($registered_account = user_load($registration->user_uid)) {
+    $vcard->addEmail(check_plain($registered_account->mail));
+    $vcard->addParam('ENCODING', '8BIT');
+  }
+
+  // Organization
+  if (isset($registration->field_profile_org[LANGUAGE_NONE][0])) {
+    $vcard->addOrganization($registration->field_profile_org[LANGUAGE_NONE][0]['safe_value']);
+    $vcard->addParam('ENCODING', '8BIT');
+  }
+
+  // Job Title
+  if (isset($registration->field_profile_job_title[LANGUAGE_NONE][0])) {
+    $vcard->setTitle($registration->field_profile_job_title[LANGUAGE_NONE][0]['safe_value']);
+    $vcard->addParam('ENCODING', '8BIT');
+  }
+
+  // Phone Number
+  if (isset($registration->field_profile_phone[LANGUAGE_NONE][0])) {
+    $vcard->setTitle($registration->field_profile_phone[LANGUAGE_NONE][0]['safe_value']);
+    $vcard->addParam('ENCODING', '8BIT');
+  }
+
+  // Picture
+  if (isset($account->picture->uri)) {
+    $filepath = file_create_url($account->picture->uri);
+    $vcard->setPhoto($filepath);
+    $vcard->addParam('VALUE', 'uri');
+    $vcard->addParam('ENCODING', '8BIT');
+  }
+
+  $vcard->addNickname(check_plain($account->name));
+  $vcard->addParam('ENCODING', '8BIT');
+
+  // Address
+  $location = $account->field_profile_location[LANGUAGE_NONE][0];
+
+  $street   = isset($location['thoroughfare'])   ? $location['thoroughfare']   : '';
+  $city     = isset($location['locality'])     ? $location['locality']     : '';
+  $province = isset($location['administrative_area']) ? $location['administrative_area'] : '';
+  $postal   = isset($location['postal_code'])   ? $location['postal_code']   : '';
+  $country  = isset($location['country_name'])  ? $location['country_name']  : '';
+  $vcard->addAddress('', '', $street, $city, $province, $postal, $country);
+  $vcard->addParam('ENCODING', '8BIT');
+
+  return $vcard;
+}
+
+/**
+ * Implements hook_form_alter().
+ * Remove tickets from the event edit form.
+ */
+function cod_registration_form_event_node_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#node_edit_form']) && isset($form['field_event_tickets'])) {
+    drupal_set_message(t("Ticket configuration has moved to the !tickets tab.", array('!tickets' => l('tickets', 'admin/conference/'.$form['nid']['#value'] .'/tickets'))));
+    $form['field_event_tickets']['#access'] = FALSE;
+  }
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ *
+ * Redirect users saving tickets back to the tickets management page.
+ */
+function cod_registration_form_ticket_type_edit_form_alter(&$form, &$form_state, $form_id) {
+  $form['field_event_tickets'][LANGUAGE_NONE][$form_state['field_delta']]['submit']['#submit'][] = 'cod_registration_form_ticket_type_edit_submit';
+}
+
+function cod_registration_form_ticket_type_edit_submit($form, &$form_state) {
+  $form_state['redirect'] = 'admin/conference/' . $form_state['node']->nid . '/tickets';
+}
+
+/**
+ * Disable mollom for Application requests.
+ */
+function cod_registration_form_alter(&$form, &$form_state, $form_id) {
+  // Strip out mollom only for api user creation requests.
+  // TODO: Security by obscurity, this should have some type of trusted application token added.
+  if ($form_id == 'user_register_form' && $form['#action'] == '/api/login/user/register') {
+    $form['#validate'][] = 'cod_registration_user_register_validate';
+  }
+}
+
+function cod_registration_user_register_validate(&$form, &$form_state) {
+  // Remove mollom validation.
+  $form_state['mollom']['require_captcha'] = false;
+  $form_state['mollom']['require_analysis'] = false;
+}

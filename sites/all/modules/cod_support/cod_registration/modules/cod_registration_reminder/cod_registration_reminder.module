@@ -1,0 +1,133 @@
+<?php
+/**
+ * @file
+ * Code for the cod_registration_reminder feature.
+ */
+
+include_once 'cod_registration_reminder.features.inc';
+
+/**
+ * On cron, send out reminders.
+ */
+function cod_registration_reminder_cron() {
+  cod_registration_reminder_send_mail();
+}
+
+/**
+ * @param $conference
+ *
+ * Returns all registrations that exist in the reservation table
+ */
+function cod_registration_reminder_get($conference, $interval) {
+  $result = db_query("SELECT tres.trid AS id, tres.ticket_code AS code, tres.mail AS mail, tr.user_uid AS uid
+  FROM {ticket_reservation} tres
+  INNER JOIN {ticket_registration} tr on tres.trid = tr.trid
+  INNER JOIN {ticket_type} t on tr.bundle = t.ttid
+  WHERE t.entity_id = :event_id AND (tres.mail != '' OR tr.user_uid != 0) AND tres.reminder_date < :interval_ts", array(':event_id' => $conference->nid, ':interval_ts' => $interval));
+
+  $emails = array();
+  foreach ($result AS $record) {
+    $email = new stdClass();
+    // check if there is an email first
+    if (!empty($record->mail)) {
+      $email->mail = $record->mail;
+      $email->code = $record->code;
+      $email->trid = $record->id;
+      $emails[] = $email;
+    }
+    // Otherwise, use the account's email
+    else {
+      $account = user_load($record->uid);
+      if (!empty($account->mail)) {
+        $email->mail = $account->mail;
+        $email->account = $account;
+        $email->code = $record->code;
+        $email->trid = $record->id;
+        $emails[] = $email;
+      }
+    }
+  }
+  return $emails;
+}
+
+function cod_registration_reminder_send_mail() {
+  // Get current active events.
+  $events = cod_events_get_active_events();
+
+  foreach ($events AS $conference) {
+    $email_template = cod_email_get_template($conference, 'ticket_reminder');
+
+    // Found a template! load it.
+    if ($email_template) {
+      // Drop out if this conference doesn't have its reminders enabled yet.
+      $reminder = $email_template->field_reminder_enabled->value();
+      if(empty($reminder) || $reminder == 0) {
+        return;
+      }
+
+      $from = $email_template->field_email_from->value();
+      $from = !empty($from) ? str_replace(array(
+        "\r",
+        "\n"
+      ), '', $from) : NULL;
+
+      // Tokens
+      // Get full vs plaintext email
+      $body = $email_template->field_email_body->value();
+      if ($body['format'] == 'full_html' || $body['format'] == 'filtered_html') {
+        // Process full html
+        $body_template = $body['value'];
+        $plaintext = FALSE;
+      }
+      else {
+        $body_template = $body['value'];
+        $plaintext = TRUE;
+      }
+      // Set some sane defaults incase the interval isn't set.
+      $interval_array = $email_template->field_reminder_interval->value();
+      $interval = '-' . (isset($interval_array['interval']) ? $interval_array['interval'] : '7') . ' ' . (!empty($interval_array['period']) ? $interval_array['period'] : 'days');
+      $interval = strtotime($interval);
+      $emails = cod_registration_reminder_get($conference, $interval);
+      foreach ($emails AS $email) {
+        $to = str_replace(array("\r", "\n"), '', $email->mail);
+
+        // We only have a limited set of tokens we can send for reminders. The
+        // Ticket Registration, Conference, and Reservation.
+        $data = array(
+          'ticket_registration' => ticket_registration_load($email->trid),
+          'conference' => $conference,
+        );
+        $subject = token_replace($email_template->field_email_subject->value(), $data);
+        $body = token_replace($body_template, $data);
+
+        $params = array(
+          'subject' => $subject,
+          'body' => $body,
+          'plain' => !empty($plaintext),
+          'headers' => array(
+            'cc' => trim($email_template->field_email_cc->value()),
+            'bcc' => trim($email_template->field_email_bcc->value()),
+          ),
+          'context' => array(
+            'subject' => $subject,
+            'body' => $body,
+          ),
+        );
+
+        // Set a unique key for this mail.
+        $key = 'cod_email_' . $email->trid . '_' . time();
+        $languages = language_list();
+        $language = isset($languages[$email_template->language->value()]) ? $languages[$email_template->language->value()] : language_default();
+
+        $message = drupal_mail('cod_email', $key, $to, $language, $params, $from);
+        if ($message['result']) {
+          db_update('ticket_reservation')
+            ->fields(array('reminder_date' => time()))
+            ->condition('trid', $email->trid)
+            ->execute();
+          watchdog('cod_email', 'Successfully sent email to %recipient', array('%recipient' => $to));
+        }
+      }
+    }
+  }
+}

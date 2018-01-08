@@ -1,0 +1,13 @@
+name = Commerce iATS USB Card Reader
+description = Adds support for an encrypted USB card reader to Commerce iATS.
+package = Commerce (contrib)
+dependencies[] = commerce_cardonfile
+dependencies[] = commerce_iats
+
+core = 7.x
+; Information added by Drupal.org packaging script on 2016-10-07
+version = "7.x-2.12"
+core = "7.x"
+project = "commerce_iats"
+datestamp = "1475798940"
+

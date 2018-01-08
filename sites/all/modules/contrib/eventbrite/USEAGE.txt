@@ -1,0 +1,79 @@
+Useage for the Eventbrite Drupal module and Eventbrite field.
+======
+
+This documentation only deals with the Eventbrite and Eventbrite field modules.
+The OG and Subuser modules are not covered here.
+
+First, be sure both the Eventbrite and Eventbrite field modules are enabled.
+
+You should also make sure the Eventbrite.php library is installed.
+
+And thirdly, we assume that you already have an Eventbrite account, that you've
+applied for an API key and gotten it, and that you have an event set up on
+Eventbrite.com.
+
+Go to the page for your event on Eventbrite.com. It might have a URL like this:
+https://www.eventbrite.com/myevent?eid=12263463349
+
+The 'eid' parameter is the ID of your event. Make note of it.
+
+Eventbrite API
+==============
+
+Let's set up Drupal to use our API key, and thus connect it to our account.
+
+If you haven't yet, apply for an Eventbrite API key. Once you have one, you can
+get to it at this URL: https://www.eventbrite.com/myaccount/apps/
+
+You'll also need your Eventbrite API User Key. This is different from your
+regular user name. You can get it at this URL:
+https://www.eventbrite.com/userkeyapi
+
+Now visit your web site's Eventbrite configuration page at this path:
+admin/config/services/eventbrite
+
+Here you'll see the API settings tab. This is where you enter your API key and
+user key. Remember to click 'Save Configuration.'
+
+Eventbrite Field
+================
+
+Now we'll add the Eventbrite field to a content type. We'll just use the Article
+content type for now.
+
+We'll manage the Article fields here:
+admin/structure/types/manage/article/fields
+
+At the bottom, add a new field. We'll label it 'Eventbrite Field,' because we're not
+very creative.
+
+Set the field type to 'Eventbrite', and the widget to 'Autocomplete Event ID'.
+
+Click 'Save,' and we'll just use the defaults for all of the field settings for
+now.
+
+How click the 'Manage Display' tab, or just go to this path:
+admin/structure/types/manage/article/display
+
+Change the 'Format' of the Eventbrite field to 'Eventbrite iFrame.' Click 'Save.'
+
+Congratulations. You've attached an Eventbrite field to a content type.
+
+Enter Some Data
+===============
+
+Add an Article. You could use a path like this: node/add/article
+
+Be sure and enter required fields, like the title.
+
+If you scroll down the Article form, you'll see your Eventbrite Field.
+
+Enter the eid (event ID) parameter you noted above.
+
+Check out that Drupal will attempt to autocomplete the event ID number as you
+type it.
+
+Now click 'Save.'
+
+You will see your new article content, with a nice iframe display of the
+Eventbrite event.
