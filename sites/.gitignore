@@ -1,0 +1,16 @@
+# Ignore configuration files that may contain sensitive information.
+/*/settings*.php
+
+# Ignore paths that contain user-generated content.
+/*/files/
+/*/private/
+
+# Ignore SimpleTest multi-site environment.
+simpletest
+
+# Ignore contributed packages.
+#/*/drush/
+#/*/modules/contrib/
+#/*/themes/contrib/
+#/*/profiles/contrib/
+#/*/libraries/
