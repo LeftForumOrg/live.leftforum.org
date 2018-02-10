@@ -27,6 +27,7 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/preserve-paths": "^0.1",
+        "drupal/composer_autoloader": "^1.2",
         "drush/drush": "~8.0",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
@@ -72,7 +73,10 @@
         },
         "installer-paths": {
             "profiles/{$name}/": ["type:drupal-profile"],
-            "sites/all/drush/{$name}/": ["type:drupal-drush"]
+            "sites/all/drush/{$name}/": ["type:drupal-drush"],
+            "sites/all/libraries/{$name}/": ["type:drupal-library"],
+            "sites/all/modules/contrib/{$name}/": ["type:drupal-module"],
+            "sites/all/themes/contrib/{$name}/": ["type:drupal-theme"]
         },
         "preserve-paths": [
             "sites/all/libraries",

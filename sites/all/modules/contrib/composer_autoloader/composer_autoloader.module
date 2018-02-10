@@ -7,8 +7,8 @@
  */
 function composer_autoloader_boot() {
 
-  // Define the default path to the composer autoloader.
-  $default = DRUPAL_ROOT . '/vendor/autoload.php';
+  // Define the default path to the  composer autoloader.
+  $default = DRUPAL_ROOT . '/../vendor/autoload.php';
 
   // Allow the path to be modified by $conf.
   $autoloader = variable_get('composer_autoloader', $default);
