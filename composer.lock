@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b74c29caaada86f4a77024d486a7ee19",
+    "content-hash": "14d51d233df43e845fe021e6fc9ea1bd",
     "packages": [
         {
             "name": "composer/installers",
@@ -359,6 +359,93 @@
                 "nested package"
             ],
             "time": "2017-02-03T11:32:31+00:00"
+        },
+        {
+            "name": "drupal/ckeditor",
+            "version": "1.18.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ckeditor",
+                "reference": "7.x-1.18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ckeditor-7.x-1.18.zip",
+                "reference": "7.x-1.18",
+                "shasum": "0c2f1ef0912de305f393f1d06258841a704c9bf9"
+            },
+            "require": {
+                "drupal/drupal": "~7.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "7.x-1.18",
+                    "datestamp": "1498506242",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/7/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jorrit",
+                    "homepage": "https://www.drupal.org/user/161217"
+                },
+                {
+                    "name": "Magnus",
+                    "homepage": "https://www.drupal.org/user/73919"
+                },
+                {
+                    "name": "Wim Leers",
+                    "homepage": "https://www.drupal.org/user/99777"
+                },
+                {
+                    "name": "dczepierga",
+                    "homepage": "https://www.drupal.org/user/911466"
+                },
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/user/85918"
+                },
+                {
+                    "name": "jcisio",
+                    "homepage": "https://www.drupal.org/user/210762"
+                },
+                {
+                    "name": "mkesicki",
+                    "homepage": "https://www.drupal.org/user/922884"
+                },
+                {
+                    "name": "nod_",
+                    "homepage": "https://www.drupal.org/user/598310"
+                },
+                {
+                    "name": "p.wiaderny",
+                    "homepage": "https://www.drupal.org/user/2956619"
+                },
+                {
+                    "name": "vokiel",
+                    "homepage": "https://www.drupal.org/user/2793801"
+                },
+                {
+                    "name": "wwalc",
+                    "homepage": "https://www.drupal.org/user/184556"
+                }
+            ],
+            "description": "Enables CKEditor (WYSIWYG HTML editor) for use instead of plain text fields.",
+            "homepage": "https://www.drupal.org/project/ckeditor",
+            "support": {
+                "source": "http://cgit.drupalcode.org/ckeditor"
+            }
         },
         {
             "name": "drupal/composer_autoloader",

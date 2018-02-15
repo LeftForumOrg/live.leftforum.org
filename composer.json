@@ -27,6 +27,7 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/preserve-paths": "^0.1",
+        "drupal/ckeditor": "^1.18",
         "drupal/composer_autoloader": "^1.2",
         "drush/drush": "~8.0",
         "webflo/drupal-finder": "^1.0.0",
