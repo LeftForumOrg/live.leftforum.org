@@ -246,9 +246,6 @@
  */
 $databases = array();
 
-// Changing 'composer_autoloader' autoload path
-$conf['composer_autoloader'] = DRUPAL_ROOT . '/vendor/autoload.php';
-
 /**
  * Access control for update.php script.
  *
