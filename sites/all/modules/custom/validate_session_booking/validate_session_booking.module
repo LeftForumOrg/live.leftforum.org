@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function validate_session_booking_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == "session_node_form") {
+    $form['#validate'][] = 'validate_session_booking_form_validate';
+  }
+}
+
+function validate_session_booking_form_validate($form, &$form_state) {
+  // get defaults
+  $defaultRoom = isset($form['field_room'][LANGUAGE_NONE]['#default_value']) ? $form['field_room'][LANGUAGE_NONE]['#default_value'] : NULL;
+  $defaultSlot = isset($form['field_timeslot'][LANGUAGE_NONE]['#default_value']) ? $form['field_timeslot'][LANGUAGE_NONE]['#default_value'] : NULL;
+
+  // get submitted values
+  $room = $form_state['values']['field_room'][LANGUAGE_NONE][0]['target_id'];
+  $slot = $form_state['values']['field_timeslot'][LANGUAGE_NONE][0]['target_id'];
+
+  if (($defaultDate != $date) || ($defaultRoom != $room) || ($defaultSlot != $slot)) {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+      ->entityCondition('bundle', 'session')
+      ->fieldCondition('field_room', 'target_id', $room, '=')
+      ->fieldCondition('field_timeslot', 'target_id', $slot, '=');
+
+    $result = $query->execute();
+    if (isset($result['node'])) {
+      form_set_error('field_room', t('This room has already been booked for the same timeslot on the same day.'));
+    }
+  }
+}
+
+function validate_session_booking_views_query_alter( &$view, &$query ) {
+  if ($view->name == "Programs") {
+    $view->query->orderby[0]['field'] =
+      "ISNULL(field_data_field_timeslot.field_timeslot_target_id), field_data_field_timeslot.field_timeslot_target_id";
+    $view->query->orderby[1]['field'] =
+      "ISNULL(field_data_field_room.field_room_target_id), field_data_field_room.field_room_target_id";
+  }
+}
+
+/**
+* Preprocesses the wrapping HTML.
+*
+* @param array &$variables
+*   Template variables.
+*/
+function validate_session_booking_preprocess_html(&$vars) {
+  if ($node = menu_get_object()) {
+    if ($node->type != 'session') {
+      return;
+    }
+  }
+  $titlemeta = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'property' => 'og:title',
+      'content' => $node->title,
+    ),
+  );
+  
+  drupal_add_html_head($titlemeta, 'og_title');
+
+  if (isset($node->field_abstract)) {
+    $descmeta = array(
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'property' => 'og:description',
+        'content' => $node->field_abstract[LANGUAGE_NONE][0]['value'],
+      ),
+    );
+
+    drupal_add_html_head($descmeta, 'og_description');
+  } 
+}
+
+function validate_session_booking_translated_menu_link_alter(&$item, $map) {
+  global $user;
+  if ($item['href'] == 'user') {
+    $item['title'] = t($user->name);
+  }
+}

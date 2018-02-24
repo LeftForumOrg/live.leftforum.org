@@ -1,0 +1,20 @@
+#edit-secondary-wrapper {
+  clear: both;
+  width: 1103px;
+}
+
+.rounded-corner {
+  width: 200px;
+  height: 200px;
+  float: right;
+}
+
+.panel-information {
+  display: block;
+  clear: both;
+  line-height: 1;
+}
+
+.panel-info-image {
+  float: right;
+}
