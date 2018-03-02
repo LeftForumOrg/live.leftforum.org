@@ -1,0 +1,25 @@
+/**
+ * Place your custom styles here.
+ */
+
+#navbar, .footer {
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  #navbar, .footer {
+    padding: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  #navbar, .footer {
+    padding: 28px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #navbar, .footer {
+    padding: 30px;
+  }
+}

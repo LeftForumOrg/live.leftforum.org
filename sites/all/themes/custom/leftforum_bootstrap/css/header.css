@@ -1,0 +1,111 @@
+.navbar-header .navbar-btn {
+  margin: 0px;
+}
+
+.navbar-header img {
+  height: 60px;
+}
+
+.navbar-nav {
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.navbar-nav > li > a {
+  line-height: 30px;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  text-transform: none;
+}
+
+.navbar-nav.secondary,
+.block-bootstrap-login-modal {
+  float: right;
+}
+
+.navbar-nav.secondary > li,
+.block-bootstrap-login-modal > .navbar-nav > li {
+  display: inline-block;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-nav {
+    float: right;
+    clear: right;
+  }
+}
+
+/*
+ * Formula for calculating navbar padding (since it nests a container within
+ * the header region container):
+ * (#navbar .container){width} = .container{width} - 2 * #navbar{padding}
+ */
+@media (min-width: 768px) {
+  #navbar .container {
+    width: 700px;
+    padding: 0px;
+  }
+
+  .navbar-collapse {
+    float: right;
+    padding-right: 0px;
+  }
+
+  .navbar-nav > li > a {
+    font-size: 17px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .navbar-default .navbar-nav:hover,
+  .navbar-default .navbar-nav:focus {
+    background-color: transparent;
+    box-shadow: 0px 6px 2px -5px black, 0px -6px 2px -5px black;
+  }
+  
+  .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+    background-color: transparent;
+  }
+  
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    color: #ef483e;
+  }
+
+  .navbar-default .navbar-nav > .active > a {
+    background-color: transparent;
+  }
+
+  .navbar-nav.secondary,
+  .block-bootstrap-login-modal > .navbar-nav {
+    text-transform: lowercase;
+  }
+}
+
+@media (min-width: 992px) {
+  #navbar .container {
+    width: 914px;
+  }
+
+  .navbar-nav > li > a {
+    font-size: 17px;
+    line-height: 60px;
+  }
+
+  .region-navigation {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1200px) {
+  #navbar .container {
+    width: 1110px;
+  }
+
+  .navbar-nav > li > a {
+    font-size: 18px;
+  }
+}

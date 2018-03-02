@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'GillSans-Bold';
+  src: url('GillSans-Bold.eot');
+  src: url('GillSans-Bold.ttf') format('truetype'),
+       url('GillSans-Bold.svg#GillSans-Bold') format('svg'),
+       url('GillSans-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans-BoldItalic';
+  src: url('GillSans-BoldItalic.eot');
+  src: url('GillSans-BoldItalic.ttf') format('truetype'),
+       url('GillSans-BoldItalic.svg#GillSans-BoldItalic') format('svg'),
+       url('GillSans-BoldItalic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans-Italic';
+  src: url('GillSans-Italic.eot');
+  src: url('GillSans-Italic.ttf') format('truetype'),
+       url('GillSans-Italic.svg#GillSans-Italic') format('svg'),
+       url('GillSans-Italic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans-Light';
+  src: url('GillSans-Light.eot');
+  src: url('GillSans-Light.ttf') format('truetype'),
+       url('GillSans-Light.svg#GillSans-Light') format('svg'),
+       url('GillSans-Light.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans-LightItalic';
+  src: url('GillSans-LightItalic.eot');
+  src: url('GillSans-LightItalic.ttf') format('truetype'),
+       url('GillSans-LightItalic.svg#GillSans-LightItalic') format('svg'),
+       url('GillSans-LightItalic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans-SemiBold';
+  src: url('GillSans-SemiBold.eot');
+  src: url('GillSans-SemiBold.ttf') format('truetype'),
+       url('GillSans-SemiBold.svg#GillSans-SemiBold') format('svg'),
+       url('GillSans-SemiBold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans-SemiBoldItalic';
+  src: url('GillSans-SemiBoldItalic.eot');
+  src: url('GillSans-SemiBoldItalic.ttf') format('truetype'),
+       url('GillSans-SemiBoldItalic.svg#GillSans-SemiBoldItalic') format('svg'),
+       url('GillSans-SemiBoldItalic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans-UltraBold';
+  src: url('GillSans-UltraBold.eot');
+  src: url('GillSans-UltraBold.ttf') format('truetype'),
+       url('GillSans-UltraBold.svg#GillSans-UltraBold') format('svg'),
+       url('GillSans-UltraBold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans';
+  src: url('GillSans.eot');
+  src: url('GillSans.ttf') format('truetype'),
+       url('GillSans.svg#GillSans') format('svg'),
+       url('GillSans.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
