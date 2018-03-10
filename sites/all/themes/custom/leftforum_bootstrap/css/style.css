@@ -23,3 +23,15 @@
     padding: 30px;
   }
 }
+
+.main-container.container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+@media (max-width: 767px) {
+  .main-container.container > .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

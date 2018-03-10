@@ -19,6 +19,14 @@ function leftforum_bootstrap_preprocess_node(&$vars, $hook) {
   );
 }
 
+function leftforum_bootstrap_preprocess_views_view(&$vars) {
+  // Add view-specific css
+  drupal_add_css(
+    path_to_theme() . '/css/view/' . $vars['name'] . '.css',
+    array('type' => 'file', 'group' => CSS_THEME, 'every_page' => FALSE)
+  );
+}
+
 function leftforum_bootstrap_status_messages($variables) {
   $display = $variables['display'];
   $output = '';
