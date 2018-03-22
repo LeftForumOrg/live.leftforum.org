@@ -35,3 +35,26 @@
     margin-right: 0px;
   }
 }
+
+/* added Bootstrap */
+.bg-default {
+  color: #fff;
+  background-color: #222222;
+}
+a.bg-default:hover,
+a.bg-default:focus {
+  background-color: #090909;
+}
+
+.bg-secondary {
+  color: #ff3e33;
+  background-color: #fff;
+}
+
+.btn-secondary {
+  color: #ff3e33;
+  background-color: #fff;
+}
+.btn-secondary:hover {
+  color: #e50c00;
+}
