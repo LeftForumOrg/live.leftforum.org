@@ -1,0 +1,38 @@
+{
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/dw72/plupload/"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "codemirror/codemirror",
+                "type": "library",
+                "version": "5.36.1",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/codemirror/CodeMirror/",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "codemirror/codemirror": "^5.36",
+        "cweagans/composer-patches": "^1.6",
+        "iatspayments/php": "^2.1",
+        "kigkonsult/icalcreator": "dev-master#e3dbec2cb3bb91a8bde989e467567ae8831a4026",
+        "moxiecode/plupload": "dev-no-examples",
+        "phpmailer/phpmailer": "~5.2"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "aliases": {
+            "iatspayments/php": "iatspayments",
+            "kigkonsult/icalcreator": "iCalcreator"
+        }
+    }
+}

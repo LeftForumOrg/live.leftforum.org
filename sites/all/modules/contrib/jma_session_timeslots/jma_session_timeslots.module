@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the JMA Session Timeslots feature.
- */
-
-include_once 'jma_session_timeslots.features.inc';

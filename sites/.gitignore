@@ -1,3 +1,6 @@
+# Ignore multi-site configuration.
+/sites.php
+
 # Ignore configuration files that may contain sensitive information.
 /*/settings*.php
 
@@ -5,12 +8,14 @@
 /*/files/
 /*/private/
 
-# Ignore SimpleTest multi-site environment.
-simpletest
+# Ignore packages managed by composer.
+/*/drush/
+/*/modules/contrib/
+/*/themes/contrib/
 
-# Ignore contributed packages.
-#/*/drush/
-#/*/modules/contrib/
-#/*/themes/contrib/
-#/*/profiles/contrib/
-#/*/libraries/
+# Ignore all libraries
+/*/libraries/*
+
+# Do not ignore these library exceptions
+!/*/libraries/composer.json
+

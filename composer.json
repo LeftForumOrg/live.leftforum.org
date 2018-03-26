@@ -27,11 +27,141 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/preserve-paths": "^0.1",
+        "drupal/addressfield": "^1.2",
+        "drupal/admin_menu": "^3.0@RC",
+        "drupal/adminimal_admin_menu": "^1.9",
+        "drupal/adminimal_theme": "^1.24",
+        "drupal/advanced_help": "^1.3",
+        "drupal/auto_entitylabel": "^1.4",
+        "drupal/auto_nodetitle": "^1.0",
+        "drupal/autoassignrole": "^1.0",
+        "drupal/backup_migrate": "^3.5",
+        "drupal/better_exposed_filters": "^3.5",
+        "drupal/block_class": "^2.3",
+        "drupal/bootstrap": "^3.19",
+        "drupal/bootstrap_login_modal": "^3.2",
+        "drupal/calendar": "^3.5",
+        "drupal/captcha": "^1.5",
         "drupal/ckeditor": "^1.18",
+        "drupal/ckeditor_link": "^2.4",
+        "drupal/cod_support": "^2.0",
+        "drupal/coffee": "^2.3",
+        "drupal/commerce": "1.13",
+        "drupal/commerce_billy": "^1.0",
+        "drupal/commerce_billy_mail": "^1.0",
+        "drupal/commerce_coupon": "^2.0",
+        "drupal/commerce_currency": "^1.0",
+        "drupal/commerce_discount": "^1.0@beta",
+        "drupal/commerce_event_ticket": "^1.0@beta",
+        "drupal/commerce_features": "^1.3",
+        "drupal/commerce_iats": "^2.13",
         "drupal/composer_autoloader": "^1.2",
-        "drush/drush": "~8.0",
+        "drupal/conditional_fields": "^3.0@alpha",
+        "drupal/content_access": "^1.2@beta",
+        "drupal/content_type_clone": "1.x-dev",
+        "drupal/cpn": "^1.7",
+        "drupal/css_injector": "^1.10",
+        "drupal/ctools": "1.12",
+        "drupal/date": "^2.10",
+        "drupal/date_ical": "^3.9",
+        "drupal/devel": "^1.5",
+        "drupal/diff": "^3.3",
+        "drupal/distro_update": "^1.0@beta",
+        "drupal/draggableviews": "^2.1",
+        "drupal/ds": "^2.14",
+        "drupal/eck": "^2.0@RC",
+        "drupal/efq_extra_field": "^1.0@alpha",
+        "drupal/empty_front_page": "^1.0",
+        "drupal/enabled_modules": "^1.0@beta",
+        "drupal/entity": "^1.9",
+        "drupal/entityreference": "^1.5",
+        "drupal/entityreference_autocreate": "^1.1",
+        "drupal/entityreference_autofill": "^1.2",
+        "drupal/entityreference_dragdrop": "^1.4",
+        "drupal/entityreference_prepopulate": "^1.7",
+        "drupal/exclude_node_title": "^1.9",
+        "drupal/facebookshare": "^1.3",
+        "drupal/features": "^2.10",
+        "drupal/features_diff": "^1.0@beta",
+        "drupal/field_collection": "^1.0@beta",
+        "drupal/field_extrawidgets": "^1.1",
+        "drupal/field_formatter_class": "^1.1",
+        "drupal/field_group": "^1.6",
+        "drupal/field_group_multiple": "^1.0@beta",
+        "drupal/field_permissions": "^1.0",
+        "drupal/field_reference": "^1.1",
+        "drupal/field_select_ct": "^1.0",
+        "drupal/field_tools": "^1.0@alpha",
+        "drupal/fieldable_panels_panes": "^1.11",
+        "drupal/file_entity": "^2.16",
+        "drupal/filefield_sources": "^1.11",
+        "drupal/filefield_sources_plupload": "^1.1",
+        "drupal/fivestar": "^2.2",
+        "drupal/flag": "^3.9",
+        "drupal/google_analytics": "^2.4",
+        "drupal/hidden_captcha": "^1.1",
+        "drupal/image_url_formatter": "^1.4",
+        "drupal/imce": "^1.11",
+        "drupal/imce_plupload": "^2.0",
+        "drupal/inline_entity_form": "^1.8",
+        "drupal/jquery_countdown_timer": "^1.7",
+        "drupal/jquery_update": "^2.7",
+        "drupal/libraries": "^2.3",
+        "drupal/link": "^1.4",
+        "drupal/mailsystem": "^2.34",
+        "drupal/media": "^2.16",
+        "drupal/media_oembed": "^2.7",
+        "drupal/menu_block": "^2.7",
+        "drupal/mimemail": "^1.0",
+        "drupal/module_filter": "^2.1",
+        "drupal/multiple_entity_form": "^1.3",
+        "drupal/og": "^2.9",
+        "drupal/og_theme": "^2.0",
+        "drupal/og_vocab": "^1.2",
+        "drupal/opengraph_meta": "^1.3",
+        "drupal/panelizer": "^3.4",
+        "drupal/panels": "^3.9",
+        "drupal/panels_bootstrap_layouts": "^3.0",
+        "drupal/pathauto": "^1.3",
+        "drupal/pet": "^1.0@RC",
+        "drupal/phpmailer": "^3.0@beta",
+        "drupal/plupload": "^1.7",
+        "drupal/popup_announcement": "^1.3",
+        "drupal/quicktabs": "^3.8",
+        "drupal/rules": "^2.10",
+        "drupal/safeword": "^1.13",
+        "drupal/smtp": "^1.7",
+        "drupal/social_share": "^2.5",
+        "drupal/special_menu_items": "^2.0",
+        "drupal/spider_calendar": "^1.5",
+        "drupal/strongarm": "^2.0",
+        "drupal/subpathauto": "^1.3",
+        "drupal/taxonomy_machine_name": "^1.2",
+        "drupal/themekey": "^3.4",
+        "drupal/ticket": "^1.0@beta",
+        "drupal/token": "^1.7",
+        "drupal/usersearchtoadmin": "^1.1",
+        "drupal/views": "3.17",
+        "drupal/views_accordion": "^1.1",
+        "drupal/views_argument_substitutions": "^1.0",
+        "drupal/views_autocomplete_filters": "^1.2",
+        "drupal/views_autorefresh": "^1.0",
+        "drupal/views_bootstrap": "^3.2",
+        "drupal/views_bulk_operations": "^3.4",
+        "drupal/views_data_export": "^3.2",
+        "drupal/views_datasource": "^1.0@alpha",
+        "drupal/views_field_view": "^1.2",
+        "drupal/views_fieldsets": "^2.3",
+        "drupal/views_nested_accordion": "^1.0",
+        "drupal/views_send": "^1.6",
+        "drupal/views_sort_null_field": "^1.0",
+        "drupal/views_system": "^4.1",
+        "drupal/votingapi": "^2.13",
+        "drupal/webform": "^4.16",
+        "drush/drush": "8.*",
         "webflo/drupal-finder": "^1.0.0",
-        "webmozart/path-util": "^2.3"
+        "webmozart/path-util": "^2.3",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "replace": {
         "drupal/drupal": "*"
@@ -46,7 +176,8 @@
     },
     "autoload": {
         "classmap": [
-            "scripts/composer/ScriptHandler.php"
+            "scripts/composer/ScriptHandler.php",
+            "scripts/composer/Libraries.php"
         ]
     },
     "scripts": {
@@ -57,7 +188,8 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalProject\\composer\\Libraries::createSymlinks"
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
@@ -67,9 +199,76 @@
         ]
     },
     "extra": {
+        "merge-plugin": {
+            "require": [
+                "sites/*/libraries/composer.json"
+            ],
+            "recurse": false,
+            "replace": false,
+            "ignore-duplicates": false,
+            "merge-dev": true,
+            "merge-extra": true,
+            "merge-extra-deep": true,
+            "merge-scripts": false
+        },
         "patches": {
             "cweagans/composer-patches": {
-                "Call the preserve paths hooks" : "https://github.com/SebCorbin/composer-patches/commit/1cb9bacba51f8bba0c5f3f322c3bb61e4ceae974.patch"
+                "Call the preserve paths hooks": "https://github.com/SebCorbin/composer-patches/commit/1cb9bacba51f8bba0c5f3f322c3bb61e4ceae974.patch"
+            },
+            "drupal/commerce": {
+                "Add a static cache and context to determine default currency": "https://drupal.org/files/issues/2657718-static_cache_default_currency-1.patch",
+                "Make 'Add to cart' button text a display format setting (configurable at the field level by content type)": "https://drupal.org/files/issues/commerce_cart-button_text-1147690-75.patch",
+                "Possibility to show price difference/total price in attributes Select List / Radio Buttons": "https://drupal.org/files/issues/product_select_options_token_display_alternative-1226466-36.patch"
+            },
+            "drupal/commerce_billy": {
+                "Allow CSS styling to be programatically altered": "https://drupal.org/files/issues/2653972-billy-css-alter-2.patch"
+            },
+            "drupal/commerce_currency": {
+                "Commerce Currency Field is not showing on Rules": "https://drupal.org/files/issues/2212615-field_visibility_for_rules-2.patch",
+                "N/A": "https://drupal.org/files/issues/required_5.patch"
+            },
+            "drupal/commerce_discount": {
+                "Product discounts: Taxes should applied to SUBTOTAL minus DISCOUNT": "https://www.drupal.org/files/issues/1962484-add-weight-commerce-discount-1.patch",
+                "Multi Currency Support": "https://www.drupal.org/files/issues/2345311-commerce_discount_multicurrency-8.patch"
+            },
+            "drupal/ctools": {
+                "Allow existing contexts to influence active context selection": "https://www.drupal.org/files/issues/2484541-context-dependency-1.patch"
+            },
+            "drupal/date": {
+                "Allow a View Date Filter to Override the Timezone": "https://www.drupal.org/files/issues/date-views-filter-timezone-1820304-18.patch"
+            },
+            "drupal/date_ical": {
+                "N/A": "https://www.drupal.org/files/issues/date_ical_remove_makefile-3.patch"
+            },
+            "drupal/entityreference": {
+                "Field schema foreign keys is always hard-coded to 'node' despite target type not set to node entity type": "https://www.drupal.org/files/issues/1969018-update-field-config-foreign-keys-30.patch"
+            },
+            "drupal/field_collection": {
+                "Undefined index: en in field_collection_field_attach_form()": "https://www.drupal.org/files/issues/undefined_langcode-1716526-15.patch"
+            },
+            "drupal/og_vocab": {
+                "Allow all groups to be selected for vocabulary": "https://www.drupal.org/files/issues/2481153-og_vocab-accessible-groups-1.patch",
+                "Allow relation get by group to pass back just vids": "https://www.drupal.org/files/issues/2604594-og_vocab_get_ogv_by_id-1.patch",
+                "Fatal error when used with metatag in certain cases": "https://www.drupal.org/files/issues/fatal_error_with_metatag-2531418-1.patch"
+            },
+            "drupal/og": {
+                "og_form_group_manager_validate() assumes the entity form has a language": "https://www.drupal.org/files/issues/group-manager-language-1865852.patch",
+                "Add setting to auto-assign role to group manager broken on groups with overridden roles": "https://www.drupal.org/files/issues/og-default-role-member-2005800-40.patch",
+                "Provide CTools relationship or context to get current group context": "https://www.drupal.org/files/issues/og_context_ctools_relationship-1781652-17.patch",
+                "Infinite loop with og_context()": "https://www.drupal.org/files/issues/og_context_infinite_loop-2717489-10.patch",
+                "N/A": "https://www.drupal.org/files/issues/og_id_user_access.patch",
+                "og_ui will always cause content type named 'group' to use admin theme on node/add form": "https://www.drupal.org/files/og_ui-group_node_add_theme-1800208-5.patch"},
+            "drupal/panelizer": {
+                "Better Revision Handling inside and outside of Workbench Moderation": "https://www.drupal.org/files/issues/panelizer-n2457113-69.patch"
+            },
+            "drupal/pannels": {
+                "Panelizer is incompatible with moderation": "https://www.drupal.org/files/issues/panelizer_is-1402860-82-fix-ipe-end-js-alert.patch"
+            },
+            "drupal/views": {
+                "Add option to transform the case of term names": "https://www.drupal.org/files/issues/2408937-views-taxonomy-name-case-change-2.patch"
+            },
+            "drupal/views_argument_substitution": {
+                "N/A": "https://www.drupal.org/files/issues/2650642-check-array-values-input-1.patch"
             }
         },
         "installer-paths": {
