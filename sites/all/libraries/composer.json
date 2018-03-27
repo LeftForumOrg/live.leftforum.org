@@ -20,19 +20,17 @@
     ],
     "require": {
         "codemirror/codemirror": "^5.36",
-        "cweagans/composer-patches": "^1.6",
         "iatspayments/php": "^2.1",
-        "kigkonsult/icalcreator": "dev-master#e3dbec2cb3bb91a8bde989e467567ae8831a4026",
+        "kigkonsult/icalcreator": "dev-master",
         "moxiecode/plupload": "dev-no-examples",
-        "phpmailer/phpmailer": "~5.2"
+        "phpmailer/phpmailer": "<6.0.0"
     },
     "config": {
         "sort-packages": true
     },
     "extra": {
         "aliases": {
-            "iatspayments/php": "iatspayments",
-            "kigkonsult/icalcreator": "iCalcreator"
+            "iatspayments/php": "iatspayments"
         }
     }
 }

@@ -10502,12 +10502,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/iCalcreator/iCalcreator.git",
-                "reference": "e3dbec2cb3bb91a8bde989e467567ae8831a4026"
+                "reference": "c7187f07c3d5111bd5a6e003f8281ec47ac40f0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iCalcreator/iCalcreator/zipball/e3dbec2cb3bb91a8bde989e467567ae8831a4026",
-                "reference": "e3dbec2cb3bb91a8bde989e467567ae8831a4026",
+                "url": "https://api.github.com/repos/iCalcreator/iCalcreator/zipball/c7187f07c3d5111bd5a6e003f8281ec47ac40f0f",
+                "reference": "c7187f07c3d5111bd5a6e003f8281ec47ac40f0f",
                 "shasum": ""
             },
             "require": {
@@ -10555,7 +10555,7 @@
                 "vtimezone",
                 "vtodo"
             ],
-            "time": "2014-05-09T12:32:46+00:00"
+            "time": "2017-10-21T06:51:43+00:00"
         },
         {
             "name": "moxiecode/plupload",
