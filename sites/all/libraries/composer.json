@@ -21,7 +21,7 @@
     "require": {
         "codemirror/codemirror": "^5.36",
         "iatspayments/php": "^2.1",
-        "kigkonsult/icalcreator": "dev-master",
+        "kigkonsult/icalcreator": "dev-master#e3dbec2cb3bb91a8bde989e467567ae8831a4026",
         "moxiecode/plupload": "dev-no-examples",
         "phpmailer/phpmailer": "<6.0.0"
     },
@@ -30,7 +30,13 @@
     },
     "extra": {
         "aliases": {
-            "iatspayments/php": "iatspayments"
+            "iatspayments/php": "iatspayments",
+            "kigkonsult/icalcreator": "iCalcreator"
+        },
+        "patches": {
+            "kigkonsult/icalcreator": {
+                "Compatibility with 'composer_autoloader'": "https://www.drupal.org/files/issues/2018-03-28/composer-icalcreator-library-fix-2956818.patch"
+            }
         }
     }
 }

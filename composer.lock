@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aae27e21564a99d37470afe1ea40b561",
+    "content-hash": "34c6e4629270bb23b5a785655b0b9eaa",
     "packages": [
         {
             "name": "codemirror/codemirror",
@@ -2301,12 +2301,6 @@
                 "url": "https://git.drupal.org/project/commerce_discount",
                 "reference": "7.x-1.0-beta5"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/commerce_discount-7.x-1.0-beta5.zip",
-                "reference": "7.x-1.0-beta5",
-                "shasum": "7cbfddfc6cb8bfc74e77f22f15f4a909a3cefc78"
-            },
             "require": {
                 "drupal/commerce": "*",
                 "drupal/commerce_line_item": "*",
@@ -2317,66 +2311,16 @@
                 "drupal/drupal": "*",
                 "drupal/entity": "*",
                 "drupal/entityreference": "*",
-                "drupal/inline_conditions": "^1.0.1-alpha4",
+                "drupal/inline_conditions": "^1.0.0-alpha4",
                 "drupal/inline_entity_form": "^1.5",
                 "drupal/views": "*"
             },
-            "require-dev": {
-                "drupal/addressfield": "*",
-                "drupal/commerce_shipping": "*"
-            },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "7.x-1.0-beta5",
-                    "datestamp": "1513724285",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
-                    }
-                },
                 "patches_applied": {
                     "Product discounts: Taxes should applied to SUBTOTAL minus DISCOUNT": "https://www.drupal.org/files/issues/1962484-add-weight-commerce-discount-1.patch",
                     "Multi Currency Support": "https://www.drupal.org/files/issues/2345311-commerce_discount_multicurrency-8.patch"
                 }
-            },
-            "notification-url": "https://packages.drupal.org/7/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "bojanz",
-                    "homepage": "https://www.drupal.org/user/86106"
-                },
-                {
-                    "name": "joelpittet",
-                    "homepage": "https://www.drupal.org/user/160302"
-                },
-                {
-                    "name": "jsacksick",
-                    "homepage": "https://www.drupal.org/user/972218"
-                },
-                {
-                    "name": "maciej.zgadzaj",
-                    "homepage": "https://www.drupal.org/user/271491"
-                },
-                {
-                    "name": "mglaman",
-                    "homepage": "https://www.drupal.org/user/2416470"
-                },
-                {
-                    "name": "rszrama",
-                    "homepage": "https://www.drupal.org/user/49344"
-                }
-            ],
-            "description": "Provides common functionality and a UI for managing discounts.",
-            "homepage": "https://www.drupal.org/project/commerce_discount",
-            "support": {
-                "source": "http://cgit.drupalcode.org/commerce_discount"
             }
         },
         {
@@ -6494,11 +6438,17 @@
         },
         {
             "name": "drupal/inline_conditions",
-            "version": "dev-1.x",
+            "version": "1.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/inline_conditions",
-                "reference": "c73a94013c185b1a34c0ee32ae27441bd4b3f0f4"
+                "reference": "7.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/inline_conditions-7.x-1.0-rc1.zip",
+                "reference": "7.x-1.0-rc1",
+                "shasum": "ae06e54027850bbe5240c7ba34858a027ad4b90b"
             },
             "require": {
                 "drupal/drupal": "~7.0",
@@ -6510,8 +6460,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "7.x-1.0-rc1+0-dev",
-                    "datestamp": "1511212385",
+                    "version": "7.x-1.0-rc1",
+                    "datestamp": "1511212685",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -6552,8 +6502,7 @@
             "homepage": "https://www.drupal.org/project/inline_conditions",
             "support": {
                 "source": "http://cgit.drupalcode.org/inline_conditions"
-            },
-            "time": "2017-11-20T21:08:28+00:00"
+            }
         },
         {
             "name": "drupal/inline_entity_form",
@@ -7380,6 +7329,115 @@
             "homepage": "https://www.drupal.org/project/module_filter",
             "support": {
                 "source": "http://cgit.drupalcode.org/module_filter"
+            }
+        },
+        {
+            "name": "drupal/multifield",
+            "version": "1.0.0-alpha4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/multifield",
+                "reference": "7.x-1.0-alpha4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/multifield-7.x-1.0-alpha4.zip",
+                "reference": "7.x-1.0-alpha4",
+                "shasum": "1631b487d4c4b9b11e2a3d98ec21621891f610a6"
+            },
+            "require": {
+                "drupal/ctools": "*",
+                "drupal/drupal": "*"
+            },
+            "require-dev": {
+                "drupal/addressfield": "*",
+                "drupal/clone": "*",
+                "drupal/commerce": "*",
+                "drupal/date": "*",
+                "drupal/devel": "*",
+                "drupal/email": "*",
+                "drupal/entity_translation": "*",
+                "drupal/entityreference": "*",
+                "drupal/field_collection": "*",
+                "drupal/replicate": "*",
+                "drupal/url": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "7.x-1.0-alpha4",
+                    "datestamp": "1466101935",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/7/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                }
+            ],
+            "description": "Provides a combo field type.",
+            "homepage": "https://www.drupal.org/project/multifield",
+            "support": {
+                "source": "http://cgit.drupalcode.org/multifield"
+            }
+        },
+        {
+            "name": "drupal/multifield_table",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/multifield_table",
+                "reference": "7.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/multifield_table-7.x-1.0.zip",
+                "reference": "7.x-1.0",
+                "shasum": "3247ddd01cdd6d466b2877f1f6dee8c080c22473"
+            },
+            "require": {
+                "drupal/drupal": "~7.0",
+                "drupal/multifield": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "7.x-1.0",
+                    "datestamp": "1427120881",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/7/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "plopesc",
+                    "homepage": "https://www.drupal.org/user/282415"
+                }
+            ],
+            "description": "Provides a table formatter for multifield field types.",
+            "homepage": "https://www.drupal.org/project/multifield_table",
+            "support": {
+                "source": "http://cgit.drupalcode.org/multifield_table"
             }
         },
         {
@@ -10502,18 +10560,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/iCalcreator/iCalcreator.git",
-                "reference": "c7187f07c3d5111bd5a6e003f8281ec47ac40f0f"
+                "reference": "e3dbec2cb3bb91a8bde989e467567ae8831a4026"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iCalcreator/iCalcreator/zipball/c7187f07c3d5111bd5a6e003f8281ec47ac40f0f",
-                "reference": "c7187f07c3d5111bd5a6e003f8281ec47ac40f0f",
+                "url": "https://api.github.com/repos/iCalcreator/iCalcreator/zipball/e3dbec2cb3bb91a8bde989e467567ae8831a4026",
+                "reference": "e3dbec2cb3bb91a8bde989e467567ae8831a4026",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4"
             },
             "type": "library",
+            "extra": {
+                "patches_applied": {
+                    "Compatibility with 'composer_autoloader'": "https://www.drupal.org/files/issues/2018-03-28/composer-icalcreator-library-fix-2956818.patch"
+                }
+            },
             "autoload": {
                 "files": [
                     "autoload.php"
@@ -10555,7 +10618,7 @@
                 "vtimezone",
                 "vtodo"
             ],
-            "time": "2017-10-21T06:51:43+00:00"
+            "time": "2014-05-09T12:32:46+00:00"
         },
         {
             "name": "moxiecode/plupload",
@@ -11499,7 +11562,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/admin_menu": 5,
-        "drupal/commerce_discount": 10,
         "drupal/commerce_event_ticket": 10,
         "drupal/conditional_fields": 15,
         "drupal/content_access": 10,
@@ -11512,6 +11574,7 @@
         "drupal/field_collection": 10,
         "drupal/field_group_multiple": 10,
         "drupal/field_tools": 15,
+        "drupal/multifield": 15,
         "drupal/pet": 5,
         "drupal/phpmailer": 10,
         "drupal/ticket": 10,

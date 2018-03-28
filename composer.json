@@ -11,6 +11,33 @@
     ],
     "repositories": [
         {
+            "type": "package",
+            "package": {
+                "name": "drupal/commerce_discount",
+                "type": "drupal-module",
+                "version": "1.0.0-beta5",
+                "source": {
+                    "type": "git",
+                    "url": "https://git.drupal.org/project/commerce_discount",
+                    "reference": "7.x-1.0-beta5"
+                },
+                "require": {
+                    "drupal/commerce": "*",
+                    "drupal/commerce_line_item": "*",
+                    "drupal/commerce_price": "*",
+                    "drupal/commerce_product_reference": "*",
+                    "drupal/date": "*",
+                    "drupal/date_popup": "*",
+                    "drupal/drupal": "*",
+                    "drupal/entity": "*",
+                    "drupal/entityreference": "*",
+                    "drupal/inline_conditions": "^1.0.0-alpha4",
+                    "drupal/inline_entity_form": "^1.5",
+                    "drupal/views": "*"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/7"
         }
@@ -51,7 +78,6 @@
         "drupal/commerce_billy_mail": "^1.0",
         "drupal/commerce_coupon": "^2.0",
         "drupal/commerce_currency": "^1.0",
-        "drupal/commerce_discount": "^1.0@beta",
         "drupal/commerce_event_ticket": "^1.0@beta",
         "drupal/commerce_features": "^1.3",
         "drupal/commerce_iats": "^2.13",
@@ -114,6 +140,8 @@
         "drupal/menu_block": "^2.7",
         "drupal/mimemail": "^1.0",
         "drupal/module_filter": "^2.1",
+        "drupal/multifield": "^1.0@alpha",
+        "drupal/multifield_table": "^1.0",
         "drupal/multiple_entity_form": "^1.3",
         "drupal/og": "^2.9",
         "drupal/og_theme": "^2.0",
