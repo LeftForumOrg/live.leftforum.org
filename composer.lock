@@ -10574,7 +10574,7 @@
             "type": "library",
             "extra": {
                 "patches_applied": {
-                    "Compatibility with 'composer_autoloader'": "https://www.drupal.org/files/issues/2018-03-28/composer-icalcreator-library-fix-2956818.patch"
+                    "Compatibility with 'composer_autoloader'": "https://www.drupal.org/files/issues/2018-03-28/composer-icalcreator-library-fix-2956818-3.patch"
                 }
             },
             "autoload": {
