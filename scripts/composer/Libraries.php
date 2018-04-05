@@ -31,8 +31,10 @@ class Libraries {
       $symlinks[$key] = preg_split("#/#", $key)[1]; 
     }
 
-    foreach ($json_array['extra']['aliases'] as $key => $val) {
-      $symlinks[$key] = $val;
+    if (isset($json_array['extra'])) {
+      foreach ($json_array['extra']['aliases'] as $key => $val) {
+        $symlinks[$key] = $val;
+      }
     }
 
     foreach ($symlinks as $key => $val) {
