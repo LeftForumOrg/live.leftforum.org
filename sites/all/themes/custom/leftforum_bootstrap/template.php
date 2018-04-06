@@ -29,7 +29,7 @@ function add_code($code_type, $dir, $name, $type = 'file') {
 }
 
 /********** PREPROCESSING FUNCTIONS **********/
-function unsungheroes_bs_cdn_preprocess_node(&$vars, $hook) {
+function leftforum_bootstrap_preprocess_node(&$vars, $hook) {
   // Add content-type-specific css
   add_code('css', '/css/content-type/', $vars['node']->type);
   
@@ -37,7 +37,7 @@ function unsungheroes_bs_cdn_preprocess_node(&$vars, $hook) {
   add_code('css', '/css/node/', $vars['node']->nid);
 }
 
-function unsungheroes_bs_cdn_preprocess_views_view(&$vars) {
+function leftforum_bootstrap_cdn_preprocess_views_view(&$vars) {
   // Add view-specific css
   add_code('css', '/css/view/', $vars['name']);
 }
