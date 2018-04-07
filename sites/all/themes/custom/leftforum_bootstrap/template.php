@@ -23,9 +23,8 @@ function add_code($code_type, $dir, $name, $type = 'file') {
   } else {
     $path = $name;
   }
-  ("drupal_add_$code_type")(
-    $path, array('type' => $type, 'group' => get_group($code_type))
-  );
+  $func = "drupal_add_$code_type";
+  $func($path, array('type' => $type, 'group' => get_group($code_type)));
 }
 
 /********** PREPROCESSING FUNCTIONS **********/
