@@ -1,0 +1,336 @@
+<?php
+
+/**
+ * @file Powerbase Synchronization module.
+ *
+ * Ensure all session organizers and facilitators are entered into Powerbase
+ * via the CiviCRM API and ensure they are in the correct CiviCRM group.
+ */
+
+function powerbase_init() {
+  $path = drupal_get_path('module', 'powerbase') . '/config.php';
+
+  if (!file_exists($path)) {
+    drupal_set_message(t("Failed to initialize Powerbase module. Please ensure the file config.php exists the module directory."), 'error');
+    return;
+  }
+  require_once($path);
+  $contants = array(
+    'PB_URL',
+    'PB_SITE_KEY',
+    'PB_USER_KEY',
+    'PB_ORGANIZER_GROUP_ID',
+    'PB_FACILITATOR_GROUP_ID',
+  );
+  foreach($contants as $constant) {
+    if (!defined($constant)) {
+      drupal_set_message(t("Please ensure that @constant is set in your .powerbase.cnf file", array('@constant' => $constant)));
+    }
+  }
+}
+
+function powerbase_node_update($node) {
+  powerbase_process_node($node);
+}
+
+function powerbase_node_insert($node) {
+  powerbase_process_node($node);
+}
+
+function powerbase_log($msg, $vars = NULL, $severity = WATCHDOG_NOTICE) {
+  watchdog('powerbase', $msg, $vars, $severity);
+  if (function_exists('dpm')) {
+    if ($vars) {
+      $search = array_keys($vars);
+      $msg = str_replace($search, $vars, $msg);
+    }
+    dpm($msg);
+  }
+}
+
+function powerbase_process_node($node) {
+  if ($node->type == 'session') {
+    $contacts = powerbase_extract_contacts($node); 
+    powerbase_sync_contacts($contacts);
+  }
+}
+
+function powerbase_sync_contacts($contacts) {
+  if (isset($contacts['organizer']['email'])) {
+    $contact_id = powerbase_get_pb_contact($contacts['organizer']['email']);
+    if (empty($contact_id)) {
+      $contact_id = powerbase_add_pb_contact($contacts['organizer']);
+    }
+    if ($contact_id) {
+      powerbase_add_to_group($contact_id, PB_ORGANIZER_GROUP_ID);
+    }
+  }
+  foreach($contacts['facilitators'] as $facilitator) {
+    if (isset($facilitator['email'])) {
+      $contact_id = powerbase_get_pb_contact($facilitator['email']);
+      if (empty($contact_id)) {
+        $contact_id = powerbase_add_pb_contact($facilitator);
+      }
+      if ($contact_id) {
+        powerbase_add_to_group($contact_id, PB_FACILITATOR_GROUP_ID);
+      }
+    }
+  }
+}
+
+function powerbase_add_pb_contact($contact) {
+  $contact['contact_type'] = 'Individual';
+  $ch = powerbase_build_api_curl('Contact', 'create', $contact);
+  $results = powerbase_get_api_results($ch);
+  $msg_vars = array('@nid' => $contact['external_identifier']);
+  if (empty($results)) {
+    powerbase_log("There was an error adding contact with nid/external id: @nid.", $msg_vars );
+    return FALSE;
+  }
+  powerbase_log("Added contact with nid/external id: @nid", $msg_vars); 
+
+}
+
+function powerbase_get_pb_contact($email) {
+  $id = NULL;
+
+  // Look for all contacts that have this email address. We have to check
+  // Email table so we can find non-primary addresses as well as primary
+  // ones.
+  $ch = powerbase_build_api_curl('Email', 'get', array('email' => $email));
+  $email_objects = powerbase_get_api_results($ch);
+  foreach($email_objects as $email_id => $values) {
+    // Iterate over list until we find one that is not deleted.
+    $ch = powerbase_build_api_curl('Contact', 'get', array('id' => $values->contact_id, 'is_deleted' => 0, 'return' => 'id'));
+    $res = (array) powerbase_get_api_results($ch);
+    if ($res) {
+      $contact = array_pop($res);
+      return $contact->id;
+    }
+  }
+  return NULL;
+
+}
+
+
+
+function powerbase_add_to_group($contact_id, $group_id) {
+  $ch = powerbase_build_api_curl('GroupContact', 'get', array('contact_id' => $contact_id, 'group_id' => $group_id));
+  $exists = powerbase_get_api_results($ch);
+  if (FALSE === $exists) {
+    powerbase_log("There was an error seeing if @contact_id is already in @group_id", array('@contact_id' => $contact_id, '@group_id' => $group_id));
+    return FALSE;
+  }
+  if (empty($exists)) {
+    powerbase_log("Adding @contact_id to @group_id", array('@contact_id' => $contact_id, '@group_id' => $group_id));
+    $ch = powerbase_build_api_curl('GroupContact', 'create', array('contact_id' => $contact_id, 'group_id' => $group_id));
+    $results = powerbase_get_api_results($ch);
+    if (FALSE === $results) {
+      powerbase_log("There was an error adding @contact_id to @group_id", array('@contact_id' => $contact_id, '@group_id' => $group_id));
+      return FALSE;
+    }
+    else {
+      powerbase_log("Added @contact_id to @group_id", array('@contact_id' => $contact_id, '@group_id' => $group_id));
+      return TRUE;
+    }
+  }
+  return TRUE;
+
+}
+
+function powerbase_build_api_curl($entity, $action, $params) {
+  $args = array(
+    'entity' => $entity,
+    'action' => $action,
+    'api_key' => PB_USER_KEY,
+    'key' => PB_SITE_KEY,
+    'json' => 1
+  );
+  if ($params) {
+    $params = json_encode($params);
+    $args['json'] = $params;
+  }
+
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, PB_URL);
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($args));
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+  if (defined('PB_CAINFO')) {
+    curl_setopt($ch, CURLOPT_CAINFO, PB_CAINFO);
+  }
+  return $ch;
+
+}
+
+/**
+ * Parse results returned from Civi API
+ *
+ * Take a raw JSON output and return NULL if no values came back,
+ * FALSE if there was an error, or an array of results.
+ */
+function powerbase_get_api_results($ch) {
+  $json = curl_exec($ch);
+  curl_close($ch);
+  if (empty($json)) {
+    $err = curl_error($ch);
+    $errno = curl_errno($ch);
+    powerbase_log("Curl didn't return anything, here's the error: @error.", array('@error' => $errno . ': ' . $err));
+    return FALSE;
+  }
+  $results = json_decode($json);
+  if (!is_object($results)) {
+    powerbase_log("Curl didn't return civi api object");
+    return FALSE;
+  }
+  if (!property_exists($results, 'is_error') || $results->is_error != 0) {
+    powerbase_log('Powerbase API returned an error.');
+    if (property_exists($results, 'error_message')) {
+      powerbase_log($results->error_message);
+    }
+    return FALSE;
+  }
+  if (property_exists($results, 'count') && $results->count == 0) {
+    return NULL;
+  }
+  if (property_exists($results, 'values')) {
+    return $results->values;
+  }
+  return FALSE;
+}
+/**
+ * Extract all contact info from node.
+ *
+ * Given a node, return an array of contacts with their names, contact info
+ * and role they are playing (organizer or facilitator).
+ *
+ * There is only one session organizer and all details are in the node.
+ * There can be one or more facilitators - and these are entity references
+ * to the speaker content type.
+ */
+function powerbase_extract_contacts($node) {
+  $contacts = array(
+    'organizer' => null,
+    'facilitators' => null
+  );
+
+  if (!is_object($node)) {
+    return $contacts;
+  }
+
+  // First, get the organizer. There should only be one.
+  $contacts['organizer'] = array(
+    'external_identifier' => $node->nid,
+    'first_name' => powerbase_get_single_value($node, 'field_po_first_name'),
+    'middle_name' => '',
+    'last_name' => powerbase_get_single_value($node, 'field_po_last_name'),
+    'email' => powerbase_get_single_value($node, 'field_po_email'),
+    'phone' => powerbase_get_single_value($node, 'field_po_contact_phone'),
+    'current_employer' => powerbase_get_single_value($node, 'field_po_affiliation'),
+    'address1' => powerbase_get_single_value($node, 'field_po_address_1'),
+    'address2' => powerbase_get_single_value($node, 'field_po_address_2'),
+    'city' => powerbase_get_single_value($node, 'field_po_city'),
+    'state' => powerbase_get_single_value($node, 'field_po_state_province_'),
+    'postal_code' => powerbase_get_single_value($node, 'field_po_postal_code'),
+    'country' => powerbase_get_single_value($node, 'field_po_country'),
+  );
+
+  // Now look for facilitators. 
+  $contacts['facilitators'] = powerbase_get_facilitator_details_from_session($node);
+
+
+  return $contacts;
+
+}
+
+/** 
+ * Get facilitator details from a given node
+ *
+ */
+function powerbase_get_facilitator_details_from_session($node) {
+  $facilitators = array();
+  $facilitator_ids = powerbase_get_multiple_values($node, 'field_chair_co_facilitator_full_', 'target_id');
+  $emails = powerbase_get_multiple_values($node, 'field_speaker1_email');
+  foreach($facilitator_ids as $k => $id) {
+    $facilitator = powerbase_get_facilitator_details_for_nid($id);
+    // We get email in the session node for some reason. If we don't have
+    // it in the speaker node, let's use the value we do have.
+    if (empty($facilitator['email'] && !empty($emails[$k]))) {
+      $facilitator['email'] = $emails[$k];
+    }
+    $facilitators[$id] = $facilitator;
+  }
+  return $facilitators;
+}
+
+/**
+ * Get speaker details using the passed in speaker nid
+ */
+function powerbase_get_facilitator_details_for_nid($nid) {
+  $node = node_load($nid);
+  $first_name = powerbase_get_single_value($node, 'field_speaker1_first_name');
+  $middle_name = '';
+  $last_name = powerbase_get_single_value($node, 'field_speaker2_last_name');
+
+  if(empty($first_name) || empty($last_name)) {
+    // Not filled in. Use the title instead.
+    $title_parts = explode(' ', $node->title);
+    $first_name = array_shift($title_parts);
+    $last_name = array_pop($title_parts);
+    if (count($title_parts) > 0) {
+      $middle_name = implode(' ', $title_parts);
+    }
+  }
+  $email = powerbase_get_single_value($node, 'field_speaker1_email');
+  return array(
+    'external_identifier' => $nid,
+    'first_name' => $first_name,
+    'middle_name' => $middle_name,
+    'last_name' => $last_name,
+    'email' => $email,
+  );
+
+}
+
+/**
+ * Get a single value from the node array
+ *
+ * Never return an error, just return null if nothing is there.
+ */
+function powerbase_get_single_value($node, $field) {
+  if (property_exists($node, $field)) {
+    if (is_array($node->$field)) {
+      // We don't know what the language string is so just pop it.
+      $result = array_pop($node->$field);
+      if (is_array($result) && array_key_exists(0, $result)) {
+        if (is_array($result[0]) && array_key_exists('value', $result[0])) {
+          return $result[0]['value'];
+        }
+      }
+    }
+  }
+  return null;        
+}
+
+/**
+ * Get multiple values from the node array
+ *
+ * Never return an error, just return empty array if nothing is there.
+ */
+function powerbase_get_multiple_values($node, $field, $name = 'value') {
+  $ret = array();
+  if (property_exists($node, $field)) {
+    if (is_array($node->$field)) {
+      // We don't know what the language string is so just pop it.
+      $result = array_pop($node->$field);
+      if (is_array($result)) {
+        foreach($result as $i => $v) {
+          if (is_array($v) && array_key_exists($name, $v)) {
+            $ret[$i] = $v[$name];
+          }
+        }
+      }
+    }
+  }
+  return $ret;        
+}
