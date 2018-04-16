@@ -48,11 +48,40 @@ function powerbase_log($msg, $vars = NULL, $severity = WATCHDOG_NOTICE) {
   }
 }
 
+/**
+ * Process all session nodes. 
+ *
+ * Used to sync all session nodes to powerbase.
+ */
+function powerbase_process_all_nodes() {
+  $ret = array();
+  $result = db_query("SELECT n.nid FROM {node} n WHERE n.type = 'session'");
+  $report = array(
+    'nodes' => 0,
+    'contacts' => 0,
+    'nodes_without_contacts' => 0,
+  );
+  foreach($result as $record) {
+    $node = node_load($record->nid);
+    $count = powerbase_process_node($node);
+    if ($count == 0) {
+      $report['nodes_without_contacts']++;
+    }
+    $report['nodes']++;
+    $report['contacts'] = $report['contacts'] + $count;
+    unset($node);
+  }
+  return $report;
+}
+
 function powerbase_process_node($node) {
+  $count = 0;
   if ($node->type == 'session') {
     $contacts = powerbase_extract_contacts($node); 
+    $count = count($contacts);
     powerbase_sync_contacts($contacts);
   }
+  return $count;
 }
 
 function powerbase_sync_contacts($contacts) {
