@@ -37,7 +37,7 @@ function powerbase_node_insert($node) {
   powerbase_process_node($node);
 }
 
-function powerbase_log($msg, $vars = NULL, $severity = WATCHDOG_NOTICE) {
+function powerbase_log($msg, $vars = array(), $severity = WATCHDOG_NOTICE) {
   watchdog('powerbase', $msg, $vars, $severity);
   if (function_exists('dpm')) {
     if ($vars) {
@@ -45,6 +45,9 @@ function powerbase_log($msg, $vars = NULL, $severity = WATCHDOG_NOTICE) {
       $msg = str_replace($search, $vars, $msg);
     }
     dpm($msg);
+  }
+  if (function_exists('drush_log')) {
+    drush_log(dt($msg, $vars), 'ok');
   }
 }
 
@@ -111,9 +114,9 @@ function powerbase_add_pb_contact($contact) {
   $contact['contact_type'] = 'Individual';
   $ch = powerbase_build_api_curl('Contact', 'create', $contact);
   $results = powerbase_get_api_results($ch);
-  $msg_vars = array('@nid' => $contact['external_identifier']);
+  $msg_vars = array('@nid' => $contact['external_identifier'], '@email' => $contacts['email']);
   if (empty($results)) {
-    powerbase_log("There was an error adding contact with nid/external id: @nid.", $msg_vars );
+    powerbase_log("There was an error adding contact with nid/external id: @nid and email: @email.", $msg_vars );
     return FALSE;
   }
   powerbase_log("Added contact with nid/external id: @nid", $msg_vars); 
@@ -121,20 +124,20 @@ function powerbase_add_pb_contact($contact) {
 }
 
 function powerbase_get_pb_contact($email) {
-  $id = NULL;
-
   // Look for all contacts that have this email address. We have to check
   // Email table so we can find non-primary addresses as well as primary
   // ones.
   $ch = powerbase_build_api_curl('Email', 'get', array('email' => $email));
-  $email_objects = powerbase_get_api_results($ch);
-  foreach($email_objects as $email_id => $values) {
-    // Iterate over list until we find one that is not deleted.
-    $ch = powerbase_build_api_curl('Contact', 'get', array('id' => $values->contact_id, 'is_deleted' => 0, 'return' => 'id'));
-    $res = (array) powerbase_get_api_results($ch);
-    if ($res) {
-      $contact = array_pop($res);
-      return $contact->id;
+  $email_objects = (array) powerbase_get_api_results($ch);
+  if(is_array($email_objects)) {
+    foreach($email_objects as $email_id => $values) {
+      // Iterate over list until we find one that is not deleted.
+      $ch = powerbase_build_api_curl('Contact', 'get', array('id' => $values->contact_id, 'is_deleted' => 0, 'return' => 'id'));
+      $res = (array) powerbase_get_api_results($ch);
+      if ($res) {
+        $contact = array_pop($res);
+        return $contact->id;
+      }
     }
   }
   return NULL;
