@@ -1,0 +1,3 @@
+name = Powerbase 
+description = Update session speakers and organizers in CiviCRM.
+core = 7.x
