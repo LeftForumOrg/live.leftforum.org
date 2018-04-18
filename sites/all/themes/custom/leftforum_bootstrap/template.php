@@ -36,8 +36,12 @@ function leftforum_bootstrap_preprocess_node(&$vars, $hook) {
   add_code('css', '/css/node/', $vars['node']->nid);
 }
 
-function leftforum_bootstrap_cdn_preprocess_views_view(&$vars) {
+function leftforum_bootstrap_preprocess_views_view(&$vars) {
   // Add view-specific css
   add_code('css', '/css/view/', $vars['name']);
 }
 
+function leftforum_bootstrap_preprocess_user_profile(&$vars) {
+  // Add user-profile global css
+  add_code('css', '/css/', 'user');
+}
