@@ -1,0 +1,9 @@
+#navbar {
+  background-image: url(/sites/default/files/banner/LF_webpage_cover.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#page-header {
+  clear: left;
+}
