@@ -10,20 +10,16 @@
                 "name": "codemirror/codemirror",
                 "type": "library",
                 "version": "3.20.0",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://github.com/codemirror/CodeMirror/archive/3.20.0.zip"
-                },
                 "source": {
                     "type": "git",
                     "url": "https://github.com/codemirror/CodeMirror/",
-                    "reference": "releases/tag/3.20.0"
+                    "reference": "3.20.0"
                 }
             }
         }
     ],
     "require": {
-        "codemirror/codemirror": "3.20.0",
+        "codemirror/codemirror": "^3.20",
         "iatspayments/php": "^2.1",
         "kigkonsult/icalcreator": "dev-master#e3dbec2cb3bb91a8bde989e467567ae8831a4026",
         "moxiecode/plupload": "dev-no-examples",
