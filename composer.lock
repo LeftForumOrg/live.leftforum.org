@@ -8,11 +8,17 @@
     "packages": [
         {
             "name": "codemirror/codemirror",
-            "version": "5.36.1",
+            "version": "3.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codemirror/CodeMirror/",
-                "reference": "master"
+                "reference": "releases/tag/3.20.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/codemirror/CodeMirror/archive/3.20.0.zip",
+                "reference": "releases/tag/3.20.0",
+                "shasum": null
             },
             "type": "library"
         },
