@@ -114,12 +114,13 @@ function powerbase_add_pb_contact($contact) {
   $contact['contact_type'] = 'Individual';
   $ch = powerbase_build_api_curl('Contact', 'create', $contact);
   $results = powerbase_get_api_results($ch);
-  $msg_vars = array('@nid' => $contact['external_identifier'], '@email' => $contacts['email']);
+  $msg_vars = array('@nid' => $contact['external_identifier'], '@email' => $contact['email']);
   if (empty($results)) {
     powerbase_log("There was an error adding contact with nid/external id: @nid and email: @email.", $msg_vars );
     return FALSE;
   }
   powerbase_log("Added contact with nid/external id: @nid", $msg_vars); 
+  return $results->id;
 
 }
 
@@ -280,17 +281,48 @@ function powerbase_extract_contacts($node) {
  *
  */
 function powerbase_get_facilitator_details_from_session($node) {
+  // This is a mess. The sessions bundle has one field that is an entity
+  // reference to the speaker entity type. If the user does a lookup to
+  // find an existing speaker (or enters a name) they will have a reference
+  // to the speaker table.
+  //
+  // It also includes separate email and affiliation fields that are stored
+  // with the session bundle.
+  //
+  // So, we try to combine all of this information.
   $facilitators = array();
+
+  // Get the entity reference to the speaker bundle.
   $facilitator_ids = powerbase_get_multiple_values($node, 'field_chair_co_facilitator_full_', 'target_id');
+
+  // Get the included email addresses and affiliations in the session bundle.
   $emails = powerbase_get_multiple_values($node, 'field_speaker1_email');
+  $affiliations = powerbase_get_multiple_values($node, 'field_speaker1_affiliation');
+
+  // Iterate over the entity references (our preferred source of info).
   foreach($facilitator_ids as $k => $id) {
     $facilitator = powerbase_get_facilitator_details_for_nid($id);
-    // We get email in the session node for some reason. If we don't have
-    // it in the speaker node, let's use the value we do have.
+    // If no email is set in the speaker bundle, take the one from the session.
+    // Facilitator ids and emails *should* be keyed the same. Gulp.
     if (empty($facilitator['email'] && !empty($emails[$k]))) {
       $facilitator['email'] = $emails[$k];
+      // Unset this value so we don't have any duplicates.
+      unset($email[$k]);
     }
     $facilitators[$id] = $facilitator;
+  }
+
+  // Now if there are any left over email addresses, use those too. These
+  // will not have any names attached to them.
+  foreach($emails as $k => $email) {
+    $facilitators[] = array(
+      'first_name' => NULL,
+      'middle_name' => NULL,
+      'last_name' => NULL,
+      'email' => $email,
+      'affiliation' => $affiliations[$k],
+      'external_nid' => NULL,
+    );
   }
   return $facilitators;
 }
