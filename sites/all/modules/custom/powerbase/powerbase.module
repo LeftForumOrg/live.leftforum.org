@@ -80,9 +80,14 @@ function powerbase_process_all_nodes() {
 function powerbase_process_node($node) {
   $count = 0;
   if ($node->type == 'session') {
-    $contacts = powerbase_extract_contacts($node); 
-    $count = count($contacts);
-    powerbase_sync_contacts($contacts);
+    // field_panel_workshop_year actually returns ISO date
+    $year = substr(powerbase_get_single_value($node, 'field_panel_workshop_year'), 0, 4);
+    $location = powerbase_get_single_value($node, 'field_location');
+    if ($year == '2018' && $location == 'NYC') {
+      $contacts = powerbase_extract_contacts($node);
+      $count = count($contacts);
+      powerbase_sync_contacts($contacts);
+    }
   }
   return $count;
 }
