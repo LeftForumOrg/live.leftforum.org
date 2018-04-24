@@ -158,6 +158,8 @@
         "drupal/quicktabs": "^3.8",
         "drupal/rules": "^2.10",
         "drupal/safeword": "^1.13",
+        "drupal/slick": "2.x-dev",
+        "drupal/slick_views": "2.x-dev",
         "drupal/smtp": "^1.7",
         "drupal/social_share": "^2.5",
         "drupal/special_menu_items": "^2.0",

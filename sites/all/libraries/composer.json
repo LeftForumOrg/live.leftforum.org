@@ -21,6 +21,7 @@
     "require": {
         "codemirror/codemirror": "^3.20",
         "iatspayments/php": "^2.1",
+        "kenwheeler/slick": "^1.6",
         "kigkonsult/icalcreator": "dev-master#e3dbec2cb3bb91a8bde989e467567ae8831a4026",
         "moxiecode/plupload": "dev-no-examples",
         "phpmailer/phpmailer": "<6.0.0"
