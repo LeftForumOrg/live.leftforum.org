@@ -1,21 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
 /**
  * Place your custom styles here.
  */
-
+body{background:#ebebeb!important;  font-family: 'Lato', sans-serif;}
 #navbar, .footer {
   padding: 10px;
 }
+header#page-header {
+    position: relative;
+}
+#block-block-44{top:0!important;}
+.cont-box {
+  background: #fff none repeat scroll 0 0;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  float: left;
+  height: 229px;
+  min-height: 200px;
+  padding: 39px 15px;
+  text-align: center;
+  width: 33.3%;
+}
+.social-media ul {margin: 0px; padding:0;}
+.social-media ul li {display: inline-block; margin: 5px;}
+.social-media ul li img{width:50px!important; height:50px!important;}
+
+.rteright.cont-box.marcus {
+  padding: 90px 15px!important;
+}
+.rtecenter.cont-box.ashley {
+  padding: 90px 15px!important;
+}
+.staff {
+    width: 23%;
+    float: left;
+    background: #fff;
+    margin-left: 27px;
+    text-align: center;
+    border-top: 4px solid #ff0e00;
+    margin-bottom: 33px;
+    padding: 15px;
+}
+.staff:first-child {
+    margin-left: 0;
+}
+
+/*   11April 2018   */
+.custom-layout table{width:100%;}
+td.custom-layout{width:33.3% !important; background:#222; border-right: 20px solid #ebebeb;}
+td.custom-layout:last-child{border-right:0;}
+td.custom-layout .views-field.views-field-field-image-speaker-1{float:left; width:30%; margin-right:10px; min-height:120px; background:#fff; padding:5px; display: flex;
+  justify-content: center;
+  align-items: center;}
+td.custom-layout .views-field.views-field-field-image-speaker-1 img{width:auto; max-height:80px;}
+td.custom-layout .views-field.views-field-field-speaker1-email, td.custom-layout .views-field.views-field-field-speaker1-email span{color:#fff;}
+td.custom-layout .views-field.views-field-delta span{color:#fff;}
+td.custom-layout .views-field.views-field-field-speaker1-email, td.custom-layout .views-field.views-field-field-speaker1-email span{color:#fff;}
+td.custom-layout .views-field.views-field-field-speaker-role{color:#fff;}
+input[type=file].form-control{height:auto;}
+.field-group-multiple-table.table.table-hover.table-striped.sticky-enabled.tableheader-processed.sticky-table tr td:last-child input[type=file]{width:auto !important;}
+
+#block-system-main .views-field.views-field-view{display:none;}
+#block-system-main .views-field.views-field-view:nth-child(2){display:block; margin-top:25px;}
+#block-system-main .views-field.views-field-view:nth-child(2) .views-label.views-label-view{margin-bottom:10px; float:left; width:100%; text-align:center; font-size:20px; font-weight:bold;}
+
+
 
 @media (min-width: 768px) {
   #navbar, .footer {
     padding: 25px;
   }
+ 
 }
 
 @media (min-width: 992px) {
   #navbar, .footer {
     padding: 28px;
   }
+  
 }
 
 @media (min-width: 1200px) {
@@ -28,13 +90,77 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+.main-container .col-sm-12{padding: 0 5px;}
+
+@media (max-width: 992px) {
+
+.text-block {width: 238px !important; left: 0!important; margin: auto!important; right: 0!important;}
+
+}
+@media (max-width: 1024px) {
+.text-block{ left:0; right:0; margin:auto; text-align: center;}
+.text-block h2 span{font-size: 35px!important;}
+.page-header{  text-align:center; font-size: 28px!important; } 
+
+}
 
 @media (max-width: 767px) {
-  .main-container.container > .row {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
+.page-header{font-size: 17px!important; } 
+.navbar {z-index: 999;}
+.page-advisors-and-organizations .page-header,.page-advisors-organizations .page-header,.page-node-657 .page-header ,.page-node-687 .page-header{top: -176px!important; padding-left: 0px; }
+#block-system-main .user-profile div[class*="group-"],#block-system-main .node-speakers div[class*="group-"]{float: left;}
+ .main-container.container > .row { margin-left: 0px; margin-right: 0px; }
+/****26March-2018******/
+
+/**.logged-in .page-header{top: -199px !important; padding-left: 0px ;}****/
+.text-block h2 span{font-size: 25px!important;}
+.text-block {width: 238px !import+ant;}
+body.page-advisors-organizations header#page-header{height:auto!important;}
+.advisor-page .views-field.views-field-field-org-logo-circle-or-square .field-content img {  width: 79%;  padding: 6px;}
+.advisor-page .views-field.views-field-field-org-logo-circle-or-square{min-height: 113px;}
+.advisor-page table td[class*="col-"], .advisor-page table th[class*="col-"]{float:left; width:100%; padding-left:0px!important;}
+#block-system-main .user-profile div[class*="group-"],#block-system-main .node-speakers div[class*="group-"]{width:100%!important; margin-bottom: 14px!important; margin-left: 0!important;}
+#block-system-main .user-profile,#block-system-main .node-speakers{display: block!important;}
+.field-item a.facebook-url:before {padding: 8px 15px!important; position: relative!important; left:0!important}
+.field-item a.twitter-url:before{padding: 8px 10px!important; position: relative!important; top: -17px!important;}
+.page-node-769 .field-item table tr th{display: block;}
+.page-node-769 .field-item table tr th h2,.page-node-769 .field-item table tr td .rtecenter{font-size: 19px;}
+/* 22-03-Nikki? */
+  .speakers > .img-wrapper{height: auto!important;}
+ .page-node-772 #node-772 table tr td {
+    text-align: center; 
+    width: 100%;
+    display: block;
 }
+td.custom-layout{width:100% !important; float:left !important; clear:none !important; display:block !important; padding:10px; border:0 !important; margin-bottom:10px !important;}
+ 
+}
+
+@media (max-width: 480px) {
+.page-node-33 .page-header{padding:0 15px!important; font-size: 16px!important;}
+.page-advisors-and-organizations .page-header,.page-advisors-organizations .page-header,.page-node-657 .page-header ,.page-node-687 .page-header{ top: -99px!important; font-size: 21px!important;}
+/***.page-header{ top:-169px!important; padding-left:0!important;}**/
+.logged-in .page-header { font-size: 21px!important;}
+
+/**.logged-in.page-board-and-staff .page-header {top: -162px !important;}**/
+
+
+
+
+.text-block{top: 29%!important;}
+.head-btn a {font-size: 15px!important;}
+.call-panels h1,.call-panels h2 {font-size: 20px!important;}
+.social-media ul li img {
+    width: 40px!important;
+    height: 40px!important;
+}
+.group-right .field-item { font-size: 19px!important;}
+.page-node-772 #node-772 table {table-layout: fixed;}
+.page-node-772 #node-772 table tr td p img{width:100%;}
+.page-node-772 #node-772 table tr td p span strong{color:#222!important;}
+
+}  
+
 
 /* added Bootstrap */
 .bg-default {
@@ -57,4 +183,1263 @@ a.bg-default:focus {
 }
 .btn-secondary:hover {
   color: #e50c00;
+}
+
+#block-block-35 .page-summaries{padding:0;}
+/* 22-03-Nikki */
+/*.carousel-inner .item.left.active {
+  transform: translateX(-33%)!important;
+}
+.carousel-inner .item.right.active {
+  transform: translateX(33%)!important;
+}
+
+.carousel-inner .item.next {
+  transform: translateX(33%)!important;
+}
+.carousel-inner .item.prev {
+  transform: translateX(-33%)!important;
+} 
+  
+.carousel-inner .item.right,
+.carousel-inner .item.left {
+  transform: translateX(0);
+}
+.carousel-control.left,.carousel-control.right {background-image:none;}*/
+
+/*23 css nikki
+
+.group-left .field-label { display: none;}
+.ds-3col > .group-left {width: 21%;}
+.group-middle .field .field-label{float: left;}
+.social-share ul { padding: 0;  margin: 0;}
+.social-share ul li { display: inline-block;  margin-left: 5px; width:35px;}
+.social-share ul li:first-child { margin-left: 0;}
+.social-share ul li.social-share-item-facebook a {
+    background-image: url(http://devd7.leftforum.org/sites/default/files/banner/images/facebook1.png);
+    background-repeat: no-repeat;
+     background-position: 2px 18px;
+    height: 84px;
+    display: block;
+    color: #fff;
+}
+.social-share ul li.social-share-item-pinterest a {
+    background-image: url(http://devd7.leftforum.org/sites/default/files/banner/images/pinterest.png);
+    background-repeat: no-repeat;
+     background-position: 2px 18px;
+    height: 84px;
+    display: block;
+    color: #fff;
+}
+
+.social-share ul li.social-share-item-reddit a {
+    background-image: url(http://devd7.leftforum.org/sites/default/files/banner/images/reddit.png);
+    background-repeat: no-repeat;
+     background-position: 2px 18px;
+    height: 84px;
+    display: block;
+    color: #fff;
+}
+
+.social-share ul li.social-share-item-twitter a {
+    background-image: url(http://devd7.leftforum.org/sites/default/files/banner/images/twitter1.png);
+    background-repeat: no-repeat;
+     background-position: 2px 18px;
+    height: 84px;
+    display: block;
+    color: #fff;
+}*/
+/*24 march nikki*/
+
+7.Volunteer-list {background: #fff; padding-bottom: 10px; min-height: 300px;}
+.Volunteer-list ul {
+ list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 16px;
+padding-right: 16px;
+}
+.Volunteer-list ul li {
+  margin: 0;
+  margin-bottom: 4px;
+  padding-left: 1.5em;
+  position: relative;
+}
+.Volunteer-list  h1{
+font-size: 24px;
+text-align: center;
+padding: 8px;
+margin: 0;
+color: #222;
+}
+.Volunteer-list ul li a{
+font-size: 17px;
+color: #999;
+}
+.Volunteer-list ul li:after {
+  content: '';
+  height: 10px;
+  width: 10px;
+  background: #e50c00;
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 7px;
+  left: 0;
+}
+
+.volunter-head{
+text-align: center;
+padding: 17px 0;
+font-size: 20px;
+color: #222;
+ background: #ffff;
+}
+
+.participate{margin-bottom: 27px;  background: #fff;}
+
+.participate img{width:100%;}
+.participate-content {
+    padding: 15px 15px;
+    background: #ffff;
+    margin-bottom: 29px;
+}
+.about {
+    font-size: 22px;
+    color: #222;
+}
+.participate-content p {
+    font-size: 17px;
+    color: #999;
+    
+}
+
+.notsure {
+    text-align: center;
+    color: #222 !important;
+    font-size: 21px !important;
+}
+#block-block-40 {
+    background: #fff;
+    padding: 36px 0;
+}
+
+
+
+
+.page-header {
+    position: relative;
+    top: 0;
+    color: #ff3e33;
+    padding-bottom: 0;
+    border: none;
+    width: 100%;
+     text-align: center;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+
+
+#navbar{margin-bottom:0;}
+
+/******advisor css********/
+
+.advisor-page .views-field-field-org-logo-rectangle span {display: none;}
+.advisor-page .views-field-field-org-logo-circle-or-square span{display: none;}
+.advisor-page .views-field.views-field-field-org-logo-circle-or-square,.advisor-page .views-field-field-org-logo-rectangle {
+	width: 30%;
+	float: left;
+	min-height: 120px;
+	margin-right: 10px;
+	background: #fff;
+	padding: 5px;
+	position: relative;
+}
+.advisor-page .views-field.views-field-field-org-logo-circle-or-square .field-content img{
+/*position: absolute;*/
+left: 0;
+top: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+height:100%;
+width:auto;
+}
+.advisor-page{margin-bottom: 28px;}
+.advisor-page .views-field .views-label {float: left; color: #fff; margin-right: 7px; font-weight: bold;}
+.advisor-page .views-field.views-field-title { display: none;}
+.advisor-page .views-field .field-content {
+ color: #fff;
+}
+.advisor-page .views-field {
+    background: #222;
+    padding: 2px 0;
+}
+
+.advisor-page .views-field.views-field-field-organization-website-url {  padding-top: 8px;}
+.views-field.views-field-field-org-partnership-level { padding-bottom: 9px;}
+/**28March nikki**/
+.advisor-page table{width:100%;}
+.advisor-page table td[class*="col-"], .advisor-page table th[class*="col-"]{padding-left: 20px; padding-bottom: 20px;}
+.advisor-page table td[class*="col-"]:first-child, .advisor-page table th[class*="col-"]:first-child{padding-left: 0px;} 
+
+
+
+/***********sponsors/center-study-culture css************/
+
+#edit-field-organization-description{float:none!important;width:auto!important;}
+.page-node-687 .region.region-content { background: #fff; padding: 0 15px;}
+.page-node-687 .field-name-field-organization-description { width: 100%!important;float: right; margin-bottom: 30px!important; border-bottom: 1px solid #ccc; padding-bottom: 20px; margin-top: 52px; display: inline-grid;} 
+.page-node-687 .field {
+    margin-bottom: 6px;
+    width: 33%;
+    float: left;
+}
+.page-node-687 .field .field-label { font-weight: bold; float: left;}
+.page-node-687 .field-name-field-organization-description p { margin-bottom: 0; line-height: 26px; font-size: 18px; line-height: 25px; font-size: 16px;}
+.page-node-687 .field-item {color: #999;word-wrap: break-word;}
+.page-node-687 .field-type-image {margin-bottom: 53px!important;padding-top: 29px; } 
+
+
+.page-node-687  .field-name-field-organization-facebook-page .field-item a:before{content: "\f09a";}
+.page-node-687 .field-name-field-org-twitter-profile .field-item a:before{content: "\f099";}
+.page-node-687  .field-name-field-organization-facebook-page .field-item a:before,.page-node-687 .field-name-field-org-twitter-profile .field-item a:before{
+    content: "\f09a";
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+	line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
+
+}
+
+.page-node-687 .field-name-field-org-twitter-profile .field-item a{
+padding: 0px 27px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    right: 91px;
+    top: 0px;
+}
+.page-node-687  .field-name-field-organization-facebook-page .field-item a{
+    padding: 0px 27px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+.page-node-687  .field-name-field-organization-facebook-page .field-item a{ background: #3B5998;}
+.page-node-687 .field-name-field-org-twitter-profile .field-item a{background: #0084b4;}
+
+#block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a{
+    background: #3B5998;
+    padding: 0px 27px;
+   margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    display:block;
+   
+ }
+ #block-system-main .node-speakers .field-name-field-speaker-twitter-profile .field-item a{
+    background: #0084b4;
+    padding: 0px 27px;
+   margin-bottom: 10px;
+   color: #fff;
+   display:block;
+   
+ 
+ }
+	
+ 
+
+
+/***********user profile css and speakers  /  cornel-west************/
+.page-node-657 .group-middle .field-name-field-speaker1-first-name{
+	width: auto;
+	float: left;
+	padding-right: 15px;
+}
+.page-node-657 .group-middle .field-label-inline {
+	margin-bottom: 4px;
+}
+.page-node-657 .group-middle .field-name-field-speaker1-first-name,.page-node-657 .group-middle .field-name-field-speaker2-last-name{
+font-size: 20px;
+text-transform: uppercase; 
+font-weight: bold; 
+}
+#block-system-main .user-profile,#block-system-main .node-speakers{
+display: -webkit-box; 
+display: -moz-box;
+display: -ms-flexbox;
+display: -webkit-flex; 
+display: flex;
+margin-bottom: 27px;
+
+}
+ .group-right img {
+    width: auto!important;
+    text-align: center;
+    display: inline;
+}
+#block-system-main .user-profile div[class*="group-"],#block-system-main .node-speakers div[class*="group-"] {
+    width: 31%;
+    background: #fff;
+    margin-left: 26px;
+    padding: 20px;
+    padding-bottom: 76px!important;
+}
+#block-system-main .user-profile div[class*="group-"]:first-child ,#block-system-main .node-speakers div[class*="group-"]:first-child { margin-left: 0;}
+#block-system-main .user-profile .group-right,#block-system-main .node-speakers .group-right{
+	background: lightgray!important;
+	color: #fff;
+	text-align: center;
+	padding: 109px 15px !important;
+	font-size: 35px;
+}
+
+#block-system-main .group-left img,#block-system-main .node-speakers img{width:100%;}
+.field-item {position: relative;}
+#block-system-main .node-speakers .field-name-field-speaker-website-url {
+    background: #222;
+    color: #fff;
+	padding: 14px 10px;
+    display: block;
+    margin-top: 10px;
+}
+ #block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a{color:#fff!important;}
+ 
+#block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a:first-child:before{
+    content: "\f09a";
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+	line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
+
+}
+#block-system-main .node-speakers .field-name-field-speaker-twitter-profile .field-item a:last-child:before{ 
+   content: "\f099";
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+	line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
+
+
+}
+ 
+.field-item a.facebook-url::before {
+	content: "\f09a";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	color: #000;
+	font-size: 28px;
+	position: absolute;
+	background: #fff;
+	text-align: center;
+	border: 3px solid #000;
+	border-radius: 50px;
+	width: 50px;
+	height: 50px;
+	line-height: 49px;
+	vertical-align: middle;
+	text-decoration: none;
+	left: -59px;
+	top: 32px;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+    
+.field-item a.twitter-url:before {
+    content: "\f099";
+    font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	color: #000;
+	font-size: 28px;
+	position: absolute;
+	background: #fff;
+	text-align: center;
+	border: 3px solid #000;
+	border-radius: 50px;
+	width: 50px;
+	height: 50px;
+	line-height: 49px;
+	vertical-align: middle;
+	text-decoration: none;
+	left: 56px;
+	top: 32px;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+    }
+
+/***********conference/call-panels-workshops-left-forum css********/
+
+.page-node-632 .email-container{width:100%; max-width: 100%!important; background: #fff;}  
+table.call-panels { background: #fff;}
+.call-panels h1 {font-size: 31px;color: #000;font-family: georgia,serif;}
+.call-panels h4 {font-size: 19px;  color: #ff3e33;font-family: georgia,serif;}
+.call-panels h2 { margin: 0 0px 20px;font-family: georgia,serif;color: #000;}
+.call-panels h3,.shopbtn{text-align:center;font-family: georgia,serif;color: #000;}
+.call-panels p{color: #000;font-size: 18px;text-align: left;font-family: georgia,serif;}
+.want-volunter p{color: #000; text-align: center;font-family: georgia,serif;}
+.want-volunter p {margin-bottom: 0;}
+.head-btn { text-align: center; margin: 24px 0;}
+table.call-panels td{ padding: 0 20px!important;}
+.shopbtn a{background: #ff3e33;
+    color: #fff;
+    padding: 10px 9px;
+    font-size: 17px;
+    text-decoration: none!important;
+    border-radius: 4px;
+    display: inline-block;
+    text-transform: capitalize;}
+.head-btn a,.submit_panal {
+    background: #ff3e33;
+    color: #fff;
+    padding: 15px;
+    font-size: 20px;
+    text-decoration: none!important;
+    border-radius: 4px;
+}
+
+.call-panel-vid {
+    margin: auto;
+    width: 56%;
+    text-align: center;
+    padding: 23px;
+    border: 1px solid #ccc;
+    margin-bottom: 25px;
+}
+.video-panel {
+    text-align: center;
+    margin: 13px 14px;
+    font-size: 22px;
+}
+.submit_panal:hover{color: #fff;}
+.panels-list ul,.workshop ul{
+ list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.panels-list ul li ,.workshop ul li{
+  margin: 0;
+  margin-bottom: 4px;
+  padding-left: 1.5em;
+  position: relative;
+  font-size: 18px; 
+  color: #000;
+  text-align: left;
+ font-family: georgia,serif;
+}
+.panels-list ul li:after,.workshop ul li:after {
+  content: '';
+  height: 10px;
+  width: 10px;
+  background: #e50c00;
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 7px;
+  left: 0;
+}
+
+@media (max-width: 767px) {
+.page-node-632 .email-container{width: 100%!important; table-layout: fixed;}
+table.call-panels {table-layout: fixed; width: 100%!important;}
+.call-panels p{word-wrap: break-word;}
+.head-btn a{font-size: 17px;}
+.rigister-donate a{margin: 6px!important;}
+.call-panel-vid{width:100%; padding: 9px;}
+.call-panel-vid iframe { width: 100%;}
+.head-btn a,.submit_panal{padding: 13px 6px;}
+}
+
+
+/***********volunteer-videographer-conference and lf-2018-onsite-volunteering*******/
+
+table.onsite_volunteering ,table.volunteer-videographer{
+    background: #fff;
+}
+ .planery-users a:nth-of-type(even), .volunteer-users  a:nth-of-type(even) {
+    background: #222;
+}
+.rtecenter.volunteer-users {
+    width: 43%;
+    margin: auto;
+}
+.volunteer-users a{width:100%!important;}
+.planery-users a,.volunteer-users a {
+    background: #ff3e33;
+    color: #fff;
+    padding: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none!important;
+    text-align: center;
+    width: 45%;
+}
+p.rtecenter.planery-users, p.rtecenter.volunteer-users  {
+    text-align: center;
+}
+td.lkfd {
+    text-align: center;
+    background: #ddd;
+    font-size: 20px;
+}
+.session.head {
+    background: #3498db;
+    margin-bottom: 8px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 32px;
+}
+.vol-register a{
+   border: solid 1px #3498db;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 12px 25px;
+    text-decoration: none!important;
+    text-transform: capitalize;
+    background-color: #3498db;
+    color: #ffffff;
+
+}
+
+
+
+
+
+/***********conference/theme-nyc-css********/
+.page-node-631 table{background-color: #fff!important;}
+.page-node-631 td.container,.page-node-631 .content{width:100%!important; max-width:100%!important;}
+.theme-Conference p,.onsite_volunteering p,.volunteer-videographer p{color: #000;font-size: 18px;text-align: left; padding-right:1%!important;padding-left:2%!important;font-family: georgia,serif; }
+.breadcrumb{margin:0px 0;}
+.conference-part { background: #F45F56; padding: 22px 0;}
+p.rtecenter.con-head {
+    text-align: center;
+    background: #222;
+    display: table;
+    margin: auto;
+    padding: 8px;
+    color: #fff;
+}
+.theme-panel-set ul li{
+  margin: 0;
+  margin-bottom: 11px;
+  padding-left: 1.5em;
+  position: relative;
+  font-size: 18px; 
+  color: #fff;
+  text-align: left;
+ font-family: georgia,serif;
+}
+.theme-panel-set ul{
+ list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+p.the-left {
+    color: #fff;
+    padding: 21px 0;
+}
+.theme-panel-set ul li:after{
+  content: '';
+  height: 10px;
+  width: 10px;
+  background: #000;
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 7px;
+  left: 0;
+
+}
+
+.rigister-donate {text-align: center;}
+.rigister-donate a {
+  background: #ff3e33;
+    color: #fff;
+    padding: 12px;
+    font-size: 20px;
+    text-decoration: none!important;
+    border-radius: 4px;
+    margin: 16px;
+}
+.rigister-donate a:last-child { background: #222;}
+.to-propose p {text-align: center;}
+.to-propose { margin: 20px 0;}.to-propose a:last-child {
+    background: #ff3e33;
+    color: #fff;
+    padding: 10px 9px;
+    font-size: 17px;
+    text-decoration: none!important;
+    border-radius: 4px;
+    display: inline-block;
+    text-transform: capitalize;
+}
+.button-logo img {
+    float: none!important;
+    margin: 5px;
+    display: inline-block;
+}
+.button-logo {text-align: center;}
+p.theme-lt {
+    text-align: center;
+    margin: 11px 0px 28px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***********history-socialist-scholars-conference********/
+
+.page-node-27 .col-sm-12,.page-node-33 .col-sm-12{padding: 0 6px;}
+
+
+.page-node-27 p {
+font-size: 18px;
+color: #999;
+line-height: 28px;
+}
+.page-node-27 .rtecenter,.page-node-33 .rtecenter{
+	text-align: center;
+	font-size: 20px;
+	margin: 33px 0;
+	color:#222!important;
+}
+.page-node-27 .field-name-body{background:#fff; padding: 10px 15px;}
+
+/***********history-socialist-scholars-conference********/
+
+.panel-workshop{background: #fff; padding:5px 15px;} 
+.panel-workshop p{
+font-size: 18px;
+color: #000;  
+line-height: 28px;
+    font-family: georgia,serif;
+
+padding-left:15px;
+}
+.workshop ol li {
+    color: #000;
+    font-size: 18px;
+    font-family: georgia,serif;
+    
+}
+.workshop ol li strong{color: #333;}
+
+/********hotels-and-parking-0*********/
+.page-node-769 .field-item table { background: #fff;width: 60%!important;}
+.page-node-769 .field-item{background: #fff;}
+.page-node-769 .field-item table tr td {
+    padding: 20px;
+    border: 1px solid #ddd;
+    color: #999;
+    font-size: 20px;
+    line-height: 32px;
+}
+.page-node-769 .field-item table tr td  a{text-decoration:none;}
+
+.page-node-769 .field-item table tr td .rtecenter {
+    text-align: center;
+    margin: 10px 0;
+    color: #555;
+}
+.page-node-769 .field-item table tr th h2 {text-align: center; color:#555;}
+/*31-03-18*/
+.page-user .field-label-inline {
+	float: left;
+	margin-right: 30px;
+}
+
+.group-left .field-item.even h2{display:none;}
+.ds-2col > .group-right{padding-left:20px; padding-top:5px;}
+
+/*    21April 2018   */
+.view-advisors-organizations .view-content table tr td{background:#222; border-bottom:solid 15px #ebebeb; border-right:solid 15px #ebebeb; padding:0 !important; width:33.3%;}
+.view-advisors-organizations .view-content table tr td .views-field{}
+.view-advisors-organizations .view-content table tr td:last-child{border-right:0;}
+
+
+
+
+@media (max-width: 767px) {
+.page-node-769 .field-item table { width: 100%!important; table-layout: fixed;}
+.page-node-769 .field-item table tr{display: block;}
+.page-node-769 .field-item table tr td{width:100%; float:left; border:none; border-bottom: 1px solid #ccc;}
+ .page-node-687 .field{width:100%!important;}
+.page-node-687 .field .field-label{float: none!important;}
+.page-node-687 .field-name-field-org-twitter-profile .field-item a{right:0!important; top: 5px!important;}
+}
+
+
+
+
+
+/**********backend page css start********/
+/******** left-forum-exhibition-2018  css**********/
+
+
+.page-node-772 #node-772 table{width: 100%!important; border: none;}
+.page-node-772 #node-772 table tr{background: #222; border: 1px solid gray;}
+.page-node-772 #node-772 table tr td{padding: 7px;}
+.page-node-772 #node-772 table tr td p span { font-size: 19px;color: #fff;} 
+.page-node-772 #node-772 table tr td p span strong{color:#ff3e33!important;}
+.page-node-772 #node-772 table tr td hr{border-top: 1px solid gray;}
+a.exhib {
+    background: #ff3e33;
+    display: block;
+    text-align: center;
+    padding: 12px;
+}
+
+
+/******** node/add/session  6-April 2018 css**********/
+
+div#edit-field-event-type {
+    padding: 15px;
+    width: 52%;
+    float: left;
+    background: #fff;
+    min-height: 500px;
+}
+
+.notsticky h3 {
+    background: #222;
+    color: #fff;
+    padding: 5px;
+}
+fieldset#bootstrap-panel--10 {min-height: 502px; width:98%; margin:15px 1%;}
+fieldset#bootstrap-panel--9 { min-height: auto;}
+.page-node-edit.node-type-session .field-name-field--diversity-of-persepctives,.page-node-edit.node-type-session .field-name-field-panel-reading-list,.page-node-edit.node-type-session .field-name-field-panel-workshop-year,.page-node-edit.node-type-session .field-name-field-location,.page-node-edit.node-type-session .field-name-field-abstract,.page-node-edit.node-type-session .field-name-field-po-last-name,.page-node-edit.node-type-session .field-name-field-po-first-name,.page-node-edit.node-type-session .field-name-field-po-contact-phone,.page-node-edit.node-type-session .field-name-field-availability-for-schedulin,.page-node-edit.node-type-session .field-name-field-po-affiliation,.page-node-edit.node-type-session .field-name-field-po-address-2,.page-node-edit.node-type-session .field-name-field-po-city,.page-node-edit.node-type-session .field-name-field-po-postal-code,.page-node-edit.node-type-session .field-name-field-panel-topics-entity,.page-node-edit.node-type-session .field-name-field-panel-workshop-topics-pt-1,.page-node-edit.node-type-session .field-name-field-forum-type,.page-node-edit.node-type-session .field-name-field-panel-docs{background:#fff; width:100%; color:#222; border:none; margin-bottom:0px; padding:0;}
+
+
+/***on edit****/
+.page-node-edit.node-type-session fieldset#bootstrap-panel--6{width:48%; min-height: 630px;}
+.page-node-edit.node-type-session fieldset#bootstrap-panel--7{margin: 1% 1% 1%;}
+.page-node-edit.node-type-session fieldset#bootstrap-panel--8{margin: 1% 1% 0;}
+.page-node-edit.node-type-session fieldset#bootstrap-panel--9{margin: 1% 1% 0;}
+
+.page-node-edit.node-type-session fieldset#bootstrap-panel--4,.page-node-edit.node-type-session fieldset#bootstrap-panel--5 { min-height: 629px;}
+@media (max-width: 767px) {
+.page-node-edit.node-type-session fieldset#bootstrap-panel--8 {
+	margin-left: 0;
+}}
+/***on editclosed****/
+
+fieldset#bootstrap-panel--4,fieldset#bootstrap-panel--5 { min-height: 580px;}
+.sticky-header{z-index: 999;}
+.page-node-add-session #bootstrap-panel--6{ min-height: auto;}
+.page-node-add-session #bootstrap-panel--7 { margin-left: 0;}
+.page-node-add-session #bootstrap-panel--7 {margin-left: 0;}
+
+.page-node-add-session #bootstrap-panel--8 {margin: 0 1%;}
+.page-node-add-session #bootstrap-panel--9 { margin: 0 1%; min-height:760px; }
+.collapsible {
+    width: 48%;
+    float: left;
+    min-height:  760px;
+    margin:0 1%;
+   /* min-height: 500px;*/
+     margin-bottom: 25px;
+}
+.collapsible:nth-child(even){}
+.page-node-966 fieldset#bootstrap-panel--6 { width: 100%;}
+
+legend.panel-heading{
+    color: #fff!important;
+    background-color: #222!important;
+    border-color: #222!important;
+    margin-bottom:0px!important;
+}
+div#edit-field-room { background: #fff; padding: 15px 15px;}
+div#edit-field-timeslot {
+    background: #fff;
+    padding: 15px 15px;
+}
+.form-wrapper ul.entityreference-dragdrop{background: #fff; border: 1px solid #ccc; width: 100%;} 
+ul.entityreference-dragdrop li:hover {
+    background: #ff3e33; 
+    color: #fff;
+}
+ul.entityreference-dragdrop li{
+border-bottom: 1px solid #ccc;
+border-top: 1px solid #ccc;
+color: #222;
+font-weight: 300;
+padding: 5px 15px;
+font-size: 14px;
+
+}
+.field-type-text label.control-label{font-weight:400!important;}
+.form-control{color: #999;}
+.entityreference-dragdrop-label,.edit-field-panel-workshop-topics-pt-1-und {
+    background: #ff3e33;
+    color: #fff;
+    text-align: center;
+    padding: 8px 36px;
+    font-size: 27px;
+    margin-bottom: 15px!important;
+    display: table;
+    margin: 13px auto;
+}
+
+.entityreference-dragdrop-list-header {
+    margin-bottom: 12px;
+    font-size: 17px;
+    background: #222;
+    color: #fff;
+    padding: 4px 15px;
+    width: 100%;
+    font-weight: 500;
+}
+
+form .field-multiple-table td.field-multiple-drag { display: none;}
+.required-fields { background: #fff; padding: 0 15px; float: left; margin-bottom: 17px;}
+#edit-field-forum-type {
+    float: left;
+    width: 100%;
+    padding:10px 15px;
+}
+div#edit-field-event-type {
+    padding: 15px;
+    width: 50%;
+    float: left;
+    background: #fff;
+    min-height: auto;
+    margin-left: 23px;
+}
+div#edit-field-panel-workshop-topics-pt-1 {
+    background: #fff;
+    padding: 0 15px;
+}
+.vertical-tabs-panes.vertical-tabs-processed.tab-content {
+    min-height: auto!important;
+}
+button#edit-field-po-contact-phone-und-add-more {
+    display: none;
+}
+#edit-field-panel-workshop-topics-pt-1-und .form-item {
+ width: 33%;
+ display: inline-block;
+}
+.tabbable .nav-tabs > li > a { background: #222; color: #fff; padding: 9px 14px;}
+.tabbable .nav-tabs > li.active > a{color: #fff; background-color: #ff3e33;}
+.tabbable .nav-tabs > li > a:hover {
+    border-color: #ff3e33;
+    background: #ff3e33;
+}
+.vertical-tabs-pane .panel-body {
+    padding: 15px;
+    background: #fff;
+    margin-bottom: 15px;
+}
+.form-actions { text-align:center; background: #fff; margin-bottom:0px;}
+@media (max-width: 767px) {
+.page-node-add-session #bootstrap-panel--8{margin-left: 0;}
+.sticky-header{position:relative;}
+#edit-field-panel-workshop-topics-pt-1-und .form-item { width: 100%;}
+.tabbable .nav-tabs > li {float: none;  margin-bottom: 1px;}
+.tabbable .nav-tabs{width:100%;float: left; }
+.vertical-tabs-panes.vertical-tabs-processed.tab-content { width: 100%;}
+.collapsible { width: 100%; min-height: auto;}
+.collapsible:nth-child(even) { margin-left: 0px; }
+.field-group-multiple-table table{display:inline-block;}
+.image-widget-data .input-group-btn{display: inline;}
+.entityreference-dragdrop-container-available,.entityreference-dragdrop-container-selected{width: 100%;}
+fieldset#bootstrap-panel--9{margin-left: 0px;}
+.page-node-966 #block-block-40{margin-top: 10px;}
+.required-fields{width:100%;}
+.tabbable.tabs-left.vertical-tabs.clearfix.bootstrap-tabs-processed {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+#edit-actions {
+    width: 100%;
+    float: left;
+    background: none;
+    margin: 12px 0 15px;
+}
+#edit-actions button{margin-bottom:5px;}
+.board-staff table tr{padding:0 !important;}
+.board-staff .views-field-field-speaker1-biography{margin-top:10px; width:100%;}
+.field-name-body table.theme-Conference tr td{padding:4px;}
+.board-staff .views-field-title span.field-content a{font-size:22px !important;}
+.board-staff table tr .views-field.views-field-field-image-speaker-1{margin-top:10px;}
+.entityreference-dragdrop-container-available, .entityreference-dragdrop-container-selected{width:98% !important; min-height:inherit !important;}
+
+
+}
+
+
+
+
+/*8-04-18*/
+.workshop ol li strong {
+    color: #000 !important; 
+    font-family: georgia,serif;
+    
+}
+
+
+/********10 -04-18 sponsors/advisory-board-2***********/
+
+ .ds-2col { background: #fff;}
+ 
+ /********12 -04-18 sessions/decolonial-humanism-new-perspectives-racism-and-revolution***********/
+ 
+.node-type-session .region-content{background: #fff; padding:0 15px;}
+
+.node-type-session .field.field-name-field-panel-image { width:40%; float:left; clear: both;   padding: 73px 20px;}
+.node-type-session .field.field-name-field-room,.node-type-session  .field-name-field-panel-workshop-year, .node-type-session  .field-name-field-location { width: 50%;float: left;}
+
+a.flag.flag-action.flag-link-toggle.flag-processed {
+    background: #ff3e33;
+    color: #fff;
+    padding: 11px 10px;
+    text-align: center;
+    display: table;
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin: auto;
+}
+
+.logged-in.node-type-session .node-session .field.field-name-field-panel-image { padding: 0px 20px!important;}  
+.logged-in.node-type-session .region li.flag-schedule{visibility: hidden;}
+
+@media(max-width:767px){
+.logged-in.node-type-session .node-session .field.field-name-field-panel-image{margin-bottom: 22px;}
+
+}
+
+.node-type-session .field.field-name-field-room .field-label, .node-type-session  .field-name-field-panel-workshop-year .field-label, 
+.node-type-session .field-name-field-location .field-label{float: left; padding-right: 15px;}
+.node-type-session .field-name-field-panel-image img {border: 1px solid #999; padding: 12px; display: inline-block;}
+
+.node-type-session .field-name-field-po-last-name,
+.node-type-session .field-name-field-po-first-name,
+.node-type-session .field-name-field-panel-docs,
+.node-type-session .field-name-field-forum-type,
+.node-type-session .field-name-field-panel-topics-entity,
+.node-type-session .field-name-field-panel-workshop-topics-pt-1,
+.node-type-session .flag-outer-schedule,
+.node-type-session .field-name-field-availability-for-schedulin,
+.node-type-session .field-name-field--diversity-of-persepctives,
+.node-type-session .field-name-field-po-contact-phone,
+.node-type-session .field-name-field-po-address-2,
+.node-type-session .field-name-field-po-city,
+.node-type-session .field-name-field-po-postal-code,
+.node-type-session .field-name-field-abstract,
+.node-type-session .field.field-name-field-host-sponsor,
+.node-type-session .field-name-field-panel-reading-list,
+.node-type-session .field.field-name-field-room, 
+.node-type-session .field-name-field-panel-workshop-year, 
+.node-type-session .field-name-field-location,
+.node-type-session .field-name-field-po-affiliation,
+.node-type-session .field-name-field-speaker1-first-name,
+.node-type-session .field-name-field-speaker-last-name,
+.node-type-session .field-name-field-speaker1-affiliation,
+.node-type-session .field-name-field-speaker1-biography,
+.node-type-session .field-name-field-conference-organizer-note,
+.node-type-session .field-name-field-room-size-proposed,
+.node-type-session .field-name-field-add-affiliation,
+.node-type-session .field-name-field-missing-speaker-s-,
+.node-type-session .field-name-field-all-complete-infos,
+.node-type-session .field-name-field-add-panel-topic
+
+
+{
+	border: 1px solid #999;
+    float: right;
+    width: 60%;
+    background: #222;
+    color: #fff;
+    margin-bottom: -1px;
+    padding:4px 0px 4px 19px;
+}
+
+.node-type-session .field-label{ font-weight: normal; padding-right: 15px; float: left;}
+.node-type-session .field-items{font-weight: 300;}
+.node-type-session .field-name-field-image-speaker-1{display: none}
+
+
+footer .flag-schedule .flag-link-toggle.flag-processed {
+    background: #ff3e33;
+    color: #fff;
+    padding: 11px 10px;
+    font-size: 22px;
+    
+}
+
+field-name-field-image-speaker-1 .field-items,
+.field-name-field-speaker-first-and-middle-n .field-items,
+.field-name-field-speaker-last-name .field-items{
+display: -webkit-box; 
+display: -moz-box;
+display: -ms-flexbox;
+display: -webkit-flex; 
+display: flex;
+justify-content: center;
+
+}
+
+.inner-bio {
+    color: #222;
+    min-height: 41px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.speakerdata{
+display: -webkit-box; 
+display: -moz-box;
+display: -ms-flexbox;
+display: -webkit-flex; 
+display: flex;
+justify-content: center;
+width:100%;
+}
+.speakerdata .file-image-jpeg { min-height: 222px; height: 222px;}
+.speakerdata img {width: 100%; height: 222px;}
+.speakerdata [class*="sdata-"]{width: 20%; text-align: center; margin:36px 1px 10px 4px;     border: 1px solid #ccc; padding: 5px 5px 26px 5px; background: #f7f7f7;}
+.speakerdata [class*="sdata-"] p:nth-of-type(1){color:#222; padding-top: 11px;}
+.speakerdata [class*="sdata-"] p:nth-of-type(2){color:#222;}
+.speakerdata [class*="sdata-"] p:nth-of-type(3){color:#222; min-height: 41px;}
+/*.speakerdata [class*="sdata-"] p:nth-of-type(4){
+	color:#222; 
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  }*/
+.speakerdata [class*="sdata-"] a{color:#fff; background:#ff3e33; padding: 4px 9px; border-radius: 3px; font-size: 14px;}
+.field-name-field-image-speaker-1 .field-items [class*="field-item"]{ padding-left: 15px;} 
+.field-name-field-image-speaker-1 .field-items [class*="field-item"]:first-child{ padding-left: 0px;}
+.field-name-field-speaker-first-and-middle-n .field-items [class*="field-item"]{width: 22%; text-align: center;}
+.field-name-field-speaker-last-name .field-items [class*="field-item"]{width: 22%; text-align: center;}
+
+/*    20April 2018   */
+fieldset#bootstrap-panel{width:96%; min-height: inherit; margin-left:2%; margin-top:15px;}
+.entityreference-dragdrop-container-available, .entityreference-dragdrop-container-selected{width:48%; margin:0 1%;}
+#bootstrap-panel--7{width:98%}
+#bootstrap-panel--4{min-height:760px !important;}
+
+
+@media (max-width: 767px) {
+body{overflow-x:hidden;}
+.node-type-session .field.field-name-field-panel-image{width:100%; text-align: center;}
+.speakerdata{display:inline-block;}
+.speakerdata [class*="sdata-"]{width:100%;}
+.speakerdata img{display:inline;}
+
+.node-type-session .field-name-field-po-last-name, .node-type-session .field-name-field-po-first-name, .node-type-session .field-name-field-panel-docs, .node-type-session .field-name-field-forum-type, .node-type-session .field-name-field-panel-topics-entity, .node-type-session .field-name-field-panel-workshop-topics-pt-1, .node-type-session .flag-outer-schedule, .node-type-session .field-name-field-availability-for-schedulin, .node-type-session .field-name-field--diversity-of-persepctives, .node-type-session .field-name-field-po-contact-phone, .node-type-session .field-name-field-po-address-2, .node-type-session .field-name-field-po-city, .node-type-session .field-name-field-po-postal-code, .node-type-session .field-name-field-abstract, .node-type-session .field.field-name-field-host-sponsor, .node-type-session .field-name-field-panel-reading-list, .node-type-session .field.field-name-field-room, .node-type-session .field-name-field-panel-workshop-year, .node-type-session .field-name-field-location, .node-type-session .field-name-field-po-affiliation, .node-type-session .field-name-field-speaker1-first-name, .node-type-session .field-name-field-speaker-last-name, .node-type-session .field-name-field-speaker1-affiliation, .node-type-session .field-name-field-speaker1-biography, .node-type-session .field-name-field-conference-organizer-note, .node-type-session .field-name-field-room-size-proposed, .node-type-session .field-name-field-add-affiliation, .node-type-session .field-name-field-missing-speaker-s-, .node-type-session .field-name-field-all-complete-infos, .node-type-session .field-name-field-add-panel-topic{width:100%;}
+
+#bootstrap-panel--4{min-height:inherit !important;}
+.page-node-edit.node-type-session fieldset#bootstrap-panel--6{width:98%;}
+.sticky-header{position:static !important;}
+.sticky-header thead{display:none !important;}
+.onsite_volunteering td img{max-width:100%;}
+footer .flag-schedule .flag-link-toggle.flag-processed {
+    background: #ff3e33;
+    color: #fff;
+    padding: 11px 10px;
+    font-size: 17px;
+}
+}
+
+
+ /******* advertise-left-forum-2018 start css   *********/
+.field-name-body table {  width:100%!important; border:1px solid #ccc;}
+.field-name-body table tr td {padding:11px 15px;}
+.field-name-body table.prices{ background:#333; color:#fff; margin:43px 0;}
+table.purchase{border: none;}
+table.purchase tr td{background-color: #fff!important; border: none;}
+table.purchase tr td a{background: #ff3e33; padding: 15px 15px;}
+
+
+ /******* rigister captcha css   *********/
+.not-logged-in .group-cod-profile-social {
+    width: 100%;
+    margin-left: 0!important;
+    min-height: auto;
+}
+div#edit-actions--2{width: 100%;}
+div#edit-actions--2 button{ margin: 16px 0px 9px 248px;}
+
+@media (max-width: 480px) {
+div#edit-actions--2{display:inline-block;background: none;}
+div#edit-actions--2 button{ margin: 98px 0px 9px 0;}
+.g-recaptcha div { width: 260px;}
+
+.help-block{word-wrap: break-word;}
+}  
+.group-left {
+    position: relative;
+}
+/*Event Submission 
+.field-name-field-speaker1-first-name {
+	display: none;
+}
+.field-name-field-speaker-last-name{
+	display: none;
+}
+.field-name-field-speaker1-affiliation {
+	display: none;
+} 
+.field-name-field-speaker1-biography {
+	display: none;
+}
+.field-name-field-middle-initial {
+	display: none;
+}*/
+/*Profile page*/
+.blog-submitt p {color: #999;}
+.blog-submitt p span strong { font-weight: 300;}
+.blog-submitt p span { font-size: 17px !important; font-weight: 300;}   
+.blog-submitt{background-color:#fff;padding-left: 36px; margin-bottom: 27px;}   
+/**************/
+a.flag.unflag-action.flag-link-toggle.flag-processed {
+    background: #ff3e33;
+    color: #fff;
+    padding: 11px 10px;
+    font-size: 22px;
+    border-radius: 4px;
+}
+
+
+
+/******sponsors/democracy-work css*******/
+
+
+#block-system-main.contentthis .panel-3col-33-stacked .panel-col-top {  width: 100%!important; margin-bottom: 26px;}
+#block-system-main .panel-3col-33-stacked .center-wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    margin-bottom: 27px;
+}
+#block-system-main .panel-3col-33-stacked [class*="panel-col"] {
+    width: 32%;
+    background: #fff;
+    margin-left: 26px;
+    padding: 20px;
+   
+}
+#block-system-main .panel-3col-33-stacked [class*="panel-col"]:first-child{margin-left: 0;}
+
+#block-system-main .panel-3col-33-stacked .panel-col-last
+{
+	background: lightgray!important;
+	color: #fff;
+	text-align: center;
+	padding: 109px 15px !important;
+	font-size: 35px;
+}
+
+#block-system-main .panel-col-first .inside .field-name-field-organization-facebook-page .field-item a{
+    background: #3B5998;
+    padding: 0px 27px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    display:block;
+   }
+#block-system-main .panel-col-first .inside .field-name-field-org-twitter-profile .field-item a{
+    background: #0084b4;
+    padding: 0px 27px;
+    margin-bottom: 10px;
+    color: #fff;
+    display:block;
+}
+ 
+#block-system-main .panel-col-first .inside.field-name-field-organization-website-url {
+    background: #222;
+    color: #fff;
+	padding: 14px 10px;
+    display: block;
+    margin-top: 10px;
+}
+
+#block-system-main .panel-col-first .inside .field-name-field-organization-facebook-page .field-item a:first-child:before{
+    content: "\f09a";
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+	line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
+}
+#block-system-main .panel-col-first .inside .field-name-field-org-twitter-profile .field-item a:last-child:before{ 
+    content: "\f099";
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+	line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
+}
+#block-system-main .panel-col-first .inside .field-name-field-organization-website-url {
+    background: #222;
+    color: #fff;
+    padding: 14px 10px;
+    display: block;
+    margin-top: 10px;
+}
+/*slider*/
+.slick--skin--boxed-carousel .slide__content {
+margin: 0px;
+text-align: center;
+}
+
+#block-system-main .panel-col-first .inside .field-name-field-organization-website-url .field-item a { color: #fff!important;}
+@media (max-width: 767px) {
+#block-system-main .panel-3col-33-stacked [class*="panel-col"]{width:100%; margin-left: 0; margin-bottom: 15px;}
+#block-system-main .panel-3col-33-stacked .center-wrapper{display:block;}
 }

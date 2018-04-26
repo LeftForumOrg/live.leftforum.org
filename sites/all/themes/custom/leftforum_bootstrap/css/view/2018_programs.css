@@ -1,0 +1,26 @@
+.ui-accordion .ui-accordion-header{
+    display:block;
+    cursor:pointer;
+    position:relative;
+    margin-top:2px;
+    min-height:0;
+    background:#fff;
+}
+
+div#ui-accordion-1-panel-0 {
+    color: #ff3e33;
+}
+
+select#edit-field-timeslot-target-id {
+    color: #000;
+}
+select#edit-field-forum-type-target-id {
+    color: black;
+}
+button#edit-submit-2018-programs {
+    color: white;
+    background-color: #222222;
+}
+button#edit-submit-2018-programs:hover {
+    background-color: black;
+}

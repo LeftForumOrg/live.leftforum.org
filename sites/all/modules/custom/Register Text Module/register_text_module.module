@@ -1,0 +1,11 @@
+<?php
+
+registertextmodule_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+  if ($user->uid == 0)  {//checks if user is not logged in, otherwise would display on all pages.
+  if ($form_id == 'user_register_form')  {
+    //change register button text
+	$form['actions']['submit']['#value'] = t('Create Account');
+    }
+  }
+ }
