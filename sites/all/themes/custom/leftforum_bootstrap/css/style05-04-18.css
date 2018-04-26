@@ -1,0 +1,367 @@
+/**
+ * Place your custom styles here.
+ */
+body{background:#ebebeb!important;}
+#navbar, .footer {
+  padding: 10px;
+}
+.cont-box {
+  background: #fff none repeat scroll 0 0;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  float: left;
+  height: 229px;
+  min-height: 200px;
+  padding: 39px 15px;
+  text-align: center;
+  width: 33.3%;
+}
+
+.rteright.cont-box.marcus {
+  padding: 90px 15px!important;
+}
+.rtecenter.cont-box.ashley {
+  padding: 90px 15px!important;
+}
+.staff {
+    width: 23%;
+    float: left;
+    background: #fff;
+    margin-left: 27px;
+    text-align: center;
+    border-top: 4px solid #ff0e00;
+    margin-bottom: 33px;
+    padding: 15px;
+}
+.staff:first-child {
+    margin-left: 0;
+}
+@media (min-width: 768px) {
+  #navbar, .footer {
+    padding: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  #navbar, .footer {
+    padding: 28px;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  #navbar, .footer {
+    padding: 30px;
+  }
+}
+
+.main-container.container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+@media (max-width: 992px) {
+
+.text-block {width: 238px !important; left: 0!important; margin: auto!important; right: 0!important;}
+}
+@media (max-width: 1024px) {
+.text-block h2 span{font-size: 35px!important;}
+body.page-advisors-organizations .title-banner span,body.page-node-14 .title-banner span ,
+body.page-node-47 .title-banner span,body.page-board-and-staff .title-banner span,body.page-node-32 h2.title-banner span{font-size: 35px!important;}
+body.page-advisors-organizations .title-banner,body.page-node-14 .title-banner,body.page-node-47 .title-banner,
+body.page-board-and-staff .title-banner,body.page-node-32 .title-banner
+{top: -170px!important; left:0!important; text-align:center; padding-left: 0px!important;}
+
+
+}
+
+@media (max-width: 767px) {
+  .main-container.container > .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+
+/****26March-2018******/
+
+body.page-advisors-organizations .title-banner,body.page-node-14 .title-banner ,
+body.page-node-47 .title-banner,body.page-board-and-staff .title-banner,body.page-node-32 .title-banner{top: -159px!important;}
+body.page-advisors-organizations .title-banner span,
+body.page-node-14 .title-banner span,body.page-node-47 .title-banner span,body.page-board-and-staff .title-banner span,body.page-node-32 .title-banner span{font-size: 29px!important;}
+.text-block h2 span{font-size: 29px!important;}
+.text-block {width: 238px !important;}
+body.page-advisors-organizations header#page-header{height:auto!important;}
+.advisor-section .views-field.views-field-field-org-logo-circle-or-square .field-content img {  width: 79%;  padding: 6px;}
+.advisor-section .views-field.views-field-field-org-logo-circle-or-square{min-height: 113px;}
+
+ /* 22-03-Nikki? */
+  .speakers > .img-wrapper{height: auto!important;}
+}
+
+
+@media (max-width: 480px) {
+body.page-advisors-organizations header#page-header,body.page-node-14 header#page-header,
+body.page-board-and-staff header#page-header,body.page-node-32 header#page-header{ height: 100px!important;}
+body.page-advisors-organizations .title-banner,body.page-node-14 .title-banner 
+,body.page-node-47 .title-banner,body.page-board-and-staff .title-banner,body.page-node-32 .title-banner{ top:-106px!important;}
+.text-block{top: 29%!important;}
+
+}   
+
+/* added Bootstrap */
+.bg-default {
+  color: #fff;
+  background-color: #222222;
+}
+a.bg-default:hover,
+a.bg-default:focus {
+  background-color: #090909;
+}
+
+.bg-secondary {
+  color: #ff3e33;
+  background-color: #fff;
+}
+
+.btn-secondary {
+  color: #ff3e33;
+  background-color: #fff;
+}
+.btn-secondary:hover {
+  color: #e50c00;
+}
+
+#block-block-35 .page-summaries{padding:0;}
+/* 22-03-Nikki */
+/*.carousel-inner .item.left.active {
+  transform: translateX(-33%)!important;
+}
+.carousel-inner .item.right.active {
+  transform: translateX(33%)!important;
+}
+
+.carousel-inner .item.next {
+  transform: translateX(33%)!important;
+}
+.carousel-inner .item.prev {
+  transform: translateX(-33%)!important;
+} 
+  
+.carousel-inner .item.right,
+.carousel-inner .item.left {
+  transform: translateX(0);
+}
+.carousel-control.left,.carousel-control.right {background-image:none;}*/
+
+/*23 css nikki
+
+.group-left .field-label { display: none;}
+.ds-3col > .group-left {width: 21%;}
+.group-middle .field .field-label{float: left;}
+.social-share ul { padding: 0;  margin: 0;}
+.social-share ul li { display: inline-block;  margin-left: 5px; width:35px;}
+.social-share ul li:first-child { margin-left: 0;}
+.social-share ul li.social-share-item-facebook a {
+    background-image: url(http://devd7.leftforum.org/sites/default/files/banner/images/facebook1.png);
+    background-repeat: no-repeat;
+     background-position: 2px 18px;
+    height: 84px;
+    display: block;
+    color: #fff;
+}
+.social-share ul li.social-share-item-pinterest a {
+    background-image: url(http://devd7.leftforum.org/sites/default/files/banner/images/pinterest.png);
+    background-repeat: no-repeat;
+     background-position: 2px 18px;
+    height: 84px;
+    display: block;
+    color: #fff;
+}
+
+.social-share ul li.social-share-item-reddit a {
+    background-image: url(http://devd7.leftforum.org/sites/default/files/banner/images/reddit.png);
+    background-repeat: no-repeat;
+     background-position: 2px 18px;
+    height: 84px;
+    display: block;
+    color: #fff;
+}
+
+.social-share ul li.social-share-item-twitter a {
+    background-image: url(http://devd7.leftforum.org/sites/default/files/banner/images/twitter1.png);
+    background-repeat: no-repeat;
+     background-position: 2px 18px;
+    height: 84px;
+    display: block;
+    color: #fff;
+}*/
+/*24 march nikki*/
+
+7.Volunteer-list {background: #fff; padding-bottom: 10px; min-height: 300px;}
+.Volunteer-list ul {
+ list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 16px;
+padding-right: 16px;
+}
+.Volunteer-list ul li {
+  margin: 0;
+  margin-bottom: 4px;
+  padding-left: 1.5em;
+  position: relative;
+}
+.Volunteer-list  h1{
+font-size: 24px;
+text-align: center;
+padding: 8px;
+margin: 0;
+color: #222;
+}
+.Volunteer-list ul li a{
+font-size: 17px;
+color: #999;
+}
+.Volunteer-list ul li:after {
+  content: '';
+  height: 10px;
+  width: 10px;
+  background: #e50c00;
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 7px;
+  left: 0;
+}
+.volunter-head{
+text-align: center;
+padding: 17px 0;
+font-size: 20px;
+color: #222;
+ background: #ffff;
+}
+.participate{margin-bottom: 27px;}
+
+.participate img{width:100%;}
+.participate-content {
+    padding: 15px 15px;
+    background: #ffff;
+    margin-bottom: 29px;
+}
+.about {
+    font-size: 22px;
+    color: #222;
+}
+.participate-content p {
+    font-size: 17px;
+    color: #999;
+    
+}
+
+.notsure {
+    text-align: center;
+    color: #222 !important;
+    font-size: 21px !important;
+}
+#block-block-40 {
+    background: #fff;
+    padding: 36px 0;
+}
+
+body.page-advisors-organizations .title-banner {
+    position: relative;
+   top: -250px;
+left: 0px;
+    color: #fff;
+    padding-left: 60px;
+}
+
+body.page-board-and-staff .title-banner {
+    position: relative;
+   top: -250px;
+  left: 0px;
+    color: #fff;
+    padding-left: 60px;
+}
+
+body.page-node-32 .title-banner {
+    position: relative;
+   top: -250px;
+  left: 0px;
+    color: #fff;
+    padding-left: 60px;
+}
+body.page-advisors-organizations header#page-header
+{
+height:280px;
+}
+body.page-node-14 header#page-header
+{
+height:280px;
+}
+body.page-board-and-staff header#page-header
+{
+height:265px;
+}
+
+body.page-node-32 header#page-header {
+    height: 287px;
+}
+
+body.page-node-14 .title-banner {
+    position: relative;
+   top: -250px;
+   left: 0px;
+    color: #fff;
+    padding-left: 60px;
+}
+body.page-node-47 .title-banner{
+  position: relative;
+   top: -250px;
+   left: 0px;
+    color: #fff;
+    padding-left: 60px;
+}
+
+#navbar{margin-bottom:0;}
+
+/******advisor css********/
+
+.advisor-section .views-field-field-org-logo-rectangle span {display: none;}
+.advisor-section .views-field-field-org-logo-circle-or-square span{display: none;}
+.advisor-section .views-field.views-field-field-org-logo-circle-or-square,.advisor-section .views-field-field-org-logo-rectangle {
+	width: 20%;
+	float: left;
+	min-height: 115px;
+	margin-right: 5px;
+	background: #fff;
+	padding: 5px;
+	position: relative;
+}
+.advisor-section .views-field.views-field-field-org-logo-circle-or-square .field-content img{
+position: absolute;
+left: 0;
+top: 0;
+right: 0;
+bottom: 0;
+margin: auto;.title-banner
+
+}default page
+.advisor-section{margin-bottom: 28px;}
+.advisor-section .views-field .views-label {float: left; color: #fff; margin-right: 7px; font-weight: bold;}
+.advisor-section .views-field.views-field-title { display: none;}
+.advisor-section .views-field .field-content {
+ color: #fff;
+}
+.advisor-section .views-field {
+    background: #222;
+    padding: 2px 0;
+}
+#block-system-main {
+    margin-top: 30px;
+}
+.advisor-section .views-field.views-field-field-organization-website-url {  padding-top: 8px;}
+.views-field.views-field-field-org-partnership-level { padding-bottom: 9px;}
+
+
+
+

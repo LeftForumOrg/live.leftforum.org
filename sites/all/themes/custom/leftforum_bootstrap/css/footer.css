@@ -3,3 +3,24 @@
   color: #ffffff;
   border: 1px solid #121212;
 }
+.history ul li h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: aliceblue!important;
+    line-height: 12px;
+   
+}
+.history ul li h4 a {
+    color: aliceblue!important;
+}
+footer .flag-schedule {
+    position: absolute;
+    left: 20px;
+    right: 0;
+    padding-top: 4px;
+    top: 21%;
+}
+@media(max-width:767px){
+.history { margin-bottom:29px;}
+
+}
