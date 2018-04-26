@@ -356,7 +356,7 @@ color: #222;
 	position: relative;
 }
 .advisor-page .views-field.views-field-field-org-logo-circle-or-square .field-content img{
-/*position: absolute;*/
+position: absolute;
 left: 0;
 top: 0;
 right: 0;
@@ -364,6 +364,7 @@ bottom: 0;
 margin: auto;
 height:100%;
 width:auto;
+padding: 7px;
 }
 .advisor-page{margin-bottom: 28px;}
 .advisor-page .views-field .views-label {float: left; color: #fff; margin-right: 7px; font-weight: bold;}
@@ -434,7 +435,7 @@ padding: 0px 27px;
 }
 .page-node-687  .field-name-field-organization-facebook-page .field-item a{ background: #3B5998;}
 .page-node-687 .field-name-field-org-twitter-profile .field-item a{background: #0084b4;}
-
+/*
 #block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a{
     background: #3B5998;
     padding: 0px 27px;
@@ -453,8 +454,40 @@ padding: 0px 27px;
    
  
  }
-	
+	*/
  
+#block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a{
+    background: #3B5998;
+    padding: 0px 13px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 5px;
+ 
+ }
+ #block-system-main .node-speakers .field-name-field-speaker-twitter-profile .field-item a{
+    background: #0084b4;
+    padding: 0px 14px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 5px;
+ 
+ }
+ 
+ 
+ #block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a {
+    background: #222;
+    padding: 0px 14px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    /*left:56px;*/
+    left:116px;
+    top: 5px;
+}
 
 
 /***********user profile css and speakers  /  cornel-west************/
@@ -503,13 +536,7 @@ margin-bottom: 27px;
 
 #block-system-main .group-left img,#block-system-main .node-speakers img{width:100%;}
 .field-item {position: relative;}
-#block-system-main .node-speakers .field-name-field-speaker-website-url {
-    background: #222;
-    color: #fff;
-	padding: 14px 10px;
-    display: block;
-    margin-top: 10px;
-}
+
  #block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a{color:#fff!important;}
  
 #block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a:first-child:before{
@@ -535,6 +562,18 @@ margin-bottom: 27px;
     text-decoration: none;
     padding-right: 5px;
 
+}
+
+#block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a:first-child:before{
+    content: "\f0ac";
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+	line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
 
 }
  
@@ -742,13 +781,15 @@ td.lkfd {
 .theme-Conference p,.onsite_volunteering p,.volunteer-videographer p{color: #000;font-size: 18px;text-align: left; padding-right:1%!important;padding-left:2%!important;font-family: georgia,serif; }
 .breadcrumb{margin:0px 0;}
 .conference-part { background: #F45F56; padding: 22px 0;}
-p.rtecenter.con-head {
-    text-align: center;
+.conference-part p { color: #fff;}
+.conference-part p.rtecenter {
     background: #222;
+    text-align: center;
+    color: #fff;
+    padding: 6px;
     display: table;
     margin: auto;
-    padding: 8px;
-    color: #fff;
+    width: auto;
 }
 .theme-panel-set ul li{
   margin: 0;
@@ -865,6 +906,8 @@ padding-left:15px;
     font-family: georgia,serif;
     
 }
+.rtecenter span {font-family: georgia,serif!important; font-size: 18px!important;}
+table tr td span{font-family: georgia,serif!important; font-size: 18px!important;}
 .workshop ol li strong{color: #333;}
 
 /********hotels-and-parking-0*********/
@@ -873,9 +916,10 @@ padding-left:15px;
 .page-node-769 .field-item table tr td {
     padding: 20px;
     border: 1px solid #ddd;
-    color: #999;
-    font-size: 20px;
+    color: #000;
+    font-size: 18px;
     line-height: 32px;
+    font-family: georgia,serif;
 }
 .page-node-769 .field-item table tr td  a{text-decoration:none;}
 
@@ -930,6 +974,10 @@ a.exhib {
     display: block;
     text-align: center;
     padding: 12px;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none!important;
+    font-weight: bold;
 }
 
 
@@ -950,7 +998,33 @@ div#edit-field-event-type {
 }
 fieldset#bootstrap-panel--10 {min-height: 502px; width:98%; margin:15px 1%;}
 fieldset#bootstrap-panel--9 { min-height: auto;}
-.page-node-edit.node-type-session .field-name-field--diversity-of-persepctives,.page-node-edit.node-type-session .field-name-field-panel-reading-list,.page-node-edit.node-type-session .field-name-field-panel-workshop-year,.page-node-edit.node-type-session .field-name-field-location,.page-node-edit.node-type-session .field-name-field-abstract,.page-node-edit.node-type-session .field-name-field-po-last-name,.page-node-edit.node-type-session .field-name-field-po-first-name,.page-node-edit.node-type-session .field-name-field-po-contact-phone,.page-node-edit.node-type-session .field-name-field-availability-for-schedulin,.page-node-edit.node-type-session .field-name-field-po-affiliation,.page-node-edit.node-type-session .field-name-field-po-address-2,.page-node-edit.node-type-session .field-name-field-po-city,.page-node-edit.node-type-session .field-name-field-po-postal-code,.page-node-edit.node-type-session .field-name-field-panel-topics-entity,.page-node-edit.node-type-session .field-name-field-panel-workshop-topics-pt-1,.page-node-edit.node-type-session .field-name-field-forum-type,.page-node-edit.node-type-session .field-name-field-panel-docs{background:#fff; width:100%; color:#222; border:none; margin-bottom:0px; padding:0;}
+.page-node-edit.node-type-session .field-name-field--diversity-of-persepctives,
+.page-node-edit.node-type-session .field-name-field-panel-reading-list,
+.page-node-edit.node-type-session .field-name-field-panel-workshop-year,
+.page-node-edit.node-type-session .field-name-field-location,
+.page-node-edit.node-type-session .field-name-field-abstract,
+.page-node-edit.node-type-session .field-name-field-po-last-name,
+.page-node-edit.node-type-session .field-name-field-po-first-name,
+.page-node-edit.node-type-session .field-name-field-po-contact-phone,
+.page-node-edit.node-type-session .field-name-field-availability-for-schedulin,
+.page-node-edit.node-type-session .field-name-field-po-affiliation,
+.page-node-edit.node-type-session .field-name-field-po-address-2,
+.page-node-edit.node-type-session .field-name-field-po-city,
+.page-node-edit.node-type-session .field-name-field-po-postal-code,
+.page-node-edit.node-type-session .field-name-field-panel-topics-entity,
+.page-node-edit.node-type-session .field-name-field-panel-workshop-topics-pt-1,
+.page-node-edit.node-type-session .field-name-field-forum-type,
+.page-node-edit.node-type-session .field-name-field-panel-docs,
+.page-node-edit.node-type-session .field-name-field-missing-speaker-s-,
+.page-node-edit.node-type-session .form-item-field-provide-email-adress-und-0-value,
+.page-node-edit.node-type-session .field-name-field-admin-email-send,
+.page-node-edit.node-type-session .field-name-field-add-affiliation,
+.page-node-edit.node-type-session .field-name-field-add-panel-topic,
+.page-node-edit.node-type-session .field-name-field-all-complete-infos,
+.page-node-edit.node-type-session .field-name-field-conference-organizer-note, 
+.page-node-edit.node-type-session .field-name-field-room-size-proposed, 
+.page-node-edit.node-type-session .field-name-field-admin-email-send 
+{background:#fff; width:100%; color:#222; border:none; margin-bottom:0px; padding:0; float: left;}
 
 
 /***on edit****/
@@ -1146,7 +1220,7 @@ a.flag.flag-action.flag-link-toggle.flag-processed {
     margin: auto;
 }
 
-.logged-in.node-type-session .node-session .field.field-name-field-panel-image { padding: 0px 20px!important;}  
+.logged-in.node-type-session .node-session .field.field-name-field-panel-image { padding: 0px 20px!important; text-align: center;}  
 .logged-in.node-type-session .region li.flag-schedule{visibility: hidden;}
 
 @media(max-width:767px){
@@ -1443,3 +1517,42 @@ text-align: center;
 #block-system-main .panel-3col-33-stacked [class*="panel-col"]{width:100%; margin-left: 0; margin-bottom: 15px;}
 #block-system-main .panel-3col-33-stacked .center-wrapper{display:block;}
 }
+
+
+
+/*****childcare-registration-2018******/
+
+p.rtecenter.chil-car {
+    background: #000;
+    color: #fff;
+    margin: auto;
+    padding: 8px;
+    width: 257px;
+    text-align: center;
+   
+}
+
+.child-session p.rtecenter {
+    background: #222;
+    padding: 7px;
+    text-align: center;
+    width: 311px;
+    margin: 14px auto;
+    font-size: 15px;
+   
+}
+.child-session p.rtecenter a{ color: #fff; text-decoration: none!important;}
+.child-session p.rtecenter:nth-of-type(even) { background: #ff3e33;}
+p.ltfm {
+    text-align: center;
+}
+
+
+/*****childcare-registration-2018******/
+
+table.CONFERENCE { background: #222;}
+table.CONFERENCE tr td{color: #fff;}
+.john-jay p { padding: 0 20px; font-size: 18px; margin-bottom: 2px;}
+.john-jay { background: #fff;}
+.CONFERENCE caption{background: #ff3e33; color: #fff; font-size: 20px; text-align: center; padding: 15px 14px;}
+.john-jay p span { font-size: 18px!important;}
