@@ -364,7 +364,7 @@ bottom: 0;
 margin: auto;
 height:100%;
 width:auto;
-padding: 7px;
+padding:5px;
 }
 .advisor-page{margin-bottom: 28px;}
 .advisor-page .views-field .views-label {float: left; color: #fff; margin-right: 7px; font-weight: bold;}
@@ -435,28 +435,8 @@ padding: 0px 27px;
 }
 .page-node-687  .field-name-field-organization-facebook-page .field-item a{ background: #3B5998;}
 .page-node-687 .field-name-field-org-twitter-profile .field-item a{background: #0084b4;}
-/*
-#block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a{
-    background: #3B5998;
-    padding: 0px 27px;
-   margin-top: 10px;
-    margin-bottom: 10px;
-    color: #fff;
-    display:block;
-   
- }
- #block-system-main .node-speakers .field-name-field-speaker-twitter-profile .field-item a{
-    background: #0084b4;
-    padding: 0px 27px;
-   margin-bottom: 10px;
-   color: #fff;
-   display:block;
-   
- 
- }
-	*/
- 
-#block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a{
+
+#block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a {
     background: #3B5998;
     padding: 0px 13px;
     border-radius: 2px;
@@ -464,9 +444,18 @@ padding: 0px 27px;
     position: absolute;
     left: 0;
     top: 5px;
- 
- }
- #block-system-main .node-speakers .field-name-field-speaker-twitter-profile .field-item a{
+}
+#block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a {
+    background: #222;
+    padding: 0px 14px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+   left: 116px;
+    top: 5px;
+}
+
+#block-system-main .node-speakers .field-name-field-speaker-twitter-profile .field-item a {
     background: #0084b4;
     padding: 0px 14px;
     border-radius: 2px;
@@ -474,20 +463,9 @@ padding: 0px 27px;
     position: absolute;
     right: 0;
     top: 5px;
- 
- }
- 
- 
- #block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a {
-    background: #222;
-    padding: 0px 14px;
-    border-radius: 2px;
-    color: #fff;
-    position: absolute;
-    /*left:56px;*/
-    left:116px;
-    top: 5px;
 }
+	
+ 
 
 
 /***********user profile css and speakers  /  cornel-west************/
@@ -539,6 +517,18 @@ margin-bottom: 27px;
 
  #block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a{color:#fff!important;}
  
+ #block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a:first-child:before {
+    content: "\f0ac";
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+    line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
+}
+ 
 #block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a:first-child:before{
     content: "\f09a";
     font-family: FontAwesome;
@@ -562,71 +552,51 @@ margin-bottom: 27px;
     text-decoration: none;
     padding-right: 5px;
 
+
+}
+ 
+#block-system-main.block-system .group-left .field-name-field-facebook-url .field-item a {
+    background: #3B5998;
+    padding: 0px 13px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 5px;
 }
 
-#block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a:first-child:before{
-    content: "\f0ac";
+#block-system-main.block-system .group-left .field-name-field-twitter-url .field-item a {
+    background: #0084b4;
+    padding: 0px 14px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+#block-system-main.block-system .group-left .field-name-field-facebook-url .field-item a:first-child:before {
+    content: "\f09a";
     font-family: FontAwesome;
     text-decoration: inherit;
     color: #fff;
     font-size: 23px;
-	line-height: 49px;
+    line-height: 49px;
     vertical-align: middle;
     text-decoration: none;
     padding-right: 5px;
-
-}
- 
-.field-item a.facebook-url::before {
-	content: "\f09a";
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	text-decoration: inherit;
-	color: #000;
-	font-size: 28px;
-	position: absolute;
-	background: #fff;
-	text-align: center;
-	border: 3px solid #000;
-	border-radius: 50px;
-	width: 50px;
-	height: 50px;
-	line-height: 49px;
-	vertical-align: middle;
-	text-decoration: none;
-	left: -59px;
-	top: 32px;
-	right: 0;
-	bottom: 0;
-	margin: auto;
 }
 
-    
-.field-item a.twitter-url:before {
+#block-system-main.block-system .group-left .field-name-field-twitter-url .field-item a:last-child:before {
     content: "\f099";
     font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	text-decoration: inherit;
-	color: #000;
-	font-size: 28px;
-	position: absolute;
-	background: #fff;
-	text-align: center;
-	border: 3px solid #000;
-	border-radius: 50px;
-	width: 50px;
-	height: 50px;
-	line-height: 49px;
-	vertical-align: middle;
-	text-decoration: none;
-	left: 56px;
-	top: 32px;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-    }
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+    line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
+}
 
 /***********conference/call-panels-workshops-left-forum css********/
 
@@ -781,7 +751,9 @@ td.lkfd {
 .theme-Conference p,.onsite_volunteering p,.volunteer-videographer p{color: #000;font-size: 18px;text-align: left; padding-right:1%!important;padding-left:2%!important;font-family: georgia,serif; }
 .breadcrumb{margin:0px 0;}
 .conference-part { background: #F45F56; padding: 22px 0;}
-.conference-part p { color: #fff;}
+.conference-part p {
+    color: #fff;
+}
 .conference-part p.rtecenter {
     background: #222;
     text-align: center;
@@ -790,6 +762,14 @@ td.lkfd {
     display: table;
     margin: auto;
     width: auto;
+}
+p.rtecenter.con-head {
+    text-align: center;
+    background: #222;
+    display: table;
+    margin: auto;
+    padding: 8px;
+    color: #fff;
 }
 .theme-panel-set ul li{
   margin: 0;
@@ -859,18 +839,6 @@ p.theme-lt {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /***********history-socialist-scholars-conference********/
 
 .page-node-27 .col-sm-12,.page-node-33 .col-sm-12{padding: 0 6px;}
@@ -906,8 +874,6 @@ padding-left:15px;
     font-family: georgia,serif;
     
 }
-.rtecenter span {font-family: georgia,serif!important; font-size: 18px!important;}
-table tr td span{font-family: georgia,serif!important; font-size: 18px!important;}
 .workshop ol li strong{color: #333;}
 
 /********hotels-and-parking-0*********/
@@ -916,10 +882,9 @@ table tr td span{font-family: georgia,serif!important; font-size: 18px!important
 .page-node-769 .field-item table tr td {
     padding: 20px;
     border: 1px solid #ddd;
-    color: #000;
-    font-size: 18px;
+    color: #999;
+    font-size: 20px;
     line-height: 32px;
-    font-family: georgia,serif;
 }
 .page-node-769 .field-item table tr td  a{text-decoration:none;}
 
@@ -942,9 +907,10 @@ table tr td span{font-family: georgia,serif!important; font-size: 18px!important
 .view-advisors-organizations .view-content table tr td{background:#222; border-bottom:solid 15px #ebebeb; border-right:solid 15px #ebebeb; padding:0 !important; width:33.3%;}
 .view-advisors-organizations .view-content table tr td .views-field{}
 .view-advisors-organizations .view-content table tr td:last-child{border-right:0;}
+@media (max-width: 767px) {
+.view-advisors-organizations .view-content table tr td{width:100%; border-right: solid 0px #ebebeb;}
 
-
-
+}
 
 @media (max-width: 767px) {
 .page-node-769 .field-item table { width: 100%!important; table-layout: fixed;}
@@ -975,8 +941,7 @@ a.exhib {
     text-align: center;
     padding: 12px;
     color: #fff;
-    font-size: 18px;
-    text-decoration: none!important;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -1016,15 +981,16 @@ fieldset#bootstrap-panel--9 { min-height: auto;}
 .page-node-edit.node-type-session .field-name-field-forum-type,
 .page-node-edit.node-type-session .field-name-field-panel-docs,
 .page-node-edit.node-type-session .field-name-field-missing-speaker-s-,
-.page-node-edit.node-type-session .form-item-field-provide-email-adress-und-0-value,
-.page-node-edit.node-type-session .field-name-field-admin-email-send,
+.page-node-edit.node-type-session .field-name-field-provide-email-adress,
 .page-node-edit.node-type-session .field-name-field-add-affiliation,
 .page-node-edit.node-type-session .field-name-field-add-panel-topic,
 .page-node-edit.node-type-session .field-name-field-all-complete-infos,
-.page-node-edit.node-type-session .field-name-field-conference-organizer-note, 
-.page-node-edit.node-type-session .field-name-field-room-size-proposed, 
-.page-node-edit.node-type-session .field-name-field-admin-email-send 
-{background:#fff; width:100%; color:#222; border:none; margin-bottom:0px; padding:0; float: left;}
+.page-node-edit.node-type-session .field-name-field-conference-organizer-note,
+.page-node-edit.node-type-session .field-name-field-room-size-proposed,
+.page-node-edit.node-type-session .field-name-field-admin-email-send,
+.page-node-edit.node-type-session .field-name-field-add-abstract
+
+{background:#fff; width:100%; color:#222; border:none; margin-bottom:0px; padding:0;}
 
 
 /***on edit****/
@@ -1168,7 +1134,6 @@ fieldset#bootstrap-panel--9{margin-left: 0px;}
     float: left;
     width: 100%;
 }
-
 #edit-actions {
     width: 100%;
     float: left;
@@ -1182,32 +1147,19 @@ fieldset#bootstrap-panel--9{margin-left: 0px;}
 .board-staff .views-field-title span.field-content a{font-size:22px !important;}
 .board-staff table tr .views-field.views-field-field-image-speaker-1{margin-top:10px;}
 .entityreference-dragdrop-container-available, .entityreference-dragdrop-container-selected{width:98% !important; min-height:inherit !important;}
-
-
 }
-
-
-
 
 /*8-04-18*/
 .workshop ol li strong {
     color: #000 !important; 
     font-family: georgia,serif;
-    
-}
-
-
+    }
 /********10 -04-18 sponsors/advisory-board-2***********/
-
  .ds-2col { background: #fff;}
- 
- /********12 -04-18 sessions/decolonial-humanism-new-perspectives-racism-and-revolution***********/
- 
-.node-type-session .region-content{background: #fff; padding:0 15px;}
-
+  /********12 -04-18 sessions/decolonial-humanism-new-perspectives-racism-and-revolution***********/
+ .node-type-session .region-content{background: #fff; padding:0 15px;}
 .node-type-session .field.field-name-field-panel-image { width:40%; float:left; clear: both;   padding: 73px 20px;}
 .node-type-session .field.field-name-field-room,.node-type-session  .field-name-field-panel-workshop-year, .node-type-session  .field-name-field-location { width: 50%;float: left;}
-
 a.flag.flag-action.flag-link-toggle.flag-processed {
     background: #ff3e33;
     color: #fff;
@@ -1219,19 +1171,14 @@ a.flag.flag-action.flag-link-toggle.flag-processed {
     margin-top: 20px;
     margin: auto;
 }
-
-.logged-in.node-type-session .node-session .field.field-name-field-panel-image { padding: 0px 20px!important; text-align: center;}  
+.logged-in.node-type-session .node-session .field.field-name-field-panel-image { padding: 0px 20px!important;}  
 .logged-in.node-type-session .region li.flag-schedule{visibility: hidden;}
-
 @media(max-width:767px){
 .logged-in.node-type-session .node-session .field.field-name-field-panel-image{margin-bottom: 22px;}
-
 }
-
 .node-type-session .field.field-name-field-room .field-label, .node-type-session  .field-name-field-panel-workshop-year .field-label, 
 .node-type-session .field-name-field-location .field-label{float: left; padding-right: 15px;}
 .node-type-session .field-name-field-panel-image img {border: 1px solid #999; padding: 12px; display: inline-block;}
-
 .node-type-session .field-name-field-po-last-name,
 .node-type-session .field-name-field-po-first-name,
 .node-type-session .field-name-field-panel-docs,
@@ -1262,8 +1209,6 @@ a.flag.flag-action.flag-link-toggle.flag-processed {
 .node-type-session .field-name-field-missing-speaker-s-,
 .node-type-session .field-name-field-all-complete-infos,
 .node-type-session .field-name-field-add-panel-topic
-
-
 {
 	border: 1px solid #999;
     float: right;
@@ -1273,20 +1218,15 @@ a.flag.flag-action.flag-link-toggle.flag-processed {
     margin-bottom: -1px;
     padding:4px 0px 4px 19px;
 }
-
 .node-type-session .field-label{ font-weight: normal; padding-right: 15px; float: left;}
 .node-type-session .field-items{font-weight: 300;}
 .node-type-session .field-name-field-image-speaker-1{display: none}
-
-
 footer .flag-schedule .flag-link-toggle.flag-processed {
     background: #ff3e33;
     color: #fff;
     padding: 11px 10px;
     font-size: 22px;
-    
-}
-
+    }
 field-name-field-image-speaker-1 .field-items,
 .field-name-field-speaker-first-and-middle-n .field-items,
 .field-name-field-speaker-last-name .field-items{
@@ -1391,27 +1331,11 @@ div#edit-actions--2 button{ margin: 98px 0px 9px 0;}
 .group-left {
     position: relative;
 }
-/*Event Submission 
-.field-name-field-speaker1-first-name {
-	display: none;
-}
-.field-name-field-speaker-last-name{
-	display: none;
-}
-.field-name-field-speaker1-affiliation {
-	display: none;
-} 
-.field-name-field-speaker1-biography {
-	display: none;
-}
-.field-name-field-middle-initial {
-	display: none;
-}*/
 /*Profile page*/
 .blog-submitt p {color: #999;}
 .blog-submitt p span strong { font-weight: 300;}
 .blog-submitt p span { font-size: 17px !important; font-weight: 300;}   
-.blog-submitt{background-color:#fff;padding-left: 36px; margin-bottom: 27px;}   
+.blog-submitt{background-color:#fff;padding-left: 36px; margin-bottom: 9px; padding-bottom: 10px;}   
 /**************/
 a.flag.unflag-action.flag-link-toggle.flag-processed {
     background: #ff3e33;
@@ -1420,13 +1344,8 @@ a.flag.unflag-action.flag-link-toggle.flag-processed {
     font-size: 22px;
     border-radius: 4px;
 }
-
-
-
 /******sponsors/democracy-work css*******/
-
-
-#block-system-main.contentthis .panel-3col-33-stacked .panel-col-top {  width: 100%!important; margin-bottom: 26px;}
+#block-system-main.contentthis .panel-3col-33-stacked .panel-col-top {  width: 100%!important; margin-bottom: 26px;     min-height: auto;}
 #block-system-main .panel-3col-33-stacked .center-wrapper {
     display: -webkit-box;
     display: -moz-box;
@@ -1440,6 +1359,7 @@ a.flag.unflag-action.flag-link-toggle.flag-processed {
     background: #fff;
     margin-left: 26px;
     padding: 20px;
+    min-height: 467px;
    
 }
 #block-system-main .panel-3col-33-stacked [class*="panel-col"]:first-child{margin-left: 0;}
@@ -1453,28 +1373,32 @@ a.flag.unflag-action.flag-link-toggle.flag-processed {
 	font-size: 35px;
 }
 
-#block-system-main .panel-col-first .inside .field-name-field-organization-facebook-page .field-item a{
+#block-system-main .panel-col-first .inside .field-name-field-organization-facebook-page .field-item a {
     background: #3B5998;
-    padding: 0px 27px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding: 0px 13px;
+    border-radius: 2px;
     color: #fff;
-    display:block;
-   }
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
 #block-system-main .panel-col-first .inside .field-name-field-org-twitter-profile .field-item a{
     background: #0084b4;
-    padding: 0px 27px;
-    margin-bottom: 10px;
+    padding: 0px 14px;
+    border-radius: 2px;
     color: #fff;
-    display:block;
+    position: absolute;
+    right: 0;
+    top: 5px;
 }
- 
-#block-system-main .panel-col-first .inside.field-name-field-organization-website-url {
+#block-system-main .panel-col-first .inside .field-name-field-organization-website-url .field-item a {
     background: #222;
+    padding: 0px 14px;
+    border-radius: 2px;
     color: #fff;
-	padding: 14px 10px;
-    display: block;
-    margin-top: 10px;
+    position: absolute;
+    left: 116px;
+    top: 5px;
 }
 
 #block-system-main .panel-col-first .inside .field-name-field-organization-facebook-page .field-item a:first-child:before{
@@ -1499,20 +1423,21 @@ a.flag.unflag-action.flag-link-toggle.flag-processed {
     text-decoration: none;
     padding-right: 5px;
 }
-#block-system-main .panel-col-first .inside .field-name-field-organization-website-url {
-    background: #222;
+
+#block-system-main .panel-col-first .inside .field-name-field-organization-website-url .field-item a:first-child:before{
+    content: "\f0ac";
+    font-family: FontAwesome;
+    text-decoration: inherit;
     color: #fff;
-    padding: 14px 10px;
-    display: block;
-    margin-top: 10px;
+    font-size: 23px;
+    line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
 }
 /*slider*/
-.slick--skin--boxed-carousel .slide__content {
-margin: 0px;
-text-align: center;
-}
+.slick--skin--boxed-carousel .slide__content {margin: 0px;text-align: center;}
 
-#block-system-main .panel-col-first .inside .field-name-field-organization-website-url .field-item a { color: #fff!important;}
 @media (max-width: 767px) {
 #block-system-main .panel-3col-33-stacked [class*="panel-col"]{width:100%; margin-left: 0; margin-bottom: 15px;}
 #block-system-main .panel-3col-33-stacked .center-wrapper{display:block;}
@@ -1520,39 +1445,55 @@ text-align: center;
 
 
 
-/*****childcare-registration-2018******/
-
-p.rtecenter.chil-car {
-    background: #000;
-    color: #fff;
-    margin: auto;
+/********conference/call-panels-workshops-left-forum-nyc-2018****/
+p.rtecenter.our-con {
     padding: 8px;
-    width: 257px;
-    text-align: center;
-   
+    display: inline-block;
 }
+p.ft-frm {
+    text-align: center;
+    margin-top: 12px;
+}
+
+/********childcare-registration-2018****/
 
 .child-session p.rtecenter {
-    background: #222;
-    padding: 7px;
+    background: #ff3e33;
+    color: #fff;
+    padding: 10px;
     text-align: center;
-    width: 311px;
-    margin: 14px auto;
-    font-size: 15px;
-   
+    width: 315px;
+    margin: auto;
+    margin-bottom: 14px;
 }
-.child-session p.rtecenter a{ color: #fff; text-decoration: none!important;}
-.child-session p.rtecenter:nth-of-type(even) { background: #ff3e33;}
+.child-session p.rtecenter:nth-of-type(even){ background: #222;}
+.child-session p.rtecenter a{color:#fff;text-decoration:none!important; font-size: 15px;}
+p.rtecenter.chil-car {
+    background: #222;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 315px;
+    margin: auto;
+}
 p.ltfm {
     text-align: center;
 }
 
-
-/*****childcare-registration-2018******/
-
-table.CONFERENCE { background: #222;}
-table.CONFERENCE tr td{color: #fff;}
-.john-jay p { padding: 0 20px; font-size: 18px; margin-bottom: 2px;}
+/********conference/important-information****/
+.john-jay p {padding: 0 15px; font-size: 18px;}
+.john-jay p span {font-size:18px!important; }
 .john-jay { background: #fff;}
-.CONFERENCE caption{background: #ff3e33; color: #fff; font-size: 20px; text-align: center; padding: 15px 14px;}
-.john-jay p span { font-size: 18px!important;}
+table.CONFERENCE { background: #222; color: #fff;}
+table.CONFERENCE tr:nth-of-type(even){ background: #999; }
+table.CONFERENCE caption {
+    background: #ff3e33;
+    color: #fff;
+    text-align: center;
+}
+
+
+/********user****/
+
+.page-user-11174 .contextual-links-region .block-title{text-align: center;}
+.page-user-11174 .contextual-links-region p {color:#000!important; font-family: georgia,serif; margin-bottom: 0px;}

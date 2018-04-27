@@ -166,7 +166,7 @@
 	float: right;
 	width: 80%;
 	padding: 15px;
-	min-height: 218px;
+	min-height: 276px;;
 	
 }
 .board-staff .col-xs-12.col-sm-12.col-md-12.col-lg-12 {
@@ -200,7 +200,7 @@ text-align:center;
 .views-field-field-staff-name {
   text-align: center;
 }
-.views-field-field-speaker1-affiliation {
+.views-field-field-speaker1-affiliation,.views-field-field-role-title {
   text-align: center;
 }
 .views-field-field-speaker-website-url{}
@@ -234,7 +234,10 @@ text-align:center;
 
 .board-staff span.views-label.views-label-field-photo { display: none;}
 .board-staff .views-label { float: left;}
-.board-staff .views-field-field-staff-name .field-content, .board-staff .views-field-field-speaker1-affiliation .field-content{color:#999;}
+.board-staff .views-field-field-staff-name .field-content, 
+.board-staff .views-field-field-speaker1-affiliation .field-content,
+.board-staff .views-field-field-role-title .field-content
+{color:#999;}
 
 .board-staff .views-field-title span.field-content a {
     font-size: 19px;
