@@ -61,33 +61,50 @@ function powerbase_process_all_nodes() {
   $result = db_query("SELECT n.nid FROM {node} n WHERE n.type = 'session'");
   $report = array(
     'nodes' => 0,
-    'contacts' => 0,
-    'nodes_without_contacts' => 0,
+    'organizers' => 0,
+    'facilitators' => 0,
   );
   foreach($result as $record) {
     $node = node_load($record->nid);
-    $count = powerbase_process_node($node);
-    if ($count == 0) {
-      $report['nodes_without_contacts']++;
+
+    if (powerbase_acceptable_node($node)) {  
+      $count = powerbase_process_node($node);
+      $report['nodes']++;
+      $report['organizers'] = $report['organizers'] + $count['organizer'];
+      $report['facilitators'] = $report['facilitators'] + $count['facilitators'];
+      unset($node);
     }
-    $report['nodes']++;
-    $report['contacts'] = $report['contacts'] + $count;
-    unset($node);
   }
   return $report;
 }
 
-function powerbase_process_node($node) {
-  $count = 0;
+/**
+ * See if we should process this node.
+ *
+ * Return true if we should or false if we shouldn't
+ */
+function powerbase_acceptable_node($node) {
   if ($node->type == 'session') {
     // field_panel_workshop_year actually returns ISO date
     $year = substr(powerbase_get_single_value($node, 'field_panel_workshop_year'), 0, 4);
     $location = powerbase_get_single_value($node, 'field_location');
     if ($year == '2018' && $location == 'NYC') {
-      $contacts = powerbase_extract_contacts($node);
-      $count = count($contacts);
-      powerbase_sync_contacts($contacts);
+      return TRUE;
     }
+  }
+  return FALSE;
+}
+
+function powerbase_process_node($node) {
+  $count = array(
+    'organizer' => 0,
+    'faciliators' => 0
+  );
+  if (powerbase_acceptable_node($node)) {  
+    $contacts = powerbase_extract_contacts($node);
+    $count['organizer'] = is_null($contacts['organizer']) ? 0 : 1;
+    $count['facilitators'] = count($contacts['facilitators']);
+    powerbase_sync_contacts($contacts);
   }
   return $count;
 }
@@ -369,11 +386,13 @@ function powerbase_get_facilitator_details_for_nid($nid) {
 function powerbase_get_single_value($node, $field) {
   if (property_exists($node, $field)) {
     if (is_array($node->$field)) {
-      // We don't know what the language string is so just pop it.
-      $result = array_pop($node->$field);
-      if (is_array($result) && array_key_exists(0, $result)) {
-        if (is_array($result[0]) && array_key_exists('value', $result[0])) {
-          return $result[0]['value'];
+      foreach($node->$field as $lang => $result) {
+        // Pop off language string. 
+        if (is_array($result) && array_key_exists(0, $result)) {
+          if (is_array($result[0]) && array_key_exists('value', $result[0])) {
+            // Return the first one.
+            return $result[0]['value'];
+          }
         }
       }
     }
@@ -390,12 +409,14 @@ function powerbase_get_multiple_values($node, $field, $name = 'value') {
   $ret = array();
   if (property_exists($node, $field)) {
     if (is_array($node->$field)) {
-      // We don't know what the language string is so just pop it.
-      $result = array_pop($node->$field);
-      if (is_array($result)) {
-        foreach($result as $i => $v) {
-          if (is_array($v) && array_key_exists($name, $v)) {
-            $ret[$i] = $v[$name];
+      foreach($node->$field as $lang => $result) {
+        if (is_array($result)) {
+          foreach($result as $i => $v) {
+            if (is_array($v) && array_key_exists($name, $v)) {
+              $ret[$i] = $v[$name];
+              // Only take the first one if we have multiple languages
+              break;
+            }
           }
         }
       }
