@@ -124,6 +124,7 @@
         "drupal/filefield_sources_plupload": "^1.1",
         "drupal/fivestar": "^2.2",
         "drupal/flag": "^3.9",
+        "drupal/fontawesome": "^2.8",
         "drupal/google_analytics": "^2.4",
         "drupal/hidden_captcha": "^1.1",
         "drupal/image_url_formatter": "^1.4",
