@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f6f5219b50e8aab8d1911b1a7055c6d",
+    "content-hash": "eb1462dcdebb992f0eaf83d701ebb91e",
     "packages": [
         {
             "name": "codemirror/codemirror",
@@ -738,17 +738,11 @@
         },
         {
             "name": "drupal/auto_nodetitle",
-            "version": "1.0.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/auto_nodetitle",
-                "reference": "7.x-1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/auto_nodetitle-7.x-1.0.zip",
-                "reference": "7.x-1.0",
-                "shasum": "ebba3b293c2cf076bb364aab8a28dc14ef5815b8"
+                "reference": "0ae6ada5a2d83391caa2ec841b3126a605a3b7da"
             },
             "require": {
                 "drupal/drupal": "~7.0"
@@ -759,11 +753,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "7.x-1.0",
-                    "datestamp": "1307449916",
+                    "version": "7.x-1.0+16-dev",
+                    "datestamp": "1523758085",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -793,7 +787,8 @@
             "homepage": "https://www.drupal.org/project/auto_nodetitle",
             "support": {
                 "source": "http://cgit.drupalcode.org/auto_nodetitle"
-            }
+            },
+            "time": "2018-04-29T15:06:27+00:00"
         },
         {
             "name": "drupal/autoassignrole",
@@ -11905,6 +11900,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/admin_menu": 5,
+        "drupal/auto_nodetitle": 20,
         "drupal/commerce_event_ticket": 10,
         "drupal/conditional_fields": 15,
         "drupal/content_access": 10,
