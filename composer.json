@@ -62,6 +62,7 @@
         "drupal/auto_entitylabel": "^1.4",
         "drupal/auto_nodetitle": "^1.0",
         "drupal/autoassignrole": "^1.0",
+        "drupal/autocomplete_deluxe": "^2.3",
         "drupal/backup_migrate": "^3.5",
         "drupal/better_exposed_filters": "^3.5",
         "drupal/block_class": "^2.3",
