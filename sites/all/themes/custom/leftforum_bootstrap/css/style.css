@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+/*@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');*/
 /**
  * Place your custom styles here.
  */
-body{background:#ebebeb!important;  font-family: 'Lato', sans-serif;}
+body{background:#ebebeb!important;  /*font-family: 'Lato', sans-serif;*/}
 #navbar, .footer {
   padding: 10px;
 }
 header#page-header {
     position: relative;
+}
+@media (max-width: 767px) {
+header#page-header { position: relative; text-align: center;  padding: 0 10%;}
+header#page-header h1{font-size: 19px;}
 }
 #block-block-44{top:0!important;}
 .cont-box {
@@ -154,13 +158,12 @@ td.custom-layout{width:100% !important; float:left !important; clear:none !impor
     width: 40px!important;
     height: 40px!important;
 }
-.group-right .field-item { font-size: 19px!important;}
+.group-right .field-item {Physical font-size: 19px!important;}
 .page-node-772 #node-772 table {table-layout: fixed;}
 .page-node-772 #node-772 table tr td p img{width:100%;}
 .page-node-772 #node-772 table tr td p span strong{color:#222!important;}
 
 }  
-
 
 /* added Bootstrap */
 .bg-default {
@@ -250,8 +253,7 @@ a.bg-default:focus {
     color: #fff;
 }*/
 /*24 march nikki*/
-
-7.Volunteer-list {background: #fff; padding-bottom: 10px; min-height: 300px;}
+.Volunteer-list {background: #fff; padding-bottom: 10px; min-height: 300px;}
 .Volunteer-list ul {
  list-style: none;
   margin: 0;
@@ -274,7 +276,7 @@ color: #222;
 }
 .Volunteer-list ul li a{
 font-size: 17px;
-color: #999;
+color: #000;
 }
 .Volunteer-list ul li:after {
   content: '';
@@ -310,7 +312,7 @@ color: #222;
 }
 .participate-content p {
     font-size: 17px;
-    color: #999;
+    color: #000;
     
 }
 
@@ -451,7 +453,7 @@ padding: 0px 27px;
     border-radius: 2px;
     color: #fff;
     position: absolute;
-   left: 116px;
+   left: 111px;
     top: 5px;
 }
 
@@ -469,6 +471,7 @@ padding: 0px 27px;
 
 
 /***********user profile css and speakers  /  cornel-west************/
+
 .page-node-657 .group-middle .field-name-field-speaker1-first-name{
 	width: auto;
 	float: left;
@@ -864,7 +867,7 @@ line-height: 28px;
 font-size: 18px;
 color: #000;  
 line-height: 28px;
-    font-family: georgia,serif;
+font-family: georgia,serif;
 
 padding-left:15px;
 }
@@ -882,7 +885,7 @@ padding-left:15px;
 .page-node-769 .field-item table tr td {
     padding: 20px;
     border: 1px solid #ddd;
-    color: #999;
+    color: #000;
     font-size: 20px;
     line-height: 32px;
 }
@@ -903,20 +906,69 @@ padding-left:15px;
 .group-left .field-item.even h2{display:none;}
 .ds-2col > .group-right{padding-left:20px; padding-top:5px;}
 
-/*    21April 2018   */
+/*    21April 2018 advisory-board/  */
 .view-advisors-organizations .view-content table tr td{background:#222; border-bottom:solid 15px #ebebeb; border-right:solid 15px #ebebeb; padding:0 !important; width:33.3%;}
 .view-advisors-organizations .view-content table tr td .views-field{}
 .view-advisors-organizations .view-content table tr td:last-child{border-right:0;}
+
+
+
+.page-advisory-board .view-id-advisory_team_members .view-content table tr td,
+.not-logged-in.page-advisory-board .view-id-advisory_team_members .view-content table tr td {
+    background: #222;
+    border-bottom: solid 15px #ebebeb;
+    border-right: solid 15px #ebebeb;
+    padding: 0 !important;
+    width: 33.3%;
+}
+.page-advisory-board .view-id-advisory_team_members table td[class*="col-"]:first-child, 
+.page-advisory-board  .view-id-advisory_team_members table th[class*="col-"]:first-child,
+.not-logged-in.page-advisory-board .view-id-advisory_team_members table td[class*="col-"]:first-child,
+.not-logged-in.page-advisory-board .view-id-advisory_team_members table th[class*="col-"]:first-child  
+{ padding-left: 0px;}
+.page-advisory-board .view-id-advisory_team_members table.views-view-grid.cols-3,.not-logged-in.page-advisory-board .view-id-advisory_team_members table.views-view-grid.cols-3 { width: 100%;}
+.page-advisory-board .view-id-advisory_team_members .views-field-field-image-speaker-1,.not-logged-in.page-advisory-board .view-id-advisory_team_members .views-field-field-image-speaker-1{
+    width: 30%;
+    float: left;
+    min-height: 120px;
+    margin-right: 10px;
+    background: #fff;
+    padding: 5px;
+    position: relative;
+}
+.page-advisory-board .view-id-advisory_team_members .views-field-field-image-speaker-1 .field-content img,.not-logged-in.page-advisory-board .view-id-advisory_team_members .views-field-field-image-speaker-1 .field-content img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100%;
+    width: auto;
+    padding: 5px;
+}
+.page-advisory-board .view-id-advisory_team_members .views-field.views-field-title ,.not-logged-in.page-advisory-board .view-id-advisory_team_members .views-field.views-field-title{ padding: 5px;}
+.page-advisory-board .view-id-advisory_team_members .views-field .field-content a,.not-logged-in.page-advisory-board .view-id-advisory_team_members .views-field .field-content a { color: #fff; text-decoration:none!important;}
+.page-advisory-board .views-field-field-speaker1-affiliation .field-content,.not-logged-in.page-advisory-board .views-field-field-speaker1-affiliation .field-content {color:#fff; text-align:left;}
+.page-advisory-board .adv-bord .views-field-view-1 .views-label-view-1,.not-logged-in.page-advisory-board .adv-bord .views-field-view-1 .views-label-view-1{
+	margin-bottom: 10px;
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+     margin-top: 10px;
+}
 @media (max-width: 767px) {
 .view-advisors-organizations .view-content table tr td{width:100%; border-right: solid 0px #ebebeb;}
-
+.page-advisory-board .view-id-advisory_team_members .view-content table tr td,.not-logged-in.page-advisory-board .view-id-advisory_team_members .view-content table tr td{width:100%; float: left;}
 }
 
 @media (max-width: 767px) {
 .page-node-769 .field-item table { width: 100%!important; table-layout: fixed;}
 .page-node-769 .field-item table tr{display: block;}
 .page-node-769 .field-item table tr td{width:100%; float:left; border:none; border-bottom: 1px solid #ccc;}
- .page-node-687 .field{width:100%!important;}
+.page-node-687 .field{width:100%!important;}
 .page-node-687 .field .field-label{float: none!important;}
 .page-node-687 .field-name-field-org-twitter-profile .field-item a{right:0!important; top: 5px!important;}
 }
@@ -1014,7 +1066,7 @@ fieldset#bootstrap-panel--4,fieldset#bootstrap-panel--5 { min-height: 580px;}
 
 .page-node-add-session #bootstrap-panel--8 {margin: 0 1%;}
 .page-node-add-session #bootstrap-panel--9 { margin: 0 1%; min-height:760px; }
-.collapsible {
+.collapsible { 
     width: 48%;
     float: left;
     min-height:  760px;
@@ -1153,29 +1205,17 @@ fieldset#bootstrap-panel--9{margin-left: 0px;}
 .workshop ol li strong {
     color: #000 !important; 
     font-family: georgia,serif;
-    }
+    }Z
 /********10 -04-18 sponsors/advisory-board-2***********/
  .ds-2col { background: #fff;}
   /********12 -04-18 sessions/decolonial-humanism-new-perspectives-racism-and-revolution***********/
- .node-type-session .region-content{background: #fff; padding:0 15px;}
+.node-type-session .region-content{background: #fff; padding:0 15px;}
 .node-type-session .field.field-name-field-panel-image { width:40%; float:left; clear: both;   padding: 73px 20px;}
-.node-type-session .field.field-name-field-room,.node-type-session  .field-name-field-panel-workshop-year, .node-type-session  .field-name-field-location { width: 50%;float: left;}
-a.flag.flag-action.flag-link-toggle.flag-processed {
-    background: #ff3e33;
-    color: #fff;
-    padding: 11px 10px;
-    text-align: center;
-    display: table;
-    width: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin: auto;
-}
+.node-type-session .field.field-name-field-room,.node-type-session  .field-name-field-panel-workshop-year, .node-type-session .field-name-field-location { width: 50%;float: left;}
+a.flag.flag-action.flag-link-toggle.flag-processed { background: #ff3e33;  color: #fff;  padding: 11px 10px; text-align: center;  display: table;
+ width: auto;  margin-bottom: 20px; margin-top: 20px; margin: auto;}
 .logged-in.node-type-session .node-session .field.field-name-field-panel-image { padding: 0px 20px!important;}  
 .logged-in.node-type-session .region li.flag-schedule{visibility: hidden;}
-@media(max-width:767px){
-.logged-in.node-type-session .node-session .field.field-name-field-panel-image{margin-bottom: 22px;}
-}
 .node-type-session .field.field-name-field-room .field-label, .node-type-session  .field-name-field-panel-workshop-year .field-label, 
 .node-type-session .field-name-field-location .field-label{float: left; padding-right: 15px;}
 .node-type-session .field-name-field-panel-image img {border: 1px solid #999; padding: 12px; display: inline-block;}
@@ -1209,25 +1249,12 @@ a.flag.flag-action.flag-link-toggle.flag-processed {
 .node-type-session .field-name-field-missing-speaker-s-,
 .node-type-session .field-name-field-all-complete-infos,
 .node-type-session .field-name-field-add-panel-topic
-{
-	border: 1px solid #999;
-    float: right;
-    width: 60%;
-    background: #222;
-    color: #fff;
-    margin-bottom: -1px;
-    padding:4px 0px 4px 19px;
-}
+{border: 1px solid #999; float: right; width: 60%;  background: #222;  color: #fff; margin-bottom: -1px; padding:4px 0px 4px 19px;}
 .node-type-session .field-label{ font-weight: normal; padding-right: 15px; float: left;}
 .node-type-session .field-items{font-weight: 300;}
 .node-type-session .field-name-field-image-speaker-1{display: none}
-footer .flag-schedule .flag-link-toggle.flag-processed {
-    background: #ff3e33;
-    color: #fff;
-    padding: 11px 10px;
-    font-size: 22px;
-    }
-field-name-field-image-speaker-1 .field-items,
+footer .flag-schedule .flag-link-toggle.flag-processed {  background: #ff3e33; color: #fff;  padding: 11px 10px; font-size: 22px; }
+.field-name-field-image-speaker-1 .field-items,
 .field-name-field-speaker-first-and-middle-n .field-items,
 .field-name-field-speaker-last-name .field-items{
 display: -webkit-box; 
@@ -1396,8 +1423,8 @@ a.flag.unflag-action.flag-link-toggle.flag-processed {
     padding: 0px 14px;
     border-radius: 2px;
     color: #fff;
-    position: absolute;
-    left: 116px;
+    positi6on: absolute;
+    left: 112px;
     top: 5px;
 }
 
@@ -1497,3 +1524,153 @@ table.CONFERENCE caption {
 
 .page-user-11174 .contextual-links-region .block-title{text-align: center;}
 .page-user-11174 .contextual-links-region p {color:#000!important; font-family: georgia,serif; margin-bottom: 0px;}
+
+
+
+
+
+/********events/petition-grand-jury-investigation-crimes-911 css***********/
+
+.logged-in.node-type-session .node-session{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+   /*justify-content: center;*/
+    width: 100%;
+}
+.logged-in.node-type-session .region-content{background: #f5f5f5;} 
+.logged-in.node-type-session .node-session [class*="group-"]{width:32%; margin-left: 15px;} 
+.logged-in.node-type-session .node-session [class*="group-"]:first-child{margin-left:0px;} 
+.logged-in.node-type-session .node-session .group-left .field-name-field-panel-image,.logged-in.node-type-session .node-session .group-left .flag-outer-schedule,.logged-in.node-type-session .node-session .group-left .field-name-field-location,.logged-in.node-type-session .node-session .group-left .field-name-field-event-topics,.logged-in.node-type-session .node-session .group-left .field-name-field-forum-type,.logged-in.node-type-session .node-session .group-left .field-name-field-room,
+.logged-in.node-type-session .node-session .group-left .field-name-field-room,
+.logged-in.node-type-session .node-session .group-left .field-name-field-timeslot
+{width:100%; background: #fff;display:inline-block; padding:15px 13px 4px 19px; color:#222; border: none; }
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-host-sponsor,.logged-in.node-type-session .node-session .group-middle .field-name-field-abstract{width:100%;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person header h2{ margin:4px 0; text-transform: capitalize;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person header h2 a{ color:#222; font-size: 20px;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-items [class*="field-item"]{ background: #fff; padding: 0px 10px; margin-top: 15px;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-items [class*="field-item"] article header {display: inline-block; width:76%;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-items [class*="field-item"] article footer {display: inline-block;}
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items{ width:100%; display:inline-block;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article { margin-bottom:0!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header {display: inline-block; width:76%;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article footer {display: inline-block;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header h2 { margin:0!important; margin-top: -12px!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header h2 a{font-size:20px; color:#222;} 
+
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-host-sponsor,.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer{background:#fff; border:none; padding: 4px 0px 4px 19px; color:#222; margin-bottom: 10px;}
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers{display: block!important;     margin-bottom: 0px!important;}
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-abstract{
+background: #fff;
+color: #222;
+margin-top: 15px;
+text-align: justify;
+padding: 15px;
+min-height: 100px;
+
+height: 205px;
+margin-bottom: 10px;
+overflow: auto;
+}
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-left{width: 100%!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-middle{width: 100%!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-left .field-name-field-image-speaker-1{display: block!important;}
+
+
+
+.not-logged-in.node-type-session .node-session{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+   /*justify-content: center;*/
+    width: 100%;
+}
+.not-logged-in.node-type-session .region-content{background: #f5f5f5;} 
+.not-logged-in.node-type-session .node-session [class*="group-"]{width:32%; margin-left: 15px;} 
+.not-logged-in.node-type-session .node-session [class*="group-"]:first-child{margin-left:0px;} 
+.not-logged-in.node-type-session .node-session .group-left .field-name-field-panel-image,.not-logged-in.node-type-session .node-session .group-left .flag-outer-schedule,.not-logged-in.node-type-session .node-session .group-left .field-name-field-location,.not-logged-in.node-type-session .node-session .group-left .field-name-field-event-topics,.not-logged-in.node-type-session .node-session .group-left .field-name-field-forum-type,.logged-in.node-type-session .node-session .group-left .field-name-field-room,
+.not-logged-in.node-type-session .node-session .group-left .field-name-field-room,
+.not-logged-in.node-type-session .node-session .group-left .field-name-field-timeslot
+{width:100%; background: #fff;display:inline-block; padding:15px 13px 4px 19px; color:#222; border: none; }
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items{ width:100%; display:inline-block;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article { margin-bottom:0!important;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header {display: inline-block; width:76%;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article footer {display: inline-block;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header h2 { margin:0!important; margin-top: -12px!important;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header h2 a{font-size:20px; color:#222;}
+
+
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-host-sponsor,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-abstract{width:100%;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person header h2{ margin:4px 0; text-transform: capitalize;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person header h2 a{ color:#222; font-size: 25px;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-items [class*="field-item"]{ background: #fff; padding: 0px 10px; margin-top: 15px;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-host-sponsor,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer{background:#fff; border:none; padding: 4px 0px 4px 19px; color:#222;}
+
+
+
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers{display: block!important;     margin-bottom: 0px!important;}
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-abstract{
+background: #fff;
+color: #222;
+margin-top: 15px;
+text-align: justify;
+padding: 15px;
+min-height: 100px;
+overflow: hidden;
+height: 103px;
+margin-bottom: 10px;
+overflow: auto;
+}
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-left{width: 100%!important;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-middle{width: 100%!important;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-left .field-name-field-image-speaker-1{display: block!important;}
+
+@media (max-width: 767px) {
+.not-logged-in.node-type-session .node-session,.logged-in.node-type-session .node-session{display:block;}
+.logged-in.node-type-session .node-session [class*="group-"],.not-logged-in.node-type-session .node-session [class*="group-"]{width:100%; margin-left: 0;}
+.not-logged-in.node-type-session .node-session .group-left,.logged-in.node-type-session .node-session .group-left{ margin-bottom: 15px;}
+}
+
+
+/******events/petition-grand-jury-investigation-crimes-911/edit*******/
+
+.node-session-form #bootstrap-panel--5 {min-height: 761px !important;}
+.node-session-form #bootstrap-panel--6{width:100%!important;}
+/********people/ethan-young/edit*********/
+.node-speakers-form #bootstrap-panel--4{width:100%!important; min-height: 356px !important;}
+
+
+
+
+
+
+/*****peopledisplay?page=1*****/
+.ppl-display .ppl-inner {margin-bottom: 28px;}
+.ppl-display .ppl-inner [class*="views-field"]{ background: #fff; padding:6px 14px; width:100%; float: left;}
+.ppl-display .ppl-inner [class*="views-field"] .views-label{ width:39%; float: left; font-weight: 600;}
+.ppl-display .ppl-inner .views-field-title .field-content a {
+    text-align: center;
+    background-color: #222;
+    display: block;
+    padding: 5px;
+    color: #fff;
+}
+
+.ppl-display .ppl-inner .views-field-field-image-speaker-1 {text-align:center;}
+.ppl-display .ppl-inner .views-field-field-image-speaker-1 img{display:inline; width:279px; height:175px;}
+.ppl-display .ppl-inner .views-field-field-affiliations {min-height:110px;}

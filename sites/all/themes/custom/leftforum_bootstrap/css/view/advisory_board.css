@@ -1,0 +1,123 @@
+.view-advisors-organizations .view-content table tr td{background:#222; border-bottom:solid 15px #ebebeb; border-right:solid 15px #ebebeb; padding:0 !important; width:33.3%;}
+.view-advisors-organizations .view-content table tr td:last-child{border-right:0;}
+.page-advisory-board .view-id-advisory_team_members .view-content table tr td,
+.not-logged-in.page-advisory-board .view-id-advisory_team_members .view-content table tr td {background: #222; border-bottom: solid 15px #ebebeb; border-right: solid 15px #ebebeb; padding: 0 !important; width: 33.3%;}
+.page-advisory-board .view-id-advisory_team_members table td[class*="col-"]:first-child, 
+.page-advisory-board  .view-id-advisory_team_members table th[class*="col-"]:first-child,
+.not-logged-in.page-advisory-board .view-id-advisory_team_members table td[class*="col-"]:first-child,
+.not-logged-in.page-advisory-board .view-id-advisory_team_members table th[class*="col-"]:first-child  { padding-left: 0px;}
+.page-advisory-board .view-id-advisory_team_members table.views-view-grid.cols-3,.not-logged-in.page-advisory-board .view-id-advisory_team_members table.views-view-grid.cols-3 { width: 100%;}
+.page-advisory-board .view-id-advisory_team_members .views-field-field-image-speaker-1,.not-logged-in.page-advisory-board .view-id-advisory_team_members .views-field-field-image-speaker-1{  width: 30%;  float: left;  min-height: 120px; margin-right: 10px; background: #fff; padding: 5px; position: relative;}
+.page-advisory-board .view-id-advisory_team_members .views-field-field-image-speaker-1 .field-content img,.not-logged-in.page-advisory-board .view-id-advisory_team_members .views-field-field-image-speaker-1 .field-content img {   position: absolute;  left: 0; top: 0; right: 0; bottom: 0; margin: auto; height: 100%; width: auto; padding: 5px;}
+.page-advisory-board .view-id-advisory_team_members .views-field.views-field-title ,.not-logged-in.page-advisory-board .view-id-advisory_team_members .views-field.views-field-title{ padding: 5px;}
+.page-advisory-board .view-id-advisory_team_members .views-field .field-content a,.not-logged-in.page-advisory-board .view-id-advisory_team_members .views-field .field-content a { color: #fff; text-decoration:none!important;}
+.page-advisory-board .views-field-field-speaker1-affiliation .field-content,.not-logged-in.page-advisory-board .views-field-field-speaker1-affiliation .field-content {color:#fff; text-align:left;}
+.page-advisory-board .adv-bord .views-field-view-1 .views-label-view-1,.not-logged-in.page-advisory-board .adv-bord .views-field-view-1 .views-label-view-1{margin-bottom: 10px;  float: left;  width: 100%;  text-align: center; font-size: 20px;  font-weight: bold; margin-top: 10px;}
+ .ds-2col { background: #fff;}
+ 
+ 
+ /***********sponsors/center-study-culture css************/
+
+#edit-field-organization-description{float:none!important;width:auto!important;}
+.page-node-687 .region.region-content { background: #fff; padding: 0 15px;}
+.page-node-687 .field-name-field-organization-description { width: 100%!important;float: right; margin-bottom: 30px!important; border-bottom: 1px solid #ccc; padding-bottom: 20px; margin-top: 52px; display: inline-grid;} 
+.page-node-687 .field {  margin-bottom: 6px;  width: 33%;   float: left;}
+.page-node-687 .field .field-label { font-weight: bold; float: left;}
+.page-node-687 .field-name-field-organization-description p { margin-bottom: 0; line-height: 26px; font-size: 18px; line-height: 25px; font-size: 16px;}
+.page-node-687 .field-item {color: #999;word-wrap: break-word;}
+.page-node-687 .field-type-image {margin-bottom: 53px!important;padding-top: 29px; } 
+.page-node-687 .field-name-field-organization-facebook-page .field-item a:before{content: "\f09a";}
+.page-node-687 .field-name-field-org-twitter-profile .field-item a:before{content: "\f099";}
+.page-node-687 .field-name-field-organization-facebook-page .field-item a:before,.page-node-687 .field-name-field-org-twitter-profile .field-item a:before{
+    content: "\f09a";
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    color: #fff;
+    font-size: 23px;
+	line-height: 49px;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-right: 5px;
+}
+.page-node-687 .field-name-field-org-twitter-profile .field-item a{
+    padding: 0px 27px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    right: 91px;
+    top: 0px;
+}
+.page-node-687 .field-name-field-organization-facebook-page .field-item a{
+    padding: 0px 27px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+.page-node-687 .field-name-field-organization-facebook-page .field-item a{ background: #3B5998;}
+.page-node-687 .field-name-field-org-twitter-profile .field-item a{background: #0084b4;}
+#block-system-main .node-speakers .field-name-field-speaker-facebook-profile .field-item a {
+    background: #3B5998;
+    padding: 0px 13px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+#block-system-main .node-speakers .field-name-field-speaker-website-url .field-item a {
+    background: #222;
+    padding: 0px 14px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    left: 116px;
+    top: 5px;
+}
+#block-system-main .node-speakers .field-name-field-speaker-twitter-profile .field-item a {
+    background: #0084b4;
+    padding: 0px 14px;
+    border-radius: 2px;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+/******advisor css********/
+
+.advisor-page .views-field-field-org-logo-rectangle span {display: none;}
+.advisor-page .views-field-field-org-logo-circle-or-square span{display: none;}
+.advisor-page .views-field.views-field-field-org-logo-circle-or-square,.advisor-page .views-field-field-org-logo-rectangle {
+	width: 30%;
+	float: left;
+	min-height: 120px;
+	margin-right: 10px;
+	background: #fff;
+	padding: 5px;
+	position: relative;
+}
+.advisor-page .views-field.views-field-field-org-logo-circle-or-square .field-content img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	height:100%;
+	width:auto;
+	padding:5px;
+}
+.advisor-page{margin-bottom: 28px;}
+.advisor-page .views-field .views-label {float: left; color: #fff; margin-right: 7px; font-weight: bold;}
+.advisor-page .views-field.views-field-title { display: none;}
+.advisor-page .views-field .field-content {color: #fff;}
+.advisor-page .views-field { background: #222;  padding: 2px 0;}
+.advisor-page .views-field.views-field-field-organization-website-url {  padding-top: 8px;}
+.views-field.views-field-field-org-partnership-level { padding-bottom: 9px;}
+.advisor-page table{width:100%;}
+.advisor-page table td[class*="col-"], .advisor-page table th[class*="col-"]{padding-left: 20px; padding-bottom: 20px;}
+.advisor-page table td[class*="col-"]:first-child, .advisor-page table th[class*="col-"]:first-child{padding-left: 0px;} 
+	
+ 

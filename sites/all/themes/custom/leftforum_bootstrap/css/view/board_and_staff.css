@@ -1,0 +1,20 @@
+/****board-staff ******/
+.board-staff .views-field-field-speaker1-biography {background: #3d3d3d none repeat scroll 0 0 !important;	color: white;	float: right;	width: 80%;	padding: 15px;	min-height: 276px;;	}
+.board-staff .col-xs-12.col-sm-12.col-md-12.col-lg-12 {background: #fff none repeat scroll 0 0;}
+.board-staff .views-field-title {float: left; width: 20%; text-align:center;padding-top: 20px;padding-right: 10px;word-break: break-all;}
+.board-staff .img-responsive { margin: 0 auto; border-radius: 50%; height: 100px; width: 100px;margin-top: 10px;}
+.views-field-field-staff-name {text-align: center;}
+.views-field-field-speaker1-affiliation,.views-field-field-role-title {text-align: center;}
+.board-staff table tr { background: #fff;  margin-bottom: 20px!important;float: left;  padding: 0px 0px 0px 9px;}
+.board-staff table tr:nth-child(odd) { padding-right: 0px ; margin-bottom: 15px;}
+.board-staff span.views-label.views-label-field-photo { display: none;}
+.board-staff .views-label { float: left;}
+.board-staff .views-field-field-staff-name .field-content, 
+.board-staff .views-field-field-speaker1-affiliation .field-content,
+.board-staff .views-field-field-role-title .field-content{color:#999;}
+.board-staff .views-field-title span.field-content a {font-size: 19px;  text-decoration: none;}
+.board-staff .views-field.views-field-body{height: auto!important; width:100%!important;}
+.board-staff .col-xs-12.col-sm-12.col-md-12.col-lg-12:nth-child(even) {padding-left:15px!important;}
+.board-staff .col-xs-12.col-sm-12.col-md-12.col-lg-12:nth-child(odd) {padding-right:15px!important;}
+/*.board-staff .views-field.views-field-title,.board-staff .views-field.views-field-field-photo{width:100%!important;}*/
+.board-staff .views-label{float:none!important;}
