@@ -97,12 +97,12 @@ function powerbase_acceptable_node($node) {
 
 function powerbase_process_node($node) {
   $count = array(
-    'organizer' => 0,
+    'organizers' => 0,
     'faciliators' => 0
   );
   if (powerbase_acceptable_node($node)) {  
     $contacts = powerbase_extract_contacts($node);
-    $count['organizer'] = is_null($contacts['organizer']) ? 0 : 1;
+    $count['organizers'] = count($contacts['organizers']);
     $count['facilitators'] = count($contacts['facilitators']);
     powerbase_sync_contacts($contacts);
   }
@@ -110,13 +110,15 @@ function powerbase_process_node($node) {
 }
 
 function powerbase_sync_contacts($contacts) {
-  if (isset($contacts['organizer']['email'])) {
-    $contact_id = powerbase_get_pb_contact($contacts['organizer']['email']);
-    if (empty($contact_id)) {
-      $contact_id = powerbase_add_pb_contact($contacts['organizer']);
-    }
-    if ($contact_id) {
-      powerbase_add_to_group($contact_id, PB_ORGANIZER_GROUP_ID);
+  foreach($contacts['organizers'] as $organizer) {
+    if (isset($organizer['email'])) {
+      $contact_id = powerbase_get_pb_contact($organizer['email']);
+      if (empty($contact_id)) {
+        $contact_id = powerbase_add_pb_contact($organizer);
+      }
+      if ($contact_id) {
+        powerbase_add_to_group($contact_id, PB_ORGANIZER_GROUP_ID);
+      }
     }
   }
   foreach($contacts['facilitators'] as $facilitator) {
@@ -265,113 +267,38 @@ function powerbase_get_api_results($ch) {
  */
 function powerbase_extract_contacts($node) {
   $contacts = array(
-    'organizer' => null,
-    'facilitators' => null
+    'organizers' => array(),
+    'facilitators' => array() 
   );
 
   if (!is_object($node)) {
     return $contacts;
   }
 
-  // First, get the organizer. There should only be one.
-  $contacts['organizer'] = array(
-    'external_identifier' => $node->nid,
-    'first_name' => powerbase_get_single_value($node, 'field_po_first_name'),
-    'middle_name' => '',
-    'last_name' => powerbase_get_single_value($node, 'field_po_last_name'),
-    'email' => powerbase_get_single_value($node, 'field_po_email'),
-    'phone' => powerbase_get_single_value($node, 'field_po_contact_phone'),
-    'current_employer' => powerbase_get_single_value($node, 'field_po_affiliation'),
-    'address1' => powerbase_get_single_value($node, 'field_po_address_1'),
-    'address2' => powerbase_get_single_value($node, 'field_po_address_2'),
-    'city' => powerbase_get_single_value($node, 'field_po_city'),
-    'state' => powerbase_get_single_value($node, 'field_po_state_province_'),
-    'postal_code' => powerbase_get_single_value($node, 'field_po_postal_code'),
-    'country' => powerbase_get_single_value($node, 'field_po_country'),
-  );
-
-  // Now look for facilitators. 
-  $contacts['facilitators'] = powerbase_get_facilitator_details_from_session($node);
-
+  $organizer_nids = powerbase_get_multiple_values($node, 'field_organizer');
+  foreach($organizer_nids as $nid) {
+    $contacts['organizers'][$nid] = powerbase_get_speaker_details_for_nid($nid);
+  }
+  $facilitator_nids = powerbase_get_multiple_values($node, 'field_person');
+  foreach($facilitator_nids as $nid) {
+    $contacts['facilitators'][$nid] = powerbase_get_speaker_details_for_nid($nid);
+  }
 
   return $contacts;
 
 }
 
-/** 
- * Get facilitator details from a given node
- *
- */
-function powerbase_get_facilitator_details_from_session($node) {
-  // This is a mess. The sessions bundle has one field that is an entity
-  // reference to the speaker entity type. If the user does a lookup to
-  // find an existing speaker (or enters a name) they will have a reference
-  // to the speaker table.
-  //
-  // It also includes separate email and affiliation fields that are stored
-  // with the session bundle.
-  //
-  // So, we try to combine all of this information.
-  $facilitators = array();
-
-  // Get the entity reference to the speaker bundle.
-  $facilitator_ids = powerbase_get_multiple_values($node, 'field_chair_co_facilitator_full_', 'target_id');
-
-  // Get the included email addresses and affiliations in the session bundle.
-  $emails = powerbase_get_multiple_values($node, 'field_speaker1_email');
-  $affiliations = powerbase_get_multiple_values($node, 'field_speaker1_affiliation');
-
-  // Iterate over the entity references (our preferred source of info).
-  foreach($facilitator_ids as $k => $id) {
-    $facilitator = powerbase_get_facilitator_details_for_nid($id);
-    // If no email is set in the speaker bundle, take the one from the session.
-    // Facilitator ids and emails *should* be keyed the same. Gulp.
-    if (empty($facilitator['email'] && !empty($emails[$k]))) {
-      $facilitator['email'] = $emails[$k];
-      // Unset this value so we don't have any duplicates.
-      unset($email[$k]);
-    }
-    $facilitators[$id] = $facilitator;
-  }
-
-  // Now if there are any left over email addresses, use those too. These
-  // will not have any names attached to them.
-  foreach($emails as $k => $email) {
-    $facilitators[] = array(
-      'first_name' => NULL,
-      'middle_name' => NULL,
-      'last_name' => NULL,
-      'email' => $email,
-      'affiliation' => $affiliations[$k],
-      'external_nid' => NULL,
-    );
-  }
-  return $facilitators;
-}
-
 /**
  * Get speaker details using the passed in speaker nid
  */
-function powerbase_get_facilitator_details_for_nid($nid) {
+function powerbase_get_speaker_details_for_nid($nid) {
   $node = node_load($nid);
   $first_name = powerbase_get_single_value($node, 'field_speaker1_first_name');
-  $middle_name = '';
   $last_name = powerbase_get_single_value($node, 'field_speaker2_last_name');
-
-  if(empty($first_name) || empty($last_name)) {
-    // Not filled in. Use the title instead.
-    $title_parts = explode(' ', $node->title);
-    $first_name = array_shift($title_parts);
-    $last_name = array_pop($title_parts);
-    if (count($title_parts) > 0) {
-      $middle_name = implode(' ', $title_parts);
-    }
-  }
   $email = powerbase_get_single_value($node, 'field_speaker1_email');
   return array(
     'external_identifier' => $nid,
     'first_name' => $first_name,
-    'middle_name' => $middle_name,
     'last_name' => $last_name,
     'email' => $email,
   );
@@ -405,7 +332,7 @@ function powerbase_get_single_value($node, $field) {
  *
  * Never return an error, just return empty array if nothing is there.
  */
-function powerbase_get_multiple_values($node, $field, $name = 'value') {
+function powerbase_get_multiple_values($node, $field, $name = 'target_id') {
   $ret = array();
   if (property_exists($node, $field)) {
     if (is_array($node->$field)) {
@@ -414,10 +341,10 @@ function powerbase_get_multiple_values($node, $field, $name = 'value') {
           foreach($result as $i => $v) {
             if (is_array($v) && array_key_exists($name, $v)) {
               $ret[$i] = $v[$name];
-              // Only take the first one if we have multiple languages
-              break;
             }
           }
+          // Only take the first one if we have multiple languages
+          break;
         }
       }
     }
