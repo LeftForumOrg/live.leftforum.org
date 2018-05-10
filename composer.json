@@ -128,6 +128,7 @@
         "drupal/fontawesome": "^2.8",
         "drupal/google_analytics": "^2.4",
         "drupal/hidden_captcha": "^1.1",
+        "drupal/ief_table_view_mode": "^1.0@beta",
         "drupal/image_url_formatter": "^1.4",
         "drupal/imce": "^1.11",
         "drupal/imce_plupload": "^2.0",
@@ -282,6 +283,9 @@
             },
             "drupal/field_collection": {
                 "Undefined index: en in field_collection_field_attach_form()": "https://www.drupal.org/files/issues/undefined_langcode-1716526-15.patch"
+            },
+            "drupal/inline_entity_form": {
+                "Can't select a default bundle when using entity reference views": "https://www.drupal.org/files/issues/1872316-ief-bundle-selection-erv-22_0.patch"
             },
             "drupal/og_vocab": {
                 "Allow all groups to be selected for vocabulary": "https://www.drupal.org/files/issues/2481153-og_vocab-accessible-groups-1.patch",

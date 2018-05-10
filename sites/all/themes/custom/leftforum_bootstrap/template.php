@@ -47,7 +47,7 @@ function leftforum_bootstrap_preprocess_user_profile(&$vars) {
 }
 
 /********** OTHER HOOK FUNCTIONS **********/
-function leftforum_bootstrap_form_alter(&$form, &$form_state, $form_id) {
+function leftforum_bootstrap_form_node_form_alter(&$form, &$form_state, $form_id) {
   // Add content-type-specific css for form
   add_code('css', 'form/content-type', $form['#node']->type);
 }
