@@ -1,0 +1,5 @@
+name = Inline Entity Form Customized
+description = Adds specific behavior to individual inline entity forms.
+core = 7.x
+
+dependencies[] = inline_entity_form

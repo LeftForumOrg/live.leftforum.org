@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file Inline Entity Form Customizations Module
+ */
+
+/********** IEF HOOKS **********/
+/**
+ * Use to modify, add, or remove fields on specific forms.
+ */
+function ief_custom_inline_entity_form_entity_form_alter(&$form, &$form_state) {
+  global $user;
+
+  if (!empty($form_state['node'])) {
+    switch ($form_state['node']->type) {
+      case 'session':
+        // Add 'Authored by' field to 'People' inline forms in 'session'
+        if ($form['#entity']->type === 'speakers') {
+          $form['name'] = [
+            '#type' => 'textfield',
+            '#access' => in_array('administrator', $user->roles),
+            '#title' => t('Authored by'),
+            '#maxlength' => 60,
+            '#autocomplete_path' => 'user/autocomplete',
+            '#default_value' => $user->name,
+            '#weight' => 98,
+            '#description' => 'Leave blank for Anonymous.'
+          ];
+        }
+        break;
+      default:
+    }
+  }
+}
