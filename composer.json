@@ -302,7 +302,7 @@
             "drupal/panelizer": {
                 "Better Revision Handling inside and outside of Workbench Moderation": "https://www.drupal.org/files/issues/panelizer-n2457113-69.patch"
             },
-            "drupal/pannels": {
+            "drupal/panels": {
                 "Panelizer is incompatible with moderation": "https://www.drupal.org/files/issues/panelizer_is-1402860-82-fix-ipe-end-js-alert.patch"
             },
             "drupal/views": {

@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "47725be6dc17d499b7bc72f2e39ab46c",
+    "content-hash": "61ad7a04b8118ca006451f238b7605d3",
     "packages": [
         {
             "name": "codemirror/codemirror",
@@ -8209,6 +8209,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Panelizer is incompatible with moderation": "https://www.drupal.org/files/issues/panelizer_is-1402860-82-fix-ipe-end-js-alert.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/7/downloads",
