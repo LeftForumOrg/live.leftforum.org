@@ -131,6 +131,11 @@
 
 <div class="main-container <?php print $container_class; ?>">
 <?php endif; ?>
+  <?php if (!empty($page['announce'])): ?>
+    <div id="page-announce">
+      <?php print render($page['announce']); ?>
+    </div>
+  <?php endif; ?>
   <div class="row">
 
     <?php if (!empty($page['sidebar_first'])): ?>
@@ -171,6 +176,12 @@
     <?php endif; ?>
 
   </div>
+
+  <?php if (!empty($page['bottom'])): ?>
+    <div id="page-bottom">
+     <?php print render($page['bottom']); ?>
+    </div>
+  <?php endif; ?>
 </div>
 
 <?php if (!empty($page['footer'])): ?>
