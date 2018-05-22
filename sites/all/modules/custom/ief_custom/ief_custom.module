@@ -15,17 +15,49 @@ function ief_custom_inline_entity_form_entity_form_alter(&$form, &$form_state) {
     switch ($form_state['node']->type) {
       case 'session':
         // Add 'Authored by' field to 'People' inline forms in 'session'
-        if ($form['#entity']->type === 'speakers') {
-          $form['name'] = [
-            '#type' => 'textfield',
-            '#access' => in_array('administrator', $user->roles),
-            '#title' => t('Authored by'),
-            '#maxlength' => 60,
-            '#autocomplete_path' => 'user/autocomplete',
-            '#default_value' => $user->name,
-            '#weight' => 98,
-            '#description' => 'Leave blank for Anonymous.'
-          ];
+        switch ($form['#entity']->type) {
+          case 'sponsor':
+            foreach ($form as $key => $val) {
+              if (preg_match('/^field_/', $key)) {
+                $form[$key]['#access'] = FALSE;
+              }
+            }
+            break;
+          case 'speakers':
+            foreach ($form as $key => $val) {
+              if (preg_match('/^field_/', $key)) {
+                switch ($key) {
+                  case 'field_image_speaker_1':
+                  case 'field_speaker1_first_name':
+                  case 'field_middle_initial':
+                  case 'field_speaker_last_name':
+                  case 'field_presenter_role':
+                  case 'field_affiliations':
+                  case 'field_speaker1_biography':
+                  case 'field_speaker1_email':
+                  case 'field_po_contact_phone':
+                  case 'field_speaker_role':
+                  case 'field_featured_speaker':
+                  case 'field_promotion_priority':
+                    break;
+                  default:
+                    $form[$key]['#access'] = FALSE;
+                }
+              }
+            }
+            $form['title']['#access'] = FALSE;
+            $form['name'] = [
+              '#type' => 'textfield',
+              '#access' => in_array('administrator', $user->roles),
+              '#title' => t('Authored by'),
+              '#maxlength' => 60,
+              '#autocomplete_path' => 'user/autocomplete',
+              '#default_value' => $user->name,
+              '#weight' => 98,
+              '#description' => 'Leave blank for Anonymous.'
+            ];
+            break;
+          default:
         }
         break;
       default:

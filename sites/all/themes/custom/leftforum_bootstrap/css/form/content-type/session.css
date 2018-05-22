@@ -64,17 +64,6 @@
   min-height: auto;
 }
 
-/*#session-node-form .field-name-field-person [id$="actions-bundle"],
-#session-node-form .field-name-field-organizer [id$="actions-bundle"],*/
-#session-node-form .group-public-contact-info > div > .form-group,
-#session-node-form .group-not-publlic-contact-info > div > .form-group,
-#session-node-form .field-name-field-sponsors .form-item,
-#session-node-form .field-name-field-sponsors .field-name-field-organization-description,
-#session-node-form .field-name-field-affiliations .form-item,
-#session-node-form .field-name-field-affiliations .field-name-field-organization-description {
-  display: none;
-}
-
 #session-node-form .group-public-contact-info > div > .field-name-field-speaker1-first-name,
 #session-node-form .group-public-contact-info > div > .field-name-field-middle-initial,
 #session-node-form .group-public-contact-info > div > .field-name-field-speaker-last-name,
@@ -92,27 +81,17 @@
   max-width: none;
 }
 
-#session-node-form .field-name-field-sponsors [class*="-form-title"],
-#session-node-form .field-name-field-sponsors [class*="-form-status"],
-#session-node-form .field-name-field-sponsors [role="application"],
-#session-node-form .field-name-field-affiliations [class*="-form-title"],
-#session-node-form .field-name-field-affiliations [class*="-form-status"],
-#session-node-form .field-name-field-affiliations [role="application"],
-#session-node-form .group-public-contact-info > div > .field-name-field-image-speaker-1,
-#session-node-form .group-public-contact-info > div > .field-name-field-affiliations,
-#session-node-form .group-public-contact-info > div > .field-name-field-speaker1-biography,
-#session-node-form .group-not-publlic-contact-info > div > .field-name-field-speaker1-email,
-#session-node-form .group-not-publlic-contact-info > div > .field-name-field-po-contact-phone {
-  display: block;
-}
-
-#session-node-form .field-name-field-event-topics .autocomplete-deluxe-container {
-  display: block;
+#session-node-form .group-public-contact-info > div > .field-name-field-speaker1-biography {
   width: 100%;
+  padding: 0px;
 }
 
 #session-node-form .ief-entity-table .field-name-field-image-speaker-1 {
   display: block;
+}
+
+#session-node-form .field-name-field-event-topics .autocomplete-deluxe-container {
+  width: 100%;
 }
 
 label.control-label {
