@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82a5a303e74a157afd346af1658592d0",
+    "content-hash": "183b371df421205480f9a841d33789ae",
     "packages": [
         {
             "name": "codemirror/codemirror",
@@ -822,7 +822,8 @@
                     }
                 },
                 "patches_applied": {
-                    "Integration with inline entity form": "https://www.drupal.org/files/issues/1719948-13--2.patch"
+                    "Integration with inline entity form": "https://www.drupal.org/files/issues/1719948-13--2.patch",
+                    "Field token is not replaced if field value is empty": "https://www.drupal.org/files/issues/auto_nodetitle-empty_token-1123266-12-7.x-1.0.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/7/downloads",
@@ -1853,6 +1854,10 @@
                 "GPL-2.0-or-later"
             ],
             "authors": [
+                {
+                    "name": "Damien Tournoud",
+                    "homepage": "https://www.drupal.org/user/22211"
+                },
                 {
                     "name": "bojanz",
                     "homepage": "https://www.drupal.org/user/86106"

@@ -252,7 +252,8 @@
                 "Call the preserve paths hooks": "https://github.com/SebCorbin/composer-patches/commit/1cb9bacba51f8bba0c5f3f322c3bb61e4ceae974.patch"
             },
             "drupal/auto_nodetitle": {
-                "Integration with inline entity form": "https://www.drupal.org/files/issues/1719948-13--2.patch"
+                "Integration with inline entity form": "https://www.drupal.org/files/issues/1719948-13--2.patch",
+                "Field token is not replaced if field value is empty": "https://www.drupal.org/files/issues/auto_nodetitle-empty_token-1123266-12-7.x-1.0.patch"
             },
             "drupal/commerce": {
                 "Add a static cache and context to determine default currency": "https://drupal.org/files/issues/2657718-static_cache_default_currency-1.patch",
