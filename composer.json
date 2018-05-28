@@ -196,6 +196,7 @@
         "drupal/votingapi": "^2.13",
         "drupal/webform": "^4.16",
         "drush/drush": "8.*",
+        "nikic/php-parser": "^3.0",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "wikimedia/composer-merge-plugin": "^1.4"
