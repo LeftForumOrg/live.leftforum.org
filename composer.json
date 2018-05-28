@@ -89,7 +89,7 @@
         "drupal/content_type_clone": "1.x-dev",
         "drupal/cpn": "^1.7",
         "drupal/css_injector": "^1.10",
-        "drupal/ctools": "1.12",
+        "drupal/ctools": "^1.14",
         "drupal/date": "^2.10",
         "drupal/date_ical": "^3.9",
         "drupal/devel": "^1.5",
@@ -177,13 +177,14 @@
         "drupal/ticket": "^1.0@beta",
         "drupal/token": "^1.7",
         "drupal/usersearchtoadmin": "^1.1",
-        "drupal/views": "3.17",
+        "drupal/views": "^3.20",
         "drupal/views_accordion": "^1.1",
         "drupal/views_argument_substitutions": "^1.0",
         "drupal/views_autocomplete_filters": "^1.2",
         "drupal/views_autorefresh": "^1.0",
         "drupal/views_bootstrap": "^3.2",
         "drupal/views_bulk_operations": "^3.4",
+        "drupal/views_contextual_filters_or": "^1.0",
         "drupal/views_data_export": "^3.2",
         "drupal/views_datasource": "^1.0@alpha",
         "drupal/views_field_view": "^1.2",
@@ -271,9 +272,6 @@
                 "Product discounts: Taxes should applied to SUBTOTAL minus DISCOUNT": "https://www.drupal.org/files/issues/1962484-add-weight-commerce-discount-1.patch",
                 "Multi Currency Support": "https://www.drupal.org/files/issues/2345311-commerce_discount_multicurrency-8.patch"
             },
-            "drupal/ctools": {
-                "Allow existing contexts to influence active context selection": "https://www.drupal.org/files/issues/2484541-context-dependency-1.patch"
-            },
             "drupal/date": {
                 "Allow a View Date Filter to Override the Timezone": "https://www.drupal.org/files/issues/date-views-filter-timezone-1820304-18.patch"
             },
@@ -306,9 +304,6 @@
             },
             "drupal/panels": {
                 "Panelizer is incompatible with moderation": "https://www.drupal.org/files/issues/panelizer_is-1402860-82-fix-ipe-end-js-alert.patch"
-            },
-            "drupal/views": {
-                "Add option to transform the case of term names": "https://www.drupal.org/files/issues/2408937-views-taxonomy-name-case-change-2.patch"
             },
             "drupal/views_argument_substitution": {
                 "N/A": "https://www.drupal.org/files/issues/2650642-check-array-values-input-1.patch"
