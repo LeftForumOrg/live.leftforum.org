@@ -62,7 +62,7 @@ function validate_session_booking_preprocess_html(&$vars) {
   
   drupal_add_html_head($titlemeta, 'og_title');
 
-  if (isset($node->field_abstract)) {
+  if (!empty($node->field_abstract)) {
     $descmeta = array(
       '#type' => 'html_tag',
       '#tag' => 'meta',

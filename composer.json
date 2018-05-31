@@ -75,7 +75,7 @@
         "drupal/ckeditor_link": "^2.4",
         "drupal/cod_support": "^2.0",
         "drupal/coffee": "^2.3",
-        "drupal/commerce": "1.13",
+        "drupal/commerce": "^1.14",
         "drupal/commerce_billy": "^1.0",
         "drupal/commerce_billy_mail": "^1.0",
         "drupal/commerce_coupon": "^2.0",
@@ -142,6 +142,7 @@
         "drupal/media": "^2.16",
         "drupal/media_oembed": "^2.7",
         "drupal/menu_block": "^2.7",
+        "drupal/metatag": "^1.25",
         "drupal/mimemail": "^1.0",
         "drupal/module_filter": "^2.1",
         "drupal/multifield": "^1.0@alpha",
@@ -184,7 +185,6 @@
         "drupal/views_autorefresh": "^1.0",
         "drupal/views_bootstrap": "^3.2",
         "drupal/views_bulk_operations": "^3.4",
-        "drupal/views_contextual_filters_or": "^1.0",
         "drupal/views_data_export": "^3.2",
         "drupal/views_datasource": "^1.0@alpha",
         "drupal/views_field_view": "^1.2",
@@ -259,8 +259,7 @@
             },
             "drupal/commerce": {
                 "Add a static cache and context to determine default currency": "https://drupal.org/files/issues/2657718-static_cache_default_currency-1.patch",
-                "Make 'Add to cart' button text a display format setting (configurable at the field level by content type)": "https://drupal.org/files/issues/commerce_cart-button_text-1147690-75.patch",
-                "Possibility to show price difference/total price in attributes Select List / Radio Buttons": "https://drupal.org/files/issues/product_select_options_token_display_alternative-1226466-36.patch"
+                "Make 'Add to cart' button text a display format setting (configurable at the field level by content type)": "https://drupal.org/files/issues/commerce_cart-button_text-1147690-75.patch"
             },
             "drupal/commerce_billy": {
                 "Allow CSS styling to be programatically altered": "https://drupal.org/files/issues/2653972-billy-css-alter-2.patch"
