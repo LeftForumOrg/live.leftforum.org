@@ -4,6 +4,7 @@
  * @file
  * The primary PHP file for this theme.
  */
+const CODE_TYPES = array('css', 'js');
 
 /********** HELPER FUNCTIONS **********/
 function get_group($code_type) {
@@ -27,27 +28,33 @@ function add_code($code_type, $sub_path, $name, $type = 'file') {
   $func($path, array('type' => $type, 'group' => get_group($code_type)));
 }
 
+function add_all_code($sub_path, $name, $type = 'file') {
+  foreach (CODE_TYPES as $code_type) {
+    add_code($code_type, $sub_path, $name, $type);
+  }
+}
+
 /********** PREPROCESSING FUNCTIONS **********/
 function leftforum_bootstrap_preprocess_node(&$vars, $hook) {
   // Add content-type-specific css
-  add_code('css', 'content-type', $vars['node']->type);
+  add_all_code('content-type', $vars['node']->type);
   
   // Add node-specific css
-  add_code('css', 'node', $vars['node']->nid);
+  add_all_code('node', $vars['node']->nid);
 }
 
 function leftforum_bootstrap_preprocess_views_view(&$vars) {
   // Add view-specific css
-  add_code('css', 'view', $vars['name']);
+  add_all_code('view', $vars['name']);
 }
 
 function leftforum_bootstrap_preprocess_user_profile(&$vars) {
   // Add user-profile global css
-  add_code('css', '', 'user');
+  add_all_code('', 'user');
 }
 
 /********** OTHER HOOK FUNCTIONS **********/
 function leftforum_bootstrap_form_node_form_alter(&$form, &$form_state, $form_id) {
   // Add content-type-specific css for form
-  add_code('css', 'form/content-type', $form['#node']->type);
+  add_all_code('form/content-type', $form['#node']->type);
 }

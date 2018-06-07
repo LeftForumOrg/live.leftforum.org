@@ -2,23 +2,34 @@
   margin: 0px auto;
 }
 .view-people-cards .views-bootstrap-grid-plugin-style > .row {
-  display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
+  display: -ms-flex;
   display: flex;
+  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 0px;
-  display: block; 
-}
-.view-people-cards .views-bootstrap-grid-plugin-style > .row {
-  background-color: #fff;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin: 0px auto;
 }
 .view-people-cards .views-row,
 .view-people-cards .views-bootstrap-grid-plugin-style > .row > .col {
+  background-color: #fff;
+  box-shadow: 0 0 1px 1px #c0c0c0 inset;
   padding: 10px;
 }
+.view-people-cards .views-row.card-organizer,
+.view-people-cards .views-bootstrap-grid-plugin-style > .row > .col.card-organizer {
+  box-shadow: 0 0 1px 1px #222222 inset;
+}
+.view-people-cards .views-row.card-featured,
+.view-people-cards .views-bootstrap-grid-plugin-style > .row > .col.card-featured {
+  box-shadow: 0 0 1px 1px #ff3e33 inset;
+}
 .view-people-cards .views-bootstrap-grid-plugin-style > .row > .col {
+  display: -webkit-flex;
+  display: -ms-flex;
   display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
   margin: 0px;
 }
@@ -36,6 +47,18 @@
 }
 .view-people-cards .views-field-field-speaker1-biography {
   text-align: left;
+}
+.view-people-cards .views-field-field-presenter-role {
+  color: #fff;
+  background-color: #c0c0c0;
+  opacity: 0.90;
+  margin: auto -10px 0px;
+}
+.view-people-cards .card-organizer .views-field-field-presenter-role {
+  background-color: #222222;
+}
+.view-people-cards .card-featured .views-field-field-presenter-role {
+  background-color: #ff3e33;
 }
 @media (max-width: 767px) {
   .view-people-cards {
