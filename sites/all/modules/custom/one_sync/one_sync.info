@@ -1,0 +1,3 @@
+name = One Sync for All
+description = Adds a drush command to synchronize <em>files</em> directories and database tables from the source site to the destination site.
+core = 7.x
