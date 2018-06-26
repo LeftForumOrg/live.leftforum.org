@@ -13,7 +13,6 @@ function one_sync_drush_command() {
       'description' => 'Synchronize two drupal sites with one command.',
       'bootstrap' => DRUSH_BOOTSTRAP_NONE,
       'drush dependencies' => ['sql', 'core'],
-      'aliases' => ['os'],
       'arguments' => [
         'source' => 'A site-alias whose files and data you want to copy from.',
         'target' => 'A site-alias whose files and data you want to replace.'
@@ -32,7 +31,7 @@ function one_sync_drush_command() {
 function drush_one_sync($source, $target) {
   // Synchronize 'files' directories
   $result = drush_invoke_process($source, 'site-alias', [], [], ['output' => FALSE]);
-  $sites = preg_split('/@\w+|\s+/', $result['output'], -1, PREG_SPLIT_NO_EMPTY);
+  $sites = preg_split('/@\S+|\s+/', $result['output'], -1, PREG_SPLIT_NO_EMPTY);
   foreach ($sites as $site) {
     drush_invoke_process('@self', 'rsync', [
       "$source:sites/$site/files",
@@ -41,5 +40,5 @@ function drush_one_sync($source, $target) {
   }
 
   // Synchronize databases
-  //drush_invoke_process('@self', 'sql-sync', [$source, $target]);
+  drush_invoke_process('@self', 'sql-sync', [$source, $target]);
 }
