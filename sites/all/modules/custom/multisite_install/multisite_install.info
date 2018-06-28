@@ -1,0 +1,3 @@
+name = Multisite Install
+description = Adds a drush command to install a multisite.
+core = 7.x
