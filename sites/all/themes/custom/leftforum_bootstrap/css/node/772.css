@@ -1,0 +1,51 @@
+/******** conference/left-forum-exhibition **********/
+.page-node-772 #node-772 table {
+  width: 100% !important;
+  border: none;
+}
+.page-node-772 #node-772 table tr {
+  background: #222;
+  border: 1px solid gray;
+}
+.page-node-772 #node-772 table tr td {
+  padding: 7px;
+}
+.page-node-772 #node-772 table tr td p span {
+  font-size: 19px;
+  color: #fff;
+}
+.page-node-772 #node-772 table tr td p span strong {
+  color: #ff3e33 !important;
+}
+.page-node-772 #node-772 table tr td hr {
+  border-top: 1px solid gray;
+}
+a.exhib {
+  background: #ff3e33;
+  display: block;
+  text-align: center;
+  padding: 12px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .page-node-772 #node-772 table {
+    table-layout: fixed;
+  }
+  .page-node-772 #node-772 table tr td p img {
+    width: 100%;
+  }
+  .page-node-772 #node-772 table tr td p span strong {
+    color: #222 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-node-772 #node-772 table tr td {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+}

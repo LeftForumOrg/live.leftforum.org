@@ -1,0 +1,48 @@
+
+/*******conference/lf-2018-onsite-volunteering*********/
+table.onsite-volunteering {
+  background: #fff;
+}
+.planery-users a {
+  background: #ff3e33;
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none !important;
+  text-align: center;
+  width: 45%;
+}
+p.rtecenter.planery-users {
+  text-align: center;
+}
+.regist-volunter a {
+  background: #ccc;
+  display: inline-block;
+  width: 48%;
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  font-size: 20px;
+  text-decoration: none !important;
+  color: #222;
+}
+
+@media(max-width:767px) {
+  .regist-volunter a {
+    width: 100%;
+    font-size: 14px;
+  }
+  .regist-volunter img {
+    height: auto;
+  }
+  table.onsite-volunteering {
+    table-layout: fixed;
+  }
+}
+@media(max-width:568px) {
+  table.onsite-volunteering img {
+    width: 100% !important;
+  }
+}

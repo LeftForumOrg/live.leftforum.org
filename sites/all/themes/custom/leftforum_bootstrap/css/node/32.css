@@ -1,0 +1,39 @@
+/****about-us/contact-us******/
+.staff {
+  width: 23%;
+  float: left;
+  background: #fff;
+  margin-left: 27px;
+  text-align: center;
+  border-top: 4px solid #ff0e00;
+  margin-bottom: 33px;
+  padding: 15px;
+}
+.staff:first-child {
+  margin-left: 0;
+}
+
+.cont-box {
+  background: #fff none repeat scroll 0 0;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  float: left;
+  height: 229px;
+  min-height: 200px;
+  padding: 39px 15px;
+  text-align: center;
+  width: 33.3%;
+}
+.rteright.cont-box.marcus {
+  padding: 90px 15px !important;
+}
+.rtecenter.cont-box.ashley {
+  padding: 90px 15px !important;
+}
+
+@media (max-width: 767px) {
+  .staff {
+    width: 100%;
+    margin-left: 0;
+  }
+}

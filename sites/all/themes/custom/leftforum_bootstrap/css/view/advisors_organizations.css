@@ -1,0 +1,14 @@
+.page-advisors-organizations .page-header {
+  top: -99px !important;
+  font-size: 21px !important;
+}
+
+@media (max-width: 767px) {
+  body.page-advisors-organizations header#page-header {
+    height: auto !important;
+  }
+  .page-advisors-organizations .page-header {
+    top: -176px !important;
+    padding-left: 0px;
+  }
+}

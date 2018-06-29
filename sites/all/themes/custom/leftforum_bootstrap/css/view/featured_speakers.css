@@ -1,0 +1,10 @@
+/******home carousel*******/
+#block-views-view-featured-speakers-block .main-desktop {
+  background: #fff;
+}
+#block-views-view-featured-speakers-block .main-desktop .slick--skin--boxed-carousel .slide__content {
+  background: #999;
+}
+#block-views-view-featured-speakers-block .main-desktop .slick--skin--boxed-carousel .slide__content a {
+  color: #fff;
+}

@@ -1,0 +1,109 @@
+/***** sponsor/center-study-culture *****/
+#edit-field-organization-description {
+  float: none !important;
+  width: auto !important;
+}
+.page-node-687 .region.region-content {
+  background: #fff;
+  padding: 0 15px;
+}
+.page-node-687 .field-name-field-organization-description {
+  width: 100% !important;
+  float: right;
+  margin-bottom: 30px !important;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-top: 52px;
+  display: inline-grid;
+}
+.page-node-687 .field {
+  margin-bottom: 6px;
+  width: 33%;
+  float: left;
+}
+.page-node-687 .field .field-label {
+  font-weight: bold;
+  float: left;
+}
+.page-node-687 .field-name-field-organization-description p {
+  margin-bottom: 0;
+  line-height: 26px;
+  font-size: 18px;
+  line-height: 25px;
+  font-size: 16px;
+}
+.page-node-687 .field-item {
+  color: #999;
+  word-wrap: break-word;
+}
+.page-node-687 .field-type-image {
+  margin-bottom: 53px !important;
+  padding-top: 29px;
+}
+
+
+.page-node-687 .field-name-field-organization-facebook-page .field-item a:before {
+  content: "\f09a";
+}
+.page-node-687 .field-name-field-org-twitter-profile .field-item a:before {
+  content: "\f099";
+}
+.page-node-687 .field-name-field-organization-facebook-page .field-item a:before,
+.page-node-687 .field-name-field-org-twitter-profile .field-item a:before {
+  content: "\f09a";
+  font-family: FontAwesome;
+  text-decoration: inherit;
+  color: #fff;
+  font-size: 23px;
+  line-height: 49px;
+  vertical-align: middle;
+  text-decoration: none;
+  padding-right: 5px;
+}
+
+.page-node-687 .field-name-field-org-twitter-profile .field-item a {
+  padding: 0px 27px;
+  border-radius: 2px;
+  color: #fff;
+  position: absolute;
+  right: 91px;
+  top: 0px;
+}
+.page-node-687 .field-name-field-organization-facebook-page .field-item a {
+  padding: 0px 27px;
+  border-radius: 2px;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+.page-node-687 .field-name-field-organization-facebook-page .field-item a {
+  background: #3B5998;
+}
+.page-node-687 .field-name-field-org-twitter-profile .field-item a {
+  background: #0084b4;
+}
+
+@media (max-width: 480px) {
+  .page-node-687 .page-header {
+    top: -99px !important;
+    font-size: 21px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-node-687 .page-header {
+    top: -176px !important;
+    padding-left: 0px;
+  }
+  .page-node-687 .field {
+    width: 100% !important;
+  }
+  .page-node-687 .field .field-label {
+    float: none !important;
+  }
+  .page-node-687 .field-name-field-org-twitter-profile .field-item a {
+    right: 0 !important;
+    top: 5px !important;
+  }
+}

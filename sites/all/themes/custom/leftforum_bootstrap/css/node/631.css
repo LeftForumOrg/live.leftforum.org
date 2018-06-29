@@ -1,0 +1,122 @@
+/***********conference/theme-nyc ********/
+.page-node-631 table {
+  background-color: #fff !important;
+}
+.page-node-631 td.container,
+.page-node-631 .content {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.theme-Conference p,
+.onsite_volunteering p,
+.volunteer-videographer p {
+  color: #000;
+  font-size: 18px;
+  text-align: left;
+  padding-right: 1% !important;
+  padding-left: 2% !important;
+  font-family: georgia,serif;
+}
+.breadcrumb {
+  margin: 0px 0;
+}
+.conference-part {
+  background: #F45F56;
+  padding: 22px 0;
+}
+.conference-part p {
+  color: #fff;
+}
+.conference-part p.rtecenter {
+  background: #222;
+  text-align: center;
+  color: #fff;
+  padding: 6px;
+  display: table;
+  margin: auto;
+  width: auto;
+}
+p.rtecenter.con-head {
+  text-align: center;
+  background: #222;
+  display: table;
+  margin: auto;
+  padding: 8px;
+  color: #fff;
+}
+.theme-panel-set ul li {
+  margin: 0;
+  margin-bottom: 11px;
+  padding-left: 1.5em;
+  position: relative;
+  font-size: 18px;
+  color: #fff;
+  text-align: left;
+  font-family: georgia,serif;
+}
+.theme-panel-set ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+p.the-left {
+  color: #fff;
+  padding: 21px 0;
+}
+.theme-panel-set ul li:after {
+  content: '';
+  height: 10px;
+  width: 10px;
+  background: #000;
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 7px;
+  left: 0;
+}
+
+.rigister-donate {
+  text-align: center;
+}
+.rigister-donate a {
+  background: #ff3e33;
+  color: #fff;
+  padding: 12px;
+  font-size: 20px;
+  text-decoration: none !important;
+  border-radius: 4px;
+  margin: 16px;
+}
+.rigister-donate a:last-child {
+  background: #222;
+}
+.to-propose p {
+  text-align: center;
+}
+.to-propose {
+  margin: 20px 0;
+}
+.to-propose a:last-child {
+  background: #ff3e33;
+  color: #fff;
+  padding: 10px 9px;
+  font-size: 17px;
+  text-decoration: none !important;
+  border-radius: 4px;
+  display: inline-block;
+  text-transform: capitalize;
+}
+.button-logo img {
+  float: none !important;
+  margin: 5px;
+  display: inline-block;
+}
+.button-logo {
+  text-align: center;
+}
+p.theme-lt {
+  text-align: center;
+  margin: 11px 0px 28px 0;
+}

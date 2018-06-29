@@ -1,0 +1,50 @@
+.featured_on2 {
+  background: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+.logged-in .featured_on2 {
+  margin-top: 42px;
+}
+.not-logged-in .featured_on2 {
+  margin-top: 0px;
+}
+.organization-sidebar {
+  background: #fff;
+  text-align: center;
+  margin-bottom: 31px;
+  padding: 20px;
+}
+.logged-in .organization-sidebar {
+  margin-top: 44px;
+}
+.not-logged-in .organization-sidebar {
+  margin-top: 0px;
+}
+
+/* Affiliated People display */
+.view-related-content.view-display-id-block_1 .views-bootstrap-grid-plugin-style > .row {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin: 0px auto;
+}
+.view-related-content.view-display-id-block_1 .views-bootstrap-grid-plugin-style > .row > .col {
+  margin-bottom: 10px;
+}
+.view-related-content.view-display-id-block_1 .views-bootstrap-grid-plugin-style > .row > .col > .views-field {
+  display: table;
+  margin: 0px auto;
+}
+
+@media (min-width: 1200px) {
+  .view-related-content.view-display-id-block_1 .views-bootstrap-grid-plugin-style > .row > .col {
+    width: calc(100%/8);
+  }
+}
+

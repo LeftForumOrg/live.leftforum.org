@@ -1,0 +1,42 @@
+/***** volunteer-videographer-conference *****/
+table.volunteer-videographer {
+  background: #fff;
+}
+td.lkfd {
+  text-align: center;
+  background: #ddd;
+  font-size: 20px;
+}
+p.rtecenter.volunteer-users {
+  text-align: center;
+}
+.rtecenter.volunteer-users {
+  width: 43%;
+  margin: auto;
+}
+.volunteer-users a {
+  background: #ff3e33;
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none !important;
+  text-align: center;
+  width: 45%;
+}
+.volunteer-users a:nth-of-type(even) {
+  background: #222;
+}
+.volunteer-users a {
+  width: 100% !important;
+}
+.session.head {
+  background: #3498db;
+  margin-bottom: 8px;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 32px;
+}

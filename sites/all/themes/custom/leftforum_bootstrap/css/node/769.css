@@ -1,0 +1,50 @@
+/********hotels-and-parking-0*********/
+.page-node-769 .field-item table {
+  background: #fff;
+  width: 60% !important;
+}
+.page-node-769 .field-item {
+  background: #fff;
+}
+.page-node-769 .field-item table tr td {
+  padding: 20px;
+  border: 1px solid #ddd;
+  color: #000;
+  font-size: 20px;
+  line-height: 32px;
+}
+.page-node-769 .field-item table tr td a {
+  text-decoration: none;
+}
+.page-node-769 .field-item table tr td .rtecenter {
+  text-align: center;
+  margin: 10px 0;
+  color: #555;
+}
+.page-node-769 .field-item table tr th h2 {
+  text-align: center;
+  color: #555;
+}
+
+@media (max-width: 767px) {
+  .page-node-769 .field-item table {
+    width: 100% !important;
+    table-layout: fixed;
+  }
+  .page-node-769 .field-item table tr {
+    display: block;
+  }
+  .page-node-769 .field-item table tr th {
+    display: block;
+  }
+  .page-node-769 .field-item table tr td {
+    width: 100%;
+    float: left;
+    border: none;
+    border-bottom: 1px solid #ccc;
+  }
+  .page-node-769 .field-item table tr th h2,
+  .page-node-769 .field-item table tr td .rtecenter {
+    font-size: 19px;
+  }
+}

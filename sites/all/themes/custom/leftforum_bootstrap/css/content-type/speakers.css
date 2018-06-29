@@ -1,0 +1,74 @@
+/********events/petition-grand-jury-investigation-crimes-911 css***********/
+.node-type-speakers .node-speakers {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.node-type-speakers .node-speakers > [class^="group-"] {
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: #ebebeb;
+  border-width: 0px 10px;
+  width: 100%;
+  padding: 10px;
+}
+.node-type-speakers .node-speakers > .group-left {
+  border-left: none;
+}
+.node-type-speakers .node-speakers > .group-right {
+  border-right: none;
+}
+
+.node-type-speakers .field {
+  margin-bottom: 10px;
+}
+
+.node-type-speakers .field-name-field-image-speaker-1 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.node-type-speakers .field-name-field-image-speaker-1 img {
+  margin: 0px auto;
+}
+
+@media (max-width: 767px) {
+  .node-type-speakers .node-speakers {
+    text-align: center;
+    margin: 0px auto;
+  }
+
+  .node-type-speakers .field-name-field-speaker1-biography {
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .node-type-speakers .node-speakers > .group-left {
+    width: 40%;
+  }
+  .node-type-speakers .node-speakers > .group-right {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .node-type-speakers .node-speakers > .group-left {
+    width: 33%;
+  }
+  .node-type-speakers .node-speakers > .group-right {
+    width: 67%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .node-type-speakers .node-speakers > .group-left {
+    width: 30%;
+  }
+  .node-type-speakers .node-speakers > .group-right {
+    width: 70%;
+  }
+}

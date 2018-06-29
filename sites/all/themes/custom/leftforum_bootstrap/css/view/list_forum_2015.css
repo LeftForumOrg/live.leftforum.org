@@ -1,0 +1,46 @@
+/*2015_forum css*/
+.inner-desktop {
+  padding: 0px 74px !important;
+  box-shadow: 4px 6px 6px #000;
+  margin-left: 55px;
+  width: 47%;
+	-webkit-box-shadow: 0px 1px 11px 1px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0px 1px 11px 1px rgba(0,0,0,0.6);
+	box-shadow: 0px 1px 11px 1px rgba(0,0,0,0.6);
+	margin-bottom: 82px;
+}
+.inner-desktop:nth-of-type(odd) {
+  margin-left: 8px;
+}
+.inner-desktop .views-field-field-image-speaker-1 {
+  text-align: center;
+  display: block;
+  padding-top: 71px;
+}
+.inner-desktop .views-field-field-speaker1-biography .field-content {
+  margin-bottom: 33px;
+  color: #656a6d;
+  font-size: 17px;
+  text-align: justify;
+  height: 200px;
+  overflow: auto;
+  min-height: 200px;
+  display: block;
+}
+.inner-desktop .views-field-field-image-speaker-1 .field-content img {
+  border-radius: 100%;
+  width: 294px;
+  height: 294px;
+  display: inline;
+  margin-bottom: 24px;
+}
+.inner-desktop .views-field-field-speaker1-biography .field-content:first-letter {
+  font-size: 30px;
+  color: #656a6d;
+  initial-letter: 2;
+  -webkit-initial-letter: 2;
+  font-size: 75px;
+  line-height: 60px;
+  padding-right: 4px;
+  float: left;
+}

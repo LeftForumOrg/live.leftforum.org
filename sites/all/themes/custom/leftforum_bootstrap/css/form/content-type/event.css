@@ -1,0 +1,173 @@
+/********events/petition-grand-jury-investigation-crimes-911 css***********/
+
+.logged-in.node-type-session .node-session{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+   /*justify-content: center;*/
+    width: 100%;
+}
+.logged-in.node-type-session .region-content{background: #f5f5f5;} 
+.logged-in.node-type-session .node-session [class*="group-"]{width:32%; margin-left: 15px;} 
+.logged-in.node-type-session .node-session [class*="group-"]:first-child{margin-left:0px;} 
+.logged-in.node-type-session .node-session .group-left .field-name-field-panel-image,.logged-in.node-type-session .node-session .group-left .flag-outer-schedule,.logged-in.node-type-session .node-session .group-left .field-name-field-location,.logged-in.node-type-session .node-session .group-left .field-name-field-event-topics,.logged-in.node-type-session .node-session .group-left .field-name-field-forum-type,.logged-in.node-type-session .node-session .group-left .field-name-field-room,
+.logged-in.node-type-session .node-session .group-left .field-name-field-room,
+.logged-in.node-type-session .node-session .group-left .field-name-field-timeslot,
+.logged-in.node-type-session .node-session .group-left .field-name-field-event-type
+{width:100%; background: #fff;display:inline-block; padding:15px 13px 4px 19px; color:#222; border: none; }
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-host-sponsor,.logged-in.node-type-session .node-session .group-middle .field-name-field-abstract{width:100%;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person header h2{ margin:4px 0; text-transform: capitalize;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person header h2 a{ color:#222; font-size: 20px;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-items [class*="field-item"]{ background: #fff; padding: 0px 10px; margin-top: 15px; text-align: center} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-items [class*="field-item"] article header {display: inline-block; width:76%;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-items [class*="field-item"] article footer {display: inline-block;}
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items{ width:100%; display:inline-block;} 
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article { margin-bottom:0!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header {display: inline-block; width:40%;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article footer {display: inline-block;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header h2 { margin:0!important; margin-top: -12px!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header h2 a{font-size:20px; color:#222;} 
+
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-host-sponsor,.logged-in.node-type-session .node-session .group-middle .field-name-field-organizer{background:#fff; border:none; padding: 4px 0px 4px 19px; color:#222; margin-bottom: 10px;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers{display: block!important;     margin-bottom: 0px!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-sponsors{
+background: #fff;
+color: #222;
+margin-top: 15px;
+padding: 15px;
+margin-bottom: 10px;
+}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-abstract{
+background: #fff;
+color: #222;
+margin-top: 15px;
+text-align: justify;
+padding: 15px;
+min-height: 100px;
+height: 205px;
+margin-bottom: 10px;
+overflow: auto;
+}
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-left{width: 100%!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-middle{width: 100%!important;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-left .
+field-name-field-image-speaker-1{display: block!important;}
+
+
+
+.not-logged-in.node-type-session .node-session{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+   /*justify-content: center;*/
+    width: 100%;
+}
+.not-logged-in.node-type-session .region-content{background: #f5f5f5;} 
+.not-logged-in.node-type-session .node-session [class*="group-"]{width:32%; margin-left: 15px;} 
+.not-logged-in.node-type-session .node-session [class*="group-"]:first-child{margin-left:0px;} 
+.not-logged-in.node-type-session .node-session .group-left .field-name-field-panel-image,.not-logged-in.node-type-session .node-session .group-left .flag-outer-schedule,.not-logged-in.node-type-session .node-session .group-left .field-name-field-location,.not-logged-in.node-type-session .node-session .group-left .field-name-field-event-topics,.not-logged-in.node-type-session .node-session .group-left .field-name-field-forum-type,.logged-in.node-type-session .node-session .group-left .field-name-field-room,
+.not-logged-in.node-type-session .node-session .group-left .field-name-field-room,
+.not-logged-in.node-type-session .node-session .group-left .field-name-field-timeslot
+{width:100%; background: #fff;display:inline-block; padding:15px 13px 4px 19px; color:#222; border: none; }
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items{ width:100%; display:inline-block;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article { margin-bottom:0!important;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header {display: inline-block; width:76%;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article footer {display: inline-block;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header h2 { margin:0!important; margin-top: -12px!important;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer .field-items [class*="field-item"] article header h2 a{font-size:20px; color:#222;}
+
+
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-host-sponsor,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-abstract{width:100%;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person header h2{ margin:4px 0; text-transform: capitalize;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person header h2 a{ color:#222; font-size: 25px;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-items [class*="field-item"]{ background: #fff; padding: 0px 10px; margin-top: 15px;} 
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-host-sponsor,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-organizer{background:#fff; border:none; padding: 4px 0px 4px 19px; color:#222;}
+
+
+
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers{display: block!important;     margin-bottom: 0px!important;}
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-abstract{
+background: #fff;
+color: #222;
+margin-top: 15px;
+text-align: justify;
+padding: 15px;
+min-height: 100px;
+overflow: hidden;
+height: 103px;
+margin-bottom: 10px;
+overflow: auto;
+}
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-left{width: 100%!important;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-middle{width: 100%!important;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .node-speakers .group-left .field-name-field-image-speaker-1{display: block!important;}
+
+@media (max-width: 767px) {
+.not-logged-in.node-type-session .node-session,.logged-in.node-type-session .node-session{display:block;}
+.logged-in.node-type-session .node-session [class*="group-"],.not-logged-in.node-type-session .node-session [class*="group-"]{width:100%; margin-left: 0;}
+.not-logged-in.node-type-session .node-session .group-left,.logged-in.node-type-session .node-session .group-left{ margin-bottom: 15px;}
+}
+
+
+/******events/petition-grand-jury-investigation-crimes-911/edit*******/
+
+.node-session-form #bootstrap-panel--5 {min-height: 761px !important;}
+.node-session-form #bootstrap-panel--6{width:100%!important;}
+/********people/ethan-young/edit*********/
+.node-speakers-form #bootstrap-panel--4{width:100%!important; min-height: 356px !important;}
+
+
+
+/**********events/can-marx�s-humanist-philosophy-emancipation-assist-resistance-and-other-battles-against************/
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title{text-align: center; }
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title h2{text-align: center; font-size: 24px;}
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title .field-label{float:none; text-align: center;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default [class*="group-"]{margin-left: 0px!important; padding: 1px!important;}
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker1-first-name .field-item,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker1-first-name .field-items,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-middle-initial .field-item,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-middle-initial .field-items,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker-last-name .field-item,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker-last-name .field-items,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-affiliations .field-item,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-affiliations .field-items,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title .field-item,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title .field-items,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-role-title .field-item,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-role-title .field-items,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker1-biography .field-item,.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker1-biography .field-items  {margin-top: 0px; background: none; width:auto ;}
+ 
+
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle [class*="field"]{padding-left:0px; text-align: left;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle [class*="field"] .field-label{font-weight:600;}
+.logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-right{display:none;}
+
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title{text-align: center; }
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title h2{text-align: center; font-size: 24px;}
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title .field-label{float:none; text-align: center;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default [class*="group-"]{margin-left: 0px!important; padding: 1px!important;}
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker1-first-name .field-item,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker1-first-name .field-items,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-middle-initial .field-item,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-middle-initial .field-items,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker-last-name .field-item,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker-last-name .field-items,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-affiliations .field-item,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-affiliations .field-items,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title .field-item,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-title .field-items,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-role-title .field-item,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-role-title .field-items,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker1-biography .field-item,.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle .field-name-field-speaker1-biography .field-items  {margin-top: 0px; background: none; width:auto ;}
+ 
+
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle [class*="field"]{padding-left:0px; text-align: left;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-middle [class*="field"] .field-label{font-weight:600;}
+.not-logged-in.node-type-session .node-session .group-middle .field-name-field-person .field-item .view-mode-default  .group-right{display:none;}
+
+
+/****all-events-nyc-2018******/
+.allpart-event{ background: #fff; padding: 5px 10px;}
+.allpart-event .views-exposed-form .views-exposed-widget {width: 33%;}
+.allpart-event .table > tbody > tr > td{
+	padding: 0;
+    line-height: 21px;
+    vertical-align: middle;
+   }
+.allpart-event table a:not(.btn), .allpart-event .table a:not(.btn){text-decoration:none;  padding: 5px;}
+
+

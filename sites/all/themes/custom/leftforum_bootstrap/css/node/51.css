@@ -1,0 +1,23 @@
+/********conference/important-information****/
+.john-jay p {
+  padding: 0 15px;
+  font-size: 18px;
+}
+.john-jay p span {
+  font-size: 18px !important;
+}
+.john-jay {
+  background: #fff;
+}
+table.CONFERENCE {
+  background: #222;
+  color: #fff;
+}
+table.CONFERENCE tr:nth-of-type(even) {
+  background: #999;
+}
+table.CONFERENCE caption {
+    background: #ff3e33;
+    color: #fff;
+    text-align: center;
+}

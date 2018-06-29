@@ -1,0 +1,82 @@
+/******advisor css********/
+.advisor-page .views-field-field-org-logo-rectangle span {
+  display: none;
+}
+.advisor-page .views-field-field-org-logo-circle-or-square span {
+  display: none;
+}
+.advisor-page .views-field.views-field-field-org-logo-circle-or-square,
+.advisor-page .views-field-field-org-logo-rectangle {
+	width: 30%;
+	float: left;
+	min-height: 120px;
+	margin-right: 10px;
+	background: #fff;
+	padding: 5px;
+	position: relative;
+}
+.advisor-page .views-field.views-field-field-org-logo-circle-or-square .field-content img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 100%;
+  width: auto;
+  padding: 5px;
+}
+.advisor-page {
+  margin-bottom: 28px;
+}
+.advisor-page .views-field .views-label {
+  float: left;
+  color: #fff;
+  margin-right: 7px;
+  font-weight: bold;
+}
+.advisor-page .views-field.views-field-title {
+  display: none;
+}
+.advisor-page .views-field .field-content {
+  color: #fff;
+}
+.advisor-page .views-field {
+  background: #222;
+  padding: 2px 0;
+}
+
+.advisor-page .views-field.views-field-field-organization-website-url {
+  padding-top: 8px;
+}
+.advisor-page .views-field.views-field-field-org-partnership-level {
+  padding-bottom: 9px;
+}
+/**28March nikki**/
+.advisor-page table {
+  width: 100%;
+}
+.advisor-page table td[class*="col-"],
+.advisor-page table th[class*="col-"] {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+.advisor-page table td[class*="col-"]:first-child,
+.advisor-page table th[class*="col-"]:first-child {
+  padding-left: 0px;
+}
+
+@media (max-width: 767px) {
+  .advisor-page .views-field.views-field-field-org-logo-circle-or-square .field-content img {
+    width: 79%;
+    padding: 6px;
+  }
+  .advisor-page .views-field.views-field-field-org-logo-circle-or-square {
+    min-height: 113px;
+  }
+  .advisor-page table td[class*="col-"], .advisor-page table th[class*="col-"] {
+    float: left;
+    width: 100%;
+    padding-left: 0px !important;
+  }
+}

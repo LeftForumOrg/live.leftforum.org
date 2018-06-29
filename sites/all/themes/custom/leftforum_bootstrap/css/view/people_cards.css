@@ -1,3 +1,7 @@
+[id*="views-people-cards"] .block-title {
+  text-align: center;
+}
+
 .view-people-cards {
   margin: 0px auto;
 }

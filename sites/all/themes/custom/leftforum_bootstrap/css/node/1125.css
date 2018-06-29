@@ -1,0 +1,30 @@
+/********conference/childcare-registration-2018****/
+
+.child-session p.rtecenter {
+  background: #ff3e33;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  width: 315px;
+  margin: auto;
+  margin-bottom: 14px;
+}
+.child-session p.rtecenter:nth-of-type(even) {
+  background: #222;
+}
+.child-session p.rtecenter a {
+  color: #fff;
+  text-decoration: none !important;
+  font-size: 15px;
+}
+p.rtecenter.chil-car {
+  background: #222;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  width: 315px;
+  margin: auto;
+}
+p.ltfm {
+  text-align: center;
+}

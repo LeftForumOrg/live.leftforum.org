@@ -1,120 +1,9 @@
-#session-node-form .field-name-field-speaker1-first-name,
-#session-node-form .field-name-field-speaker-last-name,
-#session-node-form .field-name-field-speaker1-affiliation,
-#session-node-form .field-name-field-speaker1-biography,
-#session-node-form .form-item.form-item-field-person-und-form-field-po-contact-phone-und-0-value.form-type-textfield.form-group,
-#session-node-form .form-item.form-item-field-person-und-form-field-speaker-last-name-und-0-value.form-type-textfield.form-group,
-#session-node-form .form-item.form-item-field-person-und-form-field-speaker-facebook-profile-und-0.form-type-link-field.form-group,
-#session-node-form .form-item.form-item-field-person-und-form-field-video-link-und-0.form-type-link-field.form-group {
-  float: none;
-  color: black;
-  background-color: inherit;
-  border: none;
-}
-
-.region.region-content,
-#session-node-form .field-name-field-person,
-#session-node-form .field-name-field-organizer,
-#session-node-form .group-panelpropinfo {
+#session-node-form .field-name-field-organizer {
   clear: both;
 }
-
-#session-node-form .ief-form fieldset.group-public-contact-info,
-#session-node-form .group-panelpropinfo,
-#session-node-form .group-panel-workshop-topics,
-#session-node-form .group-conference-organizer-note {
-  min-height: auto !important;
-  width: 100%;
-  padding: 0px;
-  margin: 0px 0px 21px 0px;
-}
-
-#session-node-form .field-name-field-panel-workshop-year,
-#session-node-form .field-name-field-location,
-#session-node-form .field-name-field-missing-speaker-s-,
-#session-node-form .field-name-field-room-size-proposal {
-  display: inline-table;
-  margin-right: 15px; 
-}
-
-.region.region-content {
-  background-color: inherit;
-}
-
-#session-node-form .field-name-field-panel-workshop-year .date-form-element-content {
-  padding: 0px;
-  border: none;
-}
-
-#session-node-form .ief-form fieldset#bootstrap-panel--9,
-#session-node-form .ief-form fieldset#bootstrap-panel--10 {
-  min-height: auto;
-  width: 48%;
-}
-
-#session-node-form .ief-form .group-conference-orga-matters {
-  float: right;
-}
-
-#session-node-form .ief-form [class*="-form-status"] {
-  clear: both;
-}
-
-#session-node-form .ief-form [class*="-admin-fields"] {
-  min-height: auto;
-}
-
-#session-node-form .group-public-contact-info > div > .field-name-field-speaker1-first-name,
-#session-node-form .group-public-contact-info > div > .field-name-field-middle-initial,
-#session-node-form .group-public-contact-info > div > .field-name-field-speaker-last-name,
-#session-node-form .group-public-contact-info > div > .field-name-field-role-title {
-  display: inline-block;
-  max-width: 230px;
-  padding-right: 20px;
-}
-
-#session-node-form .group-public-contact-info > div > .field-name-field-middle-initial {
-  width: 100px;
-}
-
-#session-node-form .group-public-contact-info > div > .field-name-field-role-title {
-  max-width: none;
-}
-
-#session-node-form .group-public-contact-info > div > .field-name-field-speaker1-biography {
-  width: 100%;
-  padding: 0px;
-}
-
-#session-node-form .ief-entity-table .field-name-field-image-speaker-1 {
-  display: block;
-}
-
 #session-node-form .field-name-field-event-topics .autocomplete-deluxe-container {
   width: 100%;
 }
-
-label.control-label {
-  font-weight: normal;
-}
-
-.btn-success {
-  background-color: #222;
-  border-color: #222;
-}
-
-.btn-success:hover {
-  background-color: black;
-}
-.btn-success:active {
-  background-color: black;
-}
-
-.field-type-file .input-group-btn > button,
-.field-widget-image-image .input-group-btn > button {
-  margin-left: 5px !important;
-}
-
 @media (min-width: 768px) {
   #session-node-form .field-name-field-event-topics .suggested-topics {
     list-style: none;
@@ -137,3 +26,4 @@ label.control-label {
     columns: 4;
   }
 }
+

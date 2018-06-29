@@ -28,9 +28,9 @@ function add_code($code_type, $sub_path, $name, $type = 'file') {
   $func($path, array('type' => $type, 'group' => get_group($code_type)));
 }
 
-function add_all_code($sub_path, $name, $type = 'file') {
+function add_all_code($sub_path, $name) {
   foreach (CODE_TYPES as $code_type) {
-    add_code($code_type, $sub_path, $name, $type);
+    add_code($code_type, $sub_path, $name);
   }
 }
 
@@ -38,6 +38,12 @@ function add_all_code($sub_path, $name, $type = 'file') {
 function leftforum_bootstrap_preprocess_node(&$vars, $hook) {
   // Add content-type-specific css
   add_all_code('content-type', $vars['node']->type);
+
+  // Call content-type-specific preprocess function
+  $func = __FUNCTION__ . '_' . $vars['node']->type;
+  if (function_exists($func)) {
+    $func($vars, $hook);
+  }
   
   // Add node-specific css
   add_all_code('node', $vars['node']->nid);
@@ -54,6 +60,11 @@ function leftforum_bootstrap_preprocess_user_profile(&$vars) {
 }
 
 /********** OTHER HOOK FUNCTIONS **********/
+function leftforum_bootstrap_form_alter(&$form, &$form_state, $form_id) {
+  // Add form global css
+  add_all_code('form', 'form');
+}
+
 function leftforum_bootstrap_form_node_form_alter(&$form, &$form_state, $form_id) {
   // Add content-type-specific css for form
   add_all_code('form/content-type', $form['#node']->type);

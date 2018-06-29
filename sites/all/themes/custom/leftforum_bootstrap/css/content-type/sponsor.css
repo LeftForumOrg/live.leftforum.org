@@ -1,0 +1,16 @@
+.node-type-sponsor .field-name-field-org-logo-circle-or-square {
+  width: 220px;
+  margin: 0px auto;
+}
+
+.node-type-sponsor .group-org-info {
+  background-color: #ffffff;
+  margin-top: 10px;
+  padding: 10px;
+}
+.node-type-sponsor .group-org-info .field {
+  margin-bottom: 10px;
+}
+.node-type-sponsor .group-org-info .field:last-child {
+  margin-bottom: 0px;
+}

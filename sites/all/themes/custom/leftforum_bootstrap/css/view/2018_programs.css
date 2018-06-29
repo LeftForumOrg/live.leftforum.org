@@ -1,74 +1,767 @@
-.ui-accordion .ui-accordion-header{
-    display:block;
-    cursor:pointer;
-    position:relative;
-    margin-top:2px;
-    min-height:0;
-    background:#fff;
+.ui-accordion .ui-accordion-header {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 2px;
+  min-height: 0;
+  background: #fff;
 }
 
 div#ui-accordion-1-panel-0 {
-    color: #ff3e33;
+  color: #ff3e33;
+}
+
+.view-2018-programs .views-row {
+  border-bottom: 2px solid #d9d9d9;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.view-2018-programs .views-field {
+  font-size: 15px;
+}
+
+.view-2018-programs .views-field-title {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 select#edit-field-timeslot-target-id {
-    color: #000;
+  color: #000;
 }
 select#edit-field-forum-type-target-id {
-    color: black;
+  color: black;
 }
 button#edit-submit-2018-programs {
-    color: white;
-    background-color: #222222;
+  color: white;
+  background-color: #222222;
 }
 button#edit-submit-2018-programs:hover {
-    background-color: black;
+  background-color: black;
 }
 
 
 
 button.dropbtn-accord {
-    background-color: #ff3e33;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+  background-color: #ff3e33;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdwn-accord {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
-.dropdwn-accord-content{
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+.dropdwn-accord-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdwn-accord-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdwn-accord-content a:hover {background-color: #f1f1f1}
+.dropdwn-accord-content a:hover {
+  background-color: #f1f1f1;
+}
 
 /* Show the dropdown menu on hover */
 .dropdwn-accord:hover .dropdwn-accord-content {
-    display: block;
+  display: block;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdwn-accord:hover button.dropbtn-accord {
-    background-color: #ff0d00;
+  background-color: #ff0d00;
 }
+
+/*For blocks*/
+.panel-information {
+  min-height: 222px;
+}
+.panel-information {
+  padding-top: .5em;
+  background-color: #fff;
+  padding: 15px;
+  min-height: 222px;
+}
+
+.footer-event {
+  border-color: #d9d9d9;
+  border-bottom-style: solid;
+}
+
+span.views-field.views-field-field-sponsors {
+  color: #222;
+}
+
+.panel-info-roomTime {
+  color: #ff3e33;
+}
+
+span.views-label.views-label-field-person {
+  color: #ff3e33;
+}
+
+.panel-info-sponsor {
+  color: #222;
+}
+
+
+/********economy-forum************/
+
+.economy-forum .views-row:nth-of-type(even) .views-field-nothing {
+  width: 34%;
+  float: left;
+}
+.economy-forum .views-row:nth-of-type(2n) .views-field-nothing .panel-information .panel-info-image {
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin-bottom: 26px;
+  border: 19px groove #303ca9;
+  height: 199px;
+  width: 221px;
+  position: relative;
+  left: 28px;
+}
+
+.economy-forum .views-row:nth-of-type(even) .views-field-nothing .panel-information .panel-info-title {
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+.economy-forum .views-row:nth-of-type(2n) .views-field-nothing .panel-information .panel-info-image img {
+  display: inline;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 44px;
+}
+.economy-forum .views-row:nth-of-type(even) .views-field-field-person {
+  width: 31%;
+  float: right;
+  text-align: center;
+  clear: right;
+}
+.economy-forum .views-row:nth-of-type(even) .views-field-nothing-1 {
+  width: 31%;
+  float: right;
+  text-align: center;
+  clear: right;
+}
+.economy-forum .views-row:nth-of-type(even) .views-field-field-sponsors {
+  width: 31%;
+  float: right;
+  text-align: center;
+  clear: right;
+}
+.economy-forum .views-row:nth-of-type(even) .views-field-field-room {
+  width: 31%;
+  float: right;
+  text-align: center;
+  clear: right;
+}
+
+
+
+.economy-forum .views-row:nth-of-type(odd) .views-field-nothing {
+  width: 31%;
+  float: right;
+}
+.economy-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-image {
+  float: right;
+  text-align: center;
+  margin-bottom: 26px;
+  border: 19px groove #303ca9;
+  height: 199px;
+  width: 221px;
+  position: relative;
+	right: 21px;
+}
+
+.economy-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-title {
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.economy-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-image img {
+  display: inline;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.economy-forum .views-row:nth-of-type(odd) .views-field-field-person {
+  width: 31%;
+  float: left;
+  text-align: center;
+  clear: left;
+}
+.economy-forum .views-row:nth-of-type(odd) .views-field-nothing-1 {
+  width: 31%;
+  float: left;
+  text-align: center;
+  clear: left;
+}
+.economy-forum .views-row:nth-of-type(odd) .views-field-field-sponsors {
+  width: 31%;
+  float: left;
+  text-align: center;
+  clear: left;
+}
+.economy-forum .views-row:nth-of-type(odd) .views-field-field-room {
+  width: 31%;
+  float: left;
+  text-align: center;
+  clear: left;
+}
+
+.economy-forum .views-row {
+  width: 80%;
+  margin: auto;
+  clear: both;
+  padding: 4% 4%;
+  display: table;
+}
+.economy-forum .views-row .views-field-field-room {
+  color: #4656fe;
+}
+.economy-forum span.views-label.views-label-field-person {
+  color: #4656fe;
+}
+.economy-forum .views-row .panel-info-title a {
+  color: #4656fe;
+}
+.economy-forum .views-row .views-field a:hover {
+  color: #4656fe;
+}
+.economy-forum .views-row .panel-info-roomTime {
+  color: #656b6f;
+}
+.economy-forum .footer-event {
+  border: none;
+}
+
+
+
+/********politics-forum************/
+
+.politics-forum .views-row:nth-of-type(even) .views-field-nothing {
+  width: 35%;
+  float: left;
+}
+.politics-forum .views-row:nth-of-type(2n) .views-field-nothing .panel-information .panel-info-image {
+	float: right;
+  text-align: center;
+  margin-bottom: 26px;
+  border-left: 19px solid #fccf19;
+  height: 199px;
+  width: 221px;
+  position: relative;
+  border-right: 19px solid #fccf19;
+  border-bottom: 19px dashed #fccf19;
+  border-top: 19px dashed #fccf19;
+	left: -22px;
+}
+
+.politics-forum .views-row:nth-of-type(even) .views-field-nothing .panel-information .panel-info-title {
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.politics-forum .views-row:nth-of-type(2n) .views-field-nothing .panel-information .panel-info-image img {
+  display: inline;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 44px;
+}
+.politics-forum .views-row:nth-of-type(even) .views-field-field-person {
+  width: 31%;
+  float: right;
+  text-align: center;
+  clear: right;
+}
+.politics-forum .views-row:nth-of-type(even) .views-field-nothing-1 {
+  width: 31%;
+  float: right;
+  text-align: center;
+  clear: right;
+}
+.politics-forum .views-row:nth-of-type(even) .views-field-field-sponsors {
+  width: 31%;
+  float: right;
+  text-align: center;
+  clear: right;
+}
+.politics-forum .views-row:nth-of-type(even) .views-field-field-room {
+  width: 31%;
+  float: right;
+  text-align: center;
+  clear: right;
+}
+
+
+
+.politics-forum .views-row:nth-of-type(odd) .views-field-nothing {
+  width: 31%;
+  float: right;
+}
+.politics-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-image {
+  float: right;
+  text-align: center;
+  margin-bottom: 26px;
+  border-left: 19px solid #fccf19;
+  height: 199px;
+  width: 221px;
+  position: relative;
+  right: 21px;
+  border-right: 19px solid #fccf19;
+  border-bottom: 19px dashed #fccf19;
+  border-top: 19px dashed #fccf19;
+}
+
+.politics-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-title {
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.politics-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-image img {
+  display: inline;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.politics-forum .views-row:nth-of-type(odd) .views-field-field-person {
+  width: 31%;
+  float: left;
+  text-align: center;
+  clear: left;
+}
+.politics-forum .views-row:nth-of-type(odd) .views-field-nothing-1 {
+  width: 31%;
+  float: left;
+  text-align: center;
+  clear: left;
+}
+.politics-forum .views-row:nth-of-type(odd) .views-field-field-sponsors {
+  width: 31%;
+  float: left;
+  text-align: center;
+  clear: left;
+}
+.politics-forum .views-row:nth-of-type(odd) .views-field-field-room {
+  width: 31%;
+  float: left;
+  text-align: center;
+  clear: left;
+}
+
+.politics-forum .views-row {
+  width: 80%;
+  margin: auto;
+  clear: both;
+  padding: 4% 4%;
+  display: table;
+}
+
+.politics-forum .views-row .views-field a:hover {
+  color: #f8e123;
+}
+.politics-forum span.views-label .views-label-field-person {
+  color: #ff3e33;
+}
+.politics-forum .views-row .panel-info-title a {
+  color: #f8e123;
+  text-shadow: 0.4px 0.4px #000;
+}
+.politics-forum .views-row .panel-info-roomTime {
+  color: #656b6f;
+}
+.politics-forum .panel-information {
+  text-align: center;
+}
+.politics-forum .footer-event {
+  border: none;
+}
+
+/********creativity-forum************/
+
+.creativity-forum .views-row {
+  width: 35%;
+  text-align: center;
+  min-height: 466px;
+  margin-bottom: 70px;
+  display: inline-grid;
+}
+.creativity-forum .views-row img {
+  display: inline;
+}
+.creativity-forum .views-row .panel-info-image {
+  text-align: center;
+  height: 199px;
+  width: 221px;
+  position: relative;
+	border: 5px dotted #f18b13;
+	float: none;
+	margin: 19px auto;
+}
+.creativity-forum .views-row .panel-information .panel-info-image img {
+  display: inline;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.creativity-forum .views-row .footer-event {
+  border: none;
+}
+.creativity-forum .panel-info-title a {
+  color: #f18b13;
+}
+.creativity-forum .views-row .views-field a:hover {
+  color: #f18b13;
+}
+.creativity-forum span.views-label.views-label-field-person {
+  color: #f18b13;
+}
+.creativity-forum span.views-label.views-label-field-person {
+  color: #f18b13;
+}
+.creativity-forum .views-row:nth-of-type(4n+3) {
+  border: 1px solid #f18b13;
+  border-radius: 20px;
+}
+.creativity-forum .views-row:nth-of-type(4n+2) {
+  border: 1px solid #f18b13;
+  border-radius: 20px;
+}
+.creativity-forum {
+  text-align: center;
+}
+.creativity-forum .panel-info-roomTime {
+  color: #f18b13;
+}
+
+
+
+/********environment-forum************/
+
+.environment-forum .views-row {
+  width: 35%;
+  display: inline-grid;
+  text-align: center;
+  min-height: 466px;
+  margin-bottom: 70px;
+}
+.environment-forum .views-row img {
+  display: inline;
+}
+.environment-forum .views-row .panel-info-image {
+  text-align: center;
+  height: 199px;
+  width: 221px;
+  position: relative;
+	float: none;
+	margin: 19px auto;
+}
+.environment-forum .views-row .panel-information .panel-info-image img {
+  display: inline;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+	box-shadow: 1px 3px 9px 0px #000;
+}
+.environment-forum .views-row .footer-event {
+  border: none;
+}
+.environment-forum .panel-info-title a {
+  color: #f18b13;
+}
+.environment-forum .views-row .views-field a:hover {
+  color: #f18b13;
+}
+.environment-forum span.views-label.views-label-field-person {
+  color: #f18b13;
+}
+.environment-forum span.views-label.views-label-field-person {
+  color: #f18b13;
+}
+
+.environment-forum .views-row:nth-of-type(4n+3) {
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+.environment-forum .views-row:nth-of-type(4n+2) {
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+.environment-forum {
+	background: #59c38c;
+	text-align: center;
+}
+.environment-forum .panel-info-roomTime {
+  color: #f18b13;
+}
+
+
+/********gender-and-sexuality-forum************/
+
+.gender-and-sexuality-forum .views-row:nth-of-type(even) .views-field-nothing {
+  width: 25%;
+  float: left;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(2n) .views-field-nothing .panel-information .panel-info-image {
+  text-align: center;
+  margin-bottom: 26px;
+  border-left: 23px double #7f007f;
+  border-bottom: 21px dashed #7f007f;
+	height: 203px;
+  width: 220px;
+  left: 28px;
+  position: relative;
+  border-radius: 62px;
+  border-right: 23px double #7f007f;
+}
+
+.gender-and-sexuality-forum .views-row:nth-of-type(even) .views-field-nothing .panel-information .panel-info-title {
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(2n) .views-field-nothing .panel-information .panel-info-image img {
+  display: inline;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 44px;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(even) .views-field-field-person {
+  width: 60%;
+  float: right;
+  text-align: center;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(even) .views-field-nothing-1 {
+  width: 60%;
+  float: right;
+  text-align: center;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(even) .views-field-field-sponsors {
+  width: 60%;
+  float: right;
+  text-align: center;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(even) .views-field-field-room {
+  width: 60%;
+  float: right;
+  text-align: center;
+}
+
+
+
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) .views-field-nothing {
+  width: 25%;
+  float: right;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-image {
+  /* float: right;*/
+  text-align: center;
+  margin-bottom: 26px;
+  height: 203px;
+  width: 220px;
+  position: relative;
+  border-top: 21px dashed #7f007f;
+  border-left: 23px double #7f007f;
+  border-right: 23px double #7f007f;
+  border-radius: 61px;
+}
+
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-title {
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) .views-field-nothing .panel-information .panel-info-image img {
+  display: inline;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 44px;
+}
+.gender-and-sexuality-forum span.views-label.views-label-field-person {
+  color: #7f007f;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) .views-field-field-person {
+  width: 60%;
+  float: left;
+  text-align: center;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) .views-field-nothing-1 {
+  width: 60%;
+  float: left;
+  text-align: center;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) .views-field-field-sponsors {
+  width: 60%;
+  float: left;
+  text-align: center;
+}
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) .views-field-field-room {
+  width: 60%;
+  float: left;
+  text-align: center;
+}
+
+.gender-and-sexuality-forum .views-row:nth-of-type(odd) {
+  border: 1px solid #f50ee3;
+  border-radius: 8px;
+}
+.gender-and-sexuality-forum .views-row {
+  width: 80%;
+  margin: auto;
+  clear: both;
+  padding: 4% 4%;
+  display: table;
+}
+.gender-and-sexuality-forum .footer-event {
+  border: none;
+}
+.gender-and-sexuality-forum .views-row .panel-info-title a {
+  color: #7f007f;
+}
+.gender-and-sexuality-forum .views-row .views-field a:hover {
+  color: #7f007f;
+}
+.gender-and-sexuality-forum .panel-info-roomTime {
+  color: #656b6f;
+}
+.gender-and-sexuality-forum .panel-information {
+  text-align: center;
+}
+
+/*
+
+.inner-desktop {
+  padding: 0px 74px !important;
+  box-shadow: 4px 6px 6px #000;
+  margin-left: 55px;
+  width: 47%;
+	-webkit-box-shadow: 0px 1px 11px 1px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0px 1px 11px 1px rgba(0,0,0,0.6);
+	box-shadow: 0px 1px 11px 1px rgba(0,0,0,0.6);
+	margin-bottom: 82px;
+}
+.inner-desktop:nth-of-type(odd) {
+  margin-left: 8px;
+}
+.inner-desktop span.views-field.views-field-field-image-speaker-1 {
+  text-align: center;
+  display: block;
+  padding-top: 71px;
+}
+.inner-desktop .views-field-field-image-speaker-1 .field-content img {
+  border-radius: 100%;
+  width: 294px;
+  height: 294px;
+  display: inline;
+  margin-bottom: 24px;
+}
+.inner-desktop .views-field-field-speaker1-biography-1 .field-content {
+  margin-bottom: 33px;
+  color: #656a6d;
+  font-size: 17px;
+  text-align: justify;
+  height: 200px;
+  overflow: auto;
+  min-height: 200px;
+  display: block;
+}
+.inner-desktop .views-field-field-speaker1-biography-1 .field-content:first-letter {
+  font-size: 30px;
+  color: #656a6d;
+  initial-letter: 2;
+  -webkit-initial-letter: 2;
+  font-size: 75px;
+  line-height: 60px;
+  padding-right: 4px;
+  float: left;
+}
+
+ .featured_on2 {
+  background: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 18px;
+}
+*/

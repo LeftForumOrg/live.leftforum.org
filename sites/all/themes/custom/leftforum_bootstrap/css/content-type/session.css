@@ -1,0 +1,102 @@
+/********events/petition-grand-jury-investigation-crimes-911 css***********/
+.node-type-session .node-session {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.node-type-session .node-session > [class^="group-"] {
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: #ebebeb;
+  border-width: 0px 10px;
+  width: 100%;
+  padding: 10px;
+}
+.node-type-session .node-session > .group-left {
+  border-left: none;
+}
+.node-type-session .node-session > .group-right {
+  border-right: none;
+}
+
+.node-type-session .field,
+.node-type-session .flag-outer {
+  margin-bottom: 10px;
+}
+
+.node-type-session .field-name-field-panel-image {
+  border: 1px solid #bbbbbb;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.node-type-session .field-name-field-location,
+.node-type-session .field-name-field-panel-workshop-year {
+  display: inline-block;
+}
+.node-type-session .field-name-field-location .field-item::after {
+  content: ",";
+}
+.node-type-session .field-name-field-panel-workshop-year {
+  margin-left: 4px;
+}
+
+.node-type-session .field-name-field-event-topics .field-item {
+  display: inline-block;
+  margin-left: 8px;
+}
+.node-type-session .field-name-field-event-topics .field-item:first-child {
+  margin-left: 0px;
+}
+.node-type-session .field-name-field-event-topics .field-item::after {
+  content: ",";
+}
+.node-type-session .field-name-field-event-topics .field-item:last-child::after {
+  content: "";
+}
+
+.node-type-session .flag-outer {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .node-type-session .node-session {
+    text-align: center;
+    margin: 0px auto;
+  }
+
+  .node-type-session .field-name-field-abstract {
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .node-type-session .node-session > .group-left {
+    width: 40%;
+  }
+  .node-type-session .node-session > .group-right {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .node-type-session .node-session > .group-left {
+    width: 33%;
+  }
+  .node-type-session .node-session > .group-right {
+    width: 67%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .node-type-session .node-session > .group-left {
+    width: 30%;
+  }
+  .node-type-session .node-session > .group-right {
+    width: 70%;
+  }
+}
