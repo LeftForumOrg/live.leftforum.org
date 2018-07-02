@@ -11,7 +11,7 @@ function get_group($code_type) {
   switch ($code_type) {
     case 'css': return CSS_THEME;
     case 'js': return JS_THEME;
-    default: return '';
+    default: return NULL;
   }
 }
 
