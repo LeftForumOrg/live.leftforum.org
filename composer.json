@@ -95,6 +95,7 @@
         "drupal/devel": "^1.5",
         "drupal/diff": "^3.3",
         "drupal/distro_update": "^1.0@beta",
+        "drupal/domain": "^3.14",
         "drupal/draggableviews": "^2.1",
         "drupal/ds": "^2.14",
         "drupal/eck": "^2.0@RC",
