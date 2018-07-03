@@ -2,7 +2,6 @@
 
 /**
  * Pre-processes variables for the "sponsor" content type theme hook.
- * See template for list of available variables.
  *
  * @param array $vars
  *   An associative array of variables, passed by reference.
@@ -19,6 +18,14 @@ function leftforum_bootstrap_preprocess_node_sponsor(&$vars, $hook) {
   }
 }
 
+/**
+* Pre-processes variables for the "featured_page" content type theme hook.
+*
+* @param array $vars
+*   An associative array of variables, passed by reference.
+*
+* @ingroup theme_preprocess
+*/
 function leftforum_bootstrap_preprocess_node_featured_page(&$vars, $hook) {
   $node =& $vars['node'];
   $banner_img = field_get_items('node', $node, 'field_featured_banner');

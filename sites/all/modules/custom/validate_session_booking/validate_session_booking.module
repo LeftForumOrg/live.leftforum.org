@@ -44,7 +44,7 @@ function validate_session_booking_views_query_alter(&$view, &$query) {
 /**
 * Preprocesses the wrapping HTML.
 *
-* @param array &$variables
+* @param array &$vars
 *   Template variables.
 */
 function validate_session_booking_preprocess_html(&$vars) {

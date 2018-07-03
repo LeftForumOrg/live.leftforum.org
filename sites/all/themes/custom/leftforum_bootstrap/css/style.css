@@ -76,15 +76,12 @@ a.bg-default:focus {
   background-color: #090909;
 }
 
-.bg-secondary {
-  color: #ff3e33;
-  background-color: #fff;/******* rigister captcha css *********/
-}
-
 .btn-secondary {
   color: #ff3e33;
   background-color: #fff;
 }
+.btn-secondary.focus,
+.btn-secondary:focus,
 .btn-secondary:hover {
   color: #e50c00;
 }
