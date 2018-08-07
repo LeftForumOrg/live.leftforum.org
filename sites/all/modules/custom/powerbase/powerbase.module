@@ -84,7 +84,7 @@ function powerbase_process_all_nodes() {
  * Return true if we should or false if we shouldn't
  */
 function powerbase_acceptable_node($node) {
-  if ($node->type == 'session') {
+  if (isset($node->type) && $node->type == 'session') {
     // field_panel_workshop_year actually returns ISO date
     $year = substr(powerbase_get_single_value($node, 'field_panel_workshop_year'), 0, 4);
     $location = powerbase_get_single_value($node, 'field_location');

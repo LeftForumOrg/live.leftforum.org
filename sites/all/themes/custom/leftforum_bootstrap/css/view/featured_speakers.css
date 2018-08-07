@@ -8,3 +8,16 @@
 #block-views-view-featured-speakers-block .main-desktop .slick--skin--boxed-carousel .slide__content a {
   color: #fff;
 }
+#slick-views-view-featured-speakers-1-slider {
+    background-color: #fff;
+}
+
+img.img-responsive {
+    height: 15em;
+}
+
+@media all{
+  img.img-responsive {
+    height: 4em;
+}
+}

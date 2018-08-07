@@ -236,6 +236,10 @@ th {
   .navbar {
     display: none;
   }
+  #navbar-collapse {
+    background: #121212;
+    opacity: .8;
+  }
   .btn > .caret,
   .dropup > .btn > .caret {
     border-top-color: #000 !important;

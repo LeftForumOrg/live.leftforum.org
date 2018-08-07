@@ -1,3 +1,0 @@
-name = Register Text Module
-description = Allows changing text next to the 'login' button on the website, designed for new users.
-core = 7.x

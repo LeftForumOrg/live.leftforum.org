@@ -29,7 +29,10 @@ body {
     padding: 30px;
   }
 }
-
+ul.menu.nav.navbar-nav {
+    background: #121212;
+    opacity: 1;
+}
 .main-container.container {
   padding-left: 0px;
   padding-right: 0px;
